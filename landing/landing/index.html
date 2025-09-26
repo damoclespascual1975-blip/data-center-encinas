@@ -44,13 +44,12 @@
     .cols{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
     @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}
     @media (max-width:640px){.grid{grid-template-columns:1fr}}
-    /* Skip link */
     .skip{position:absolute;left:-9999px;top:auto} .skip:focus{left:20px;top:10px;background:#fff;color:#000;padding:6px 10px;border-radius:8px}
 
     /* ===== HERO CASTILLO ===== */
     #hero{
       position:relative; height:75vh; min-height:460px;
-      background: url('assets/hero_castillo_desktop_tech.jpg') center/cover no-repeat;
+      background: url('../assets/hero_castillo_desktop_tech.jpg') center/cover no-repeat;
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     #hero::before{
@@ -61,7 +60,7 @@
     #hero h1{font-size:clamp(28px,5vw,56px); margin:0}
     #hero p{font-size:clamp(16px,2.4vw,22px); margin:16px 0 22px; color:#dfe8ff}
     @media (max-width:720px){
-      #hero{ background-image:url('assets/hero_castillo_mobile_tech.jpg'); }
+      #hero{ background-image:url('../assets/hero_castillo_mobile_tech.jpg'); }
     }
   </style>
 </head>
