@@ -49,7 +49,17 @@ Este proyecto impacta directamente en los siguientes Objetivos de Desarrollo Sos
 - **ODS 11** – Ciudades y comunidades sostenibles.  
 - **ODS 12** – Producción y consumo responsables.  
 - **ODS 13** – Acción por el clima.  
-- **ODS 17** – Alianzas para lograr los objetivos.  
+- **ODS 17** – Alianzas para lograr los objetivos.
+- 
+- <p align="center">
+  <img src="images/ODS/ods7.png" width="100"/>
+  <img src="images/ODS/ods8.png" width="100"/>
+  <img src="images/ODS/ods9.png" width="100"/>
+  <img src="images/ODS/ods11.png" width="100"/>
+  <img src="images/ODS/ods12.png" width="100"/>
+  <img src="images/ODS/ods13.png" width="100"/>
+  <img src="images/ODS/ods17.png" width="100"/>
+</p>
 
 *(y transversalmente en igualdad, educación, reducción de desigualdades y sostenibilidad integral)*.  
 <p align="center">
