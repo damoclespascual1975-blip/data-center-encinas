@@ -52,13 +52,7 @@ Este proyecto impacta directamente en los siguientes Objetivos de Desarrollo Sos
 - **ODS 17** – Alianzas para lograr los objetivos.  
 
 <p align="center">
-  <img src="images/ODS/ods7.png" width="100"/>
-  <img src="images/ODS/ods8.png" width="100"/>
-  <img src="images/ODS/ods9.png" width="100"/>
-  <img src="images/ODS/ods11.png" width="100"/>
-  <img src="images/ODS/ods12.png" width="100"/>
-  <img src="images/ODS/ods13.png" width="100"/>
-  <img src="images/ODS/ods17.png" width="100"/>
+   <img src="S-SDG-Poster_-Letter.jpg" width="700"/>
 </p>
 
 *(y transversalmente en igualdad, educación, reducción de desigualdades y sostenibilidad integral)*.  
