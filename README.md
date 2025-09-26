@@ -56,13 +56,7 @@ Este proyecto impacta directamente en los siguientes Objetivos de Desarrollo Sos
 </p>
 
 *(y transversalmente en igualdad, educación, reducción de desigualdades y sostenibilidad integral)*.  
-  <img src="images/ODS/ods7.png" width="100"/>
-  <img src="images/ODS/ods8.png" width="100"/>
-  <img src="images/ODS/ods9.png" width="100"/>
-  <img src="images/ODS/ods11.png" width="100"/>
-  <img src="images/ODS/ods12.png" width="100"/>
-  <img src="images/ODS/ods13.png" width="100"/>
-  <img src="images/ODS/ods17.png" width="100"/>
+ 
 </p>
 
 ---
