@@ -56,8 +56,6 @@ Este proyecto impacta directamente en los siguientes Objetivos de Desarrollo Sos
 </p>
 
 *(y transversalmente en igualdad, educación, reducción de desigualdades y sostenibilidad integral)*.  
- 
-</p>
 
 ---
 
@@ -65,5 +63,5 @@ Este proyecto impacta directamente en los siguientes Objetivos de Desarrollo Sos
 **Marco-Antonio Pascual Presa**  
 📚 Estudiante de Derecho, Economía y Ciencias Políticas – UNED  
 🌐 Participante Santander X Explorer  
-✉️ [Tu correo del proyecto o UNED]  
+✉️ [mpascual582@alumno.uned.es](mailto:mpascual582@alumno.uned.es)
 🔗 [LinkedIn o futura GitHub Pages de la landing]  
