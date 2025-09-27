@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Center Encinas — IA • HPC • Blockchain</title>
   <meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Modelo sostenible y precios competitivos." />
-
   <style>
     :root{
       --bg1:#071a33; --bg2:#0b2851;
       --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
       --text:#e6efff; --muted:#b7c7e6;
       --brand:#60a5fa; --brand-2:#93c5fd;
+      --ok:#22c55e;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -81,6 +81,7 @@
     <a href="#objetivos">Objetivos</a>
     <a href="#ofrecemos">Qué ofrecemos</a>
     <a href="#ods">ODS</a>
+    <a href="#clientes">Clientes</a>
     <a href="#contacto">Contactar</a>
   </nav>
 </header>
@@ -102,10 +103,14 @@
   <div class="main-wrap">
     <h2>Objetivos</h2>
     <div class="grid-3">
-      <div class="card"><h3>⚡ Eficiencia</h3><p class="muted">PUE bajo, free cooling y recuperación térmica.</p></div>
-      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Energía renovable y reducción de huella de carbono.</p></div>
-      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo cualificado y servicios digitales rurales.</p></div>
+      <a class="card" href="#eficiencia"><h3>⚡ Eficiencia</h3><p class="muted">PUE bajo, free cooling y recuperación térmica.</p></a>
+      <a class="card" href="#sostenibilidad"><h3>🌱 Sostenibilidad</h3><p class="muted">Energía renovable y reducción de huella de carbono.</p></a>
+      <a class="card" href="#impacto"><h3>👥 Impacto local</h3><p class="muted">Empleo cualificado y servicios digitales rurales.</p></a>
     </div>
+
+    <div id="eficiencia" class="offer"><h3>⚡ Eficiencia</h3><p class="muted">Implementamos free cooling y sistemas de trigeneración para reducir el consumo. Nuestro PUE objetivo es <strong>&lt;1.2</strong>, lo que nos sitúa en los estándares de data centers de primer nivel.</p></div>
+    <div id="sostenibilidad" class="offer"><h3>🌱 Sostenibilidad</h3><p class="muted">La energía procede de fuentes renovables: solar, microeólica y biomasa. Además, reutilizamos el calor residual para calefacción comunitaria.</p></div>
+    <div id="impacto" class="offer"><h3>👥 Impacto local</h3><p class="muted">Generamos empleo directo e indirecto en Encinas de Esgueva, ofreciendo oportunidades a jóvenes y fijando población en la España vaciada.</p></div>
   </div>
 </section>
 
@@ -120,7 +125,12 @@
       <a class="card" href="#webia"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></a>
     </div>
 
-    <!-- Oferta Web fácil con IA -->
+    <!-- Detalles de ofertas -->
+    <div id="dominios" class="offer"><h3>Dominios</h3><p class="muted">.com, .net, .org — 14 €/año (privacidad WHOIS incluida). Renovación fácil y soporte técnico.</p></div>
+    <div id="vps" class="offer"><h3>VPS NVMe</h3><p class="muted">Desde 4 €/mes: 1 vCPU, 2 GB RAM, 40 GB NVMe, tráfico ilimitado a 1 Gbps.</p></div>
+    <div id="gpu" class="offer"><h3>GPU Cloud</h3><p class="muted">A100 80 GB: 1,49 €/h · H100 80 GB: 2,89 €/h. Ideal para IA y HPC.</p></div>
+
+    <!-- Oferta Web IA -->
     <div id="webia" class="offer">
       <h3>Web fácil con IA — Bono 14 €/mes</h3>
       <p class="muted">
@@ -129,32 +139,13 @@
           🟢 Dominio GRATIS el 1er año
         </span>
       </p>
-
-      <ul class="muted">
-        <li>1 dominio (.com/.net/.org) GRATIS el primer año (renovación 14 €/año).</li>
-        <li>Hosting web básico gestionado.</li>
-        <li>Creador con plantillas (restaurante, tienda, blog, portfolio…).</li>
-        <li>IA que redacta textos con prompts sencillos.</li>
-        <li>Soporte básico y SSL incluidos.</li>
-      </ul>
-
-      <!-- Formulario prompts -->
       <form id="webBuilder" style="display:grid;gap:.75rem;margin-top:1rem">
-        <label>🖼 Tipo de fondo / fotos
-          <input type="text" name="fondo" placeholder="Ej: fondo azul, galería de 3 fotos" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)">
-        </label>
-        <label>🛒 Productos y precios escalados
-          <textarea name="productos" rows="3" placeholder="Ej: Camiseta 20€/u · desde 10 uds 15€/u" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea>
-        </label>
-        <label>🎨 Colores / estilo
-          <input type="text" name="estilo" placeholder="Ej: oscuro elegante, botones verdes" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)">
-        </label>
-        <label>✍️ Descripción del negocio
-          <textarea name="descripcion" rows="3" placeholder="Ej: Somos un bar en Valladolid especializado en tapas." style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea>
-        </label>
+        <label>🖼 Fondo / fotos<input type="text" name="fondo" placeholder="Ej: fondo azul, galería de 3 fotos" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></label>
+        <label>🛒 Productos<textarea name="productos" rows="3" placeholder="Ej: Camiseta 20€/u · desde 10 uds 15€/u" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea></label>
+        <label>🎨 Estilo<input type="text" name="estilo" placeholder="Ej: oscuro elegante, botones verdes" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></label>
+        <label>✍️ Descripción<textarea name="descripcion" rows="3" placeholder="Ej: Somos un bar en Valladolid especializado en tapas." style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea></label>
         <button type="button" class="btn primary" onclick="generarDemo()">Generar mi web demo</button>
       </form>
-
       <div id="demoWeb" style="margin-top:1.5rem;padding:1rem;border-radius:1rem;border:1px dashed var(--brand);display:none">
         <h4>🌐 Vista previa simulada</h4>
         <div id="demoContent" class="muted"></div>
@@ -168,9 +159,25 @@
   <div class="main-wrap">
     <h2>ODS</h2>
     <div class="grid-3">
-      <div class="card"><h3>ODS 7</h3><p class="muted">Energía asequible y limpia.</p></div>
-      <div class="card"><h3>ODS 9</h3><p class="muted">Industria, innovación e infraestructura.</p></div>
-      <div class="card"><h3>ODS 13</h3><p class="muted">Acción climática eficiente.</p></div>
+      <a class="card" href="#ods7"><h3>ODS 7</h3><p class="muted">Energía asequible y limpia.</p></a>
+      <a class="card" href="#ods9"><h3>ODS 9</h3><p class="muted">Industria, innovación e infraestructura.</p></a>
+      <a class="card" href="#ods13"><h3>ODS 13</h3><p class="muted">Acción climática eficiente.</p></a>
+    </div>
+    <div id="ods7" class="offer"><h3>ODS 7</h3><p class="muted">Nuestro centro se alimenta de energías renovables (solar, eólica, biomasa), reduciendo la dependencia de fósiles.</p></div>
+    <div id="ods9" class="offer"><h3>ODS 9</h3><p class="muted">Promovemos innovación rural: IA, blockchain y servicios cloud desde un entorno despoblado.</p></div>
+    <div id="ods13" class="offer"><h3>ODS 13</h3><p class="muted">Minimizamos emisiones con free cooling y reutilización del calor para calefacción comunitaria.</p></div>
+  </div>
+</section>
+
+<!-- Clientes -->
+<section id="clientes">
+  <div class="main-wrap">
+    <h2>Clientes y casos de uso</h2>
+    <div class="grid-3">
+      <div class="card"><h3>👨‍💻 Autónomos</h3><p class="muted">Creador web con IA y dominio incluido. Ideal para bares, tiendas y profesionales.</p></div>
+      <div class="card"><h3>🏢 PYMES</h3><p class="muted">Hosting, e-commerce y analítica de datos para crecer online.</p></div>
+      <div class="card"><h3>🎓 Universidades</h3><p class="muted">GPU Cloud para IA e investigación científica a precios reducidos.</p></div>
+      <div class="card"><h3>🏛️ Administraciones</h3><p class="muted">Infraestructura digital en la España vaciada con impacto local.</p></div>
     </div>
   </div>
 </section>
@@ -207,7 +214,7 @@
   const onScroll=()=>{const y=window.scrollY+120;let active=0;secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)active=i;});links.forEach((a,i)=>a.classList.toggle('active',i===active));};
   document.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-  // Demo generador de webs
+  // Demo generador
   function generarDemo(){
     const f=document.getElementById('webBuilder');
     const fondo=f.fondo.value||"—";
@@ -220,7 +227,10 @@
       <p><strong>Productos:</strong> ${prod}</p>
       <p><strong>Estilo:</strong> ${est}</p>
       <p><strong>Descripción:</strong> ${desc}</p>
-      <p>✅ Tu web ha sido generada en modo DEMO. En la versión real se crearán páginas y diseño automáticamente.</p>`;
+      <div style="margin-top:1rem;padding:1rem;background:#0b2851;border-radius:.6rem">
+        <h4 style="margin:0;color:var(--brand)">🌐 Demo visual</h4>
+        <p style="color:var(--text)">[Simulación de web generada con tus datos]</p>
+      </div>`;
     document.getElementById('demoWeb').style.display="block";
   }
 </script>
