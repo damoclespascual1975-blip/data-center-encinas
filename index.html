@@ -73,6 +73,30 @@
       .cta-row{ flex-direction:column }
       .btn{ width:100% }
     }
+
+    /* ====== MODO MÓVIL (≤ 600px): castillo como fondo ====== */
+    @media (max-width: 600px){
+      .hero{
+        position: relative;
+        padding: 4rem 1rem;
+        background: url('castillo.jpg') center/cover no-repeat;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0,0,0,.6);
+      }
+      .hero::before{
+        content:"";
+        position:absolute; inset:0;
+        background: rgba(0,0,0,.35);
+      }
+      .hero .content{ position: relative; }
+      .hero .mock{ display:none; }
+      .hero h1{ font-size:1.7rem; line-height:1.2; margin:0 0 .6rem; }
+      .hero p.lead{ font-size:1rem; margin:0 0 .8rem; }
+      .cta-row{ flex-direction:column; gap:.6rem }
+      .btn{ width:100% }
+      .btn.ghost{ background:transparent; border-color:#fff; color:#fff }
+      .btn.primary{ background:#0ea5e9; border-color:#0ea5e9; color:#fff }
+    }
   </style>
 </head>
 <body>
@@ -108,7 +132,6 @@
         </div>
       </div>
       <div class="mock" aria-label="Castillo de Encinas de Esgueva">
-        <!-- Aquí tu foto del castillo -->
         <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva" />
       </div>
     </div>
@@ -120,15 +143,15 @@
       <h2>Objetivos</h2>
       <div class="grid-3">
         <article class="card">
-          <h3>Eficiencia energética</h3>
+          <h3>⚡ Eficiencia energética</h3>
           <p class="muted">Diseño con PUE objetivo bajo, free cooling y recuperación térmica para usos comunitarios.</p>
         </article>
         <article class="card">
-          <h3>Sostenibilidad</h3>
+          <h3>🌱 Sostenibilidad</h3>
           <p class="muted">Integración de fotovoltaica y estrategias de reducción de huella de carbono.</p>
         </article>
         <article class="card">
-          <h3>Impacto local</h3>
+          <h3>👥 Impacto local</h3>
           <p class="muted">Empleo cualificado y servicios digitales para la “España vaciada”.</p>
         </article>
       </div>
