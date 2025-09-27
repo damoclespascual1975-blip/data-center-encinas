@@ -73,30 +73,6 @@
       .cta-row{ flex-direction:column }
       .btn{ width:100% }
     }
-
-    /* ====== MODO MÓVIL (≤ 600px): castillo como fondo ====== */
-    @media (max-width: 600px){
-      .hero{
-        position: relative;
-        padding: 4rem 1rem;
-        background: url('castillo.jpg') center/cover no-repeat;
-        color: #fff;
-        text-shadow: 1px 1px 3px rgba(0,0,0,.6);
-      }
-      .hero::before{
-        content:"";
-        position:absolute; inset:0;
-        background: rgba(0,0,0,.35);
-      }
-      .hero .content{ position: relative; }
-      .hero .mock{ display:none; }
-      .hero h1{ font-size:1.7rem; line-height:1.2; margin:0 0 .6rem; }
-      .hero p.lead{ font-size:1rem; margin:0 0 .8rem; }
-      .cta-row{ flex-direction:column; gap:.6rem }
-      .btn{ width:100% }
-      .btn.ghost{ background:transparent; border-color:#fff; color:#fff }
-      .btn.primary{ background:#0ea5e9; border-color:#0ea5e9; color:#fff }
-    }
   </style>
 </head>
 <body>
