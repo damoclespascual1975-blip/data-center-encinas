@@ -4,70 +4,100 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Center Encinas — IA • HPC • Blockchain</title>
-  <meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Modelo sostenible y precios competitivos." />
+  <meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local." />
   <style>
     :root{
       --bg1:#071a33; --bg2:#0b2851;
       --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
       --text:#e6efff; --muted:#b7c7e6;
-      --brand:#60a5fa; --brand-2:#93c5fd;
-      --ok:#22c55e;
+      --brand:#60a5fa; --brand-2:#93c5fd; --ok:#22c55e; --warn:#f59e0b;
+      --ods7:#ffd60a; --ods9:#f77f00; --ods13:#2dc653;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    body{
+      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
       line-height:1.6;color:var(--text);
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));}
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     [id]{scroll-margin-top:88px}
     .main-wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
 
-    header{position:sticky;top:0;z-index:50;
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
       background:rgba(5,14,30,.8);backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.9rem 1rem}
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem}
     .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
     .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand)}
     .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:.5rem .75rem;border-radius:.75rem}
     nav#site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;padding:0 1rem 1rem}
-    nav#site-nav a{padding:.5rem .8rem;border-radius:.6rem}
+    nav#site-nav a{padding:.5rem .8rem;border-radius:.6rem;transition:.3s}
     nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
 
-    .hero{position:relative;min-height:90vh;display:flex;align-items:center;
+    /* Hero */
+    .hero{
+      position:relative;min-height:90vh;display:flex;align-items:center;
       background:url('castillo.jpg') center/cover no-repeat;
-      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);}
+      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);
+      overflow:hidden;
+    }
     .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65))}
-    .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem}
-    .badge{display:inline-block;font-size:.85rem;padding:.25rem .55rem;border-radius:.5rem;background:rgba(255,255,255,.16);margin-bottom:.75rem}
-    .hero h1{font-size:2.6rem;line-height:1.15;margin:.2rem 0 1rem}
-    .hero p.lead{font-size:1.15rem;color:var(--brand-2);margin:0 0 1.2rem}
+    .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem;animation:fadeIn 1.5s}
+    .badge{display:inline-block;font-size:.9rem;padding:.3rem .6rem;border-radius:.5rem;background:rgba(255,255,255,.16);margin-bottom:.9rem}
+    .hero h1{font-size:2.8rem;line-height:1.15;margin:.2rem 0 1rem}
+    .hero p.lead{font-size:1.2rem;color:var(--brand-2);margin:0 0 1.4rem}
     .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.75rem 1.1rem;border-radius:.75rem;font-weight:700;border:1px solid transparent;cursor:pointer}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.8rem 1.2rem;border-radius:.75rem;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.3s}
     .btn.primary{background:var(--brand);color:#081326}
+    .btn.primary:hover{background:#3b82f6}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.35)}
     .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-    section{padding:2.2rem 1rem}
-    section h2{font-size:1.6rem;margin:0 0 1rem}
+    /* Secciones */
+    section{padding:2.5rem 1rem;animation:fadeIn 1.2s}
+    section h2{font-size:1.7rem;margin:0 0 1.2rem;text-align:center}
     .muted{color:var(--muted)}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .card h3{margin:.15rem 0 .5rem}
-    .pill{display:inline-block;font-size:.75rem;padding:.15rem .5rem;border-radius:999px;background:rgba(255,255,255,.12);margin-bottom:.5rem}
-    .price{display:inline-flex;gap:.4rem;align-items:center;padding:.25rem .55rem;border-radius:.5rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);font-weight:700}
-    .offer{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid var(--panel-b);border-radius:1rem;padding:1rem;margin-top:1.25rem}
 
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;background:rgba(5,14,30,.7);color:var(--muted)}
+    /* Grid */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:.3s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
+    .card h3{margin:.2rem 0 .6rem}
+    .pill{display:inline-block;font-size:.75rem;padding:.2rem .55rem;border-radius:999px;background:rgba(255,255,255,.12);margin-bottom:.6rem}
+    .price{display:inline-flex;gap:.4rem;align-items:center;padding:.3rem .6rem;border-radius:.5rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);font-weight:700}
+
+    /* Tabla planes */
+    .plans{width:100%;border-collapse:collapse;margin-top:1rem}
+    .plans th,.plans td{padding:1rem;border:1px solid var(--panel-b);text-align:center}
+    .plans th{background:rgba(255,255,255,.08)}
+    .plans td{background:var(--panel)}
+    .plans tr.recommended td{background:rgba(96,165,250,.15);border:2px solid var(--brand)}
+    .plans tr.recommended td:first-child{font-weight:800;color:var(--brand)}
+
+    /* ODS */
+    .ods-block{border-radius:1rem;padding:1.5rem;margin-top:1rem;color:#000}
+    .ods-block h3{margin-top:0}
+    .ods7{background:var(--ods7)}
+    .ods9{background:var(--ods9);color:#fff}
+    .ods13{background:var(--ods13);color:#fff}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;background:rgba(5,14,30,.7);color:var(--muted);text-align:center}
 
     @media (max-width:768px){
-      .hero h1{font-size:2rem}.hero p.lead{font-size:1rem}
+      .hero h1{font-size:2.1rem}.hero p.lead{font-size:1rem}
       .cta-row{flex-direction:column}.btn{width:100%}
       .nav-toggle{display:block;margin-left:1rem}
       nav#site-nav{display:none}
       nav#site-nav.open{display:flex;flex-direction:column}
       .grid-3{grid-template-columns:1fr}
     }
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 <body>
@@ -75,11 +105,12 @@
 <header>
   <div class="topbar main-wrap">
     <div class="brand"><span class="dot"></span><span>Data Center Encinas</span></div>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰ Menú</button>
+    <button class="nav-toggle">☰ Menú</button>
   </div>
   <nav id="site-nav" class="main-wrap">
     <a href="#objetivos">Objetivos</a>
     <a href="#ofrecemos">Qué ofrecemos</a>
+    <a href="#planes">Planes</a>
     <a href="#ods">ODS</a>
     <a href="#clientes">Clientes</a>
     <a href="#contacto">Contactar</a>
@@ -90,7 +121,7 @@
   <div class="content main-wrap">
     <span class="badge">IA • HPC • Blockchain • Hosting</span>
     <h1>Centro de datos de IA en Encinas de Esgueva</h1>
-    <p class="lead">GPU Cloud, VPS, dominios y un creador de webs con IA. Modelo sostenible y precios competitivos.</p>
+    <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
     <div class="cta-row">
       <a class="btn primary" href="#ofrecemos">Ver ofertas</a>
       <a class="btn ghost" href="#contacto">Pedir presupuesto</a>
@@ -103,14 +134,10 @@
   <div class="main-wrap">
     <h2>Objetivos</h2>
     <div class="grid-3">
-      <a class="card" href="#eficiencia"><h3>⚡ Eficiencia</h3><p class="muted">PUE bajo, free cooling y recuperación térmica.</p></a>
-      <a class="card" href="#sostenibilidad"><h3>🌱 Sostenibilidad</h3><p class="muted">Energía renovable y reducción de huella de carbono.</p></a>
-      <a class="card" href="#impacto"><h3>👥 Impacto local</h3><p class="muted">Empleo cualificado y servicios digitales rurales.</p></a>
+      <div class="card"><h3>⚡ Eficiencia</h3><p class="muted">PUE &lt; 1.2 con free cooling y optimización.</p></div>
+      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Renovables y reutilización térmica.</p></div>
+      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo y servicios digitales rurales.</p></div>
     </div>
-
-    <div id="eficiencia" class="offer"><h3>⚡ Eficiencia</h3><p class="muted">Implementamos free cooling y sistemas de trigeneración para reducir el consumo. Nuestro PUE objetivo es <strong>&lt;1.2</strong>, lo que nos sitúa en los estándares de data centers de primer nivel.</p></div>
-    <div id="sostenibilidad" class="offer"><h3>🌱 Sostenibilidad</h3><p class="muted">La energía procede de fuentes renovables: solar, microeólica y biomasa. Además, reutilizamos el calor residual para calefacción comunitaria.</p></div>
-    <div id="impacto" class="offer"><h3>👥 Impacto local</h3><p class="muted">Generamos empleo directo e indirecto en Encinas de Esgueva, ofreciendo oportunidades a jóvenes y fijando población en la España vaciada.</p></div>
   </div>
 </section>
 
@@ -119,53 +146,53 @@
   <div class="main-wrap">
     <h2>Qué ofrecemos</h2>
     <div class="grid-3">
-      <a class="card" href="#dominios"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></a>
-      <a class="card" href="#vps"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Root, snapshots, tráfico ilimitado.</p><span class="price">4 €/mes</span></a>
-      <a class="card" href="#gpu"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></a>
-      <a class="card" href="#webia"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></a>
+      <div class="card"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></div>
+      <div class="card"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Snapshots y tráfico ilimitado.</p><span class="price">4 €/mes</span></div>
+      <div class="card"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></div>
+      <div class="card"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></div>
     </div>
+  </div>
+</section>
 
-    <!-- Detalles de ofertas -->
-    <div id="dominios" class="offer"><h3>Dominios</h3><p class="muted">.com, .net, .org — 14 €/año (privacidad WHOIS incluida). Renovación fácil y soporte técnico.</p></div>
-    <div id="vps" class="offer"><h3>VPS NVMe</h3><p class="muted">Desde 4 €/mes: 1 vCPU, 2 GB RAM, 40 GB NVMe, tráfico ilimitado a 1 Gbps.</p></div>
-    <div id="gpu" class="offer"><h3>GPU Cloud</h3><p class="muted">A100 80 GB: 1,49 €/h · H100 80 GB: 2,89 €/h. Ideal para IA y HPC.</p></div>
-
-    <!-- Oferta Web IA -->
-    <div id="webia" class="offer">
-      <h3>Web fácil con IA — Bono 14 €/mes</h3>
-      <p class="muted">
-        Incluye dominio, hosting y un asistente paso a paso para crear tu web sin programar.
-        <span style="display:inline-block;margin-top:.5rem;padding:.2rem .6rem;background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.4);border-radius:.5rem;font-weight:700;color:#22c55e">
-          🟢 Dominio GRATIS el 1er año
-        </span>
-      </p>
-      <form id="webBuilder" style="display:grid;gap:.75rem;margin-top:1rem">
-        <label>🖼 Fondo / fotos<input type="text" name="fondo" placeholder="Ej: fondo azul, galería de 3 fotos" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></label>
-        <label>🛒 Productos<textarea name="productos" rows="3" placeholder="Ej: Camiseta 20€/u · desde 10 uds 15€/u" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea></label>
-        <label>🎨 Estilo<input type="text" name="estilo" placeholder="Ej: oscuro elegante, botones verdes" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></label>
-        <label>✍️ Descripción<textarea name="descripcion" rows="3" placeholder="Ej: Somos un bar en Valladolid especializado en tapas." style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea></label>
-        <button type="button" class="btn primary" onclick="generarDemo()">Generar mi web demo</button>
-      </form>
-      <div id="demoWeb" style="margin-top:1.5rem;padding:1rem;border-radius:1rem;border:1px dashed var(--brand);display:none">
-        <h4>🌐 Vista previa simulada</h4>
-        <div id="demoContent" class="muted"></div>
-      </div>
-    </div>
+<!-- Planes -->
+<section id="planes">
+  <div class="main-wrap">
+    <h2>Planes y precios</h2>
+    <table class="plans">
+      <thead>
+        <tr><th>Plan</th><th>Incluye</th><th>Dominios</th><th>Recursos</th><th>Precio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Básico</td><td>Web IA + SSL + soporte básico</td><td>1 dominio gratis 1er año</td><td>Hosting estándar</td><td>14 €/mes</td>
+        </tr>
+        <tr class="recommended">
+          <td>Pro ⭐</td><td>WordPress gestionado, CDN</td><td>1 dominio + 3 subdominios</td><td>VPS 1 vCPU · 2 GB</td><td>29 €/mes</td>
+        </tr>
+        <tr>
+          <td>Premium</td><td>E-commerce, backups avanzados</td><td>2 dominios + 5 subdominios</td><td>VPS 2 vCPU · 4 GB</td><td>49 €/mes</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <!-- ODS -->
 <section id="ods">
   <div class="main-wrap">
-    <h2>ODS</h2>
-    <div class="grid-3">
-      <a class="card" href="#ods7"><h3>ODS 7</h3><p class="muted">Energía asequible y limpia.</p></a>
-      <a class="card" href="#ods9"><h3>ODS 9</h3><p class="muted">Industria, innovación e infraestructura.</p></a>
-      <a class="card" href="#ods13"><h3>ODS 13</h3><p class="muted">Acción climática eficiente.</p></a>
+    <h2>ODS — Compromiso</h2>
+    <div class="ods-block ods7">
+      <h3>ODS 7 · Energía asequible y limpia</h3>
+      <p>Paneles solares, microeólica y biomasa reducen costes y emisiones. Excedentes eléctricos pueden beneficiar a la comunidad.</p>
     </div>
-    <div id="ods7" class="offer"><h3>ODS 7</h3><p class="muted">Nuestro centro se alimenta de energías renovables (solar, eólica, biomasa), reduciendo la dependencia de fósiles.</p></div>
-    <div id="ods9" class="offer"><h3>ODS 9</h3><p class="muted">Promovemos innovación rural: IA, blockchain y servicios cloud desde un entorno despoblado.</p></div>
-    <div id="ods13" class="offer"><h3>ODS 13</h3><p class="muted">Minimizamos emisiones con free cooling y reutilización del calor para calefacción comunitaria.</p></div>
+    <div class="ods-block ods9">
+      <h3>ODS 9 · Innovación e infraestructura</h3>
+      <p>Un nodo de IA, HPC y blockchain en la España vaciada. Atrae startups, fomenta teletrabajo y digitaliza pymes.</p>
+    </div>
+    <div class="ods-block ods13">
+      <h3>ODS 13 · Acción por el clima</h3>
+      <p>Free cooling, reutilización térmica y energías renovables permiten reducir drásticamente las emisiones de CO₂.</p>
+    </div>
   </div>
 </section>
 
@@ -174,10 +201,9 @@
   <div class="main-wrap">
     <h2>Clientes y casos de uso</h2>
     <div class="grid-3">
-      <div class="card"><h3>👨‍💻 Autónomos</h3><p class="muted">Creador web con IA y dominio incluido. Ideal para bares, tiendas y profesionales.</p></div>
-      <div class="card"><h3>🏢 PYMES</h3><p class="muted">Hosting, e-commerce y analítica de datos para crecer online.</p></div>
-      <div class="card"><h3>🎓 Universidades</h3><p class="muted">GPU Cloud para IA e investigación científica a precios reducidos.</p></div>
-      <div class="card"><h3>🏛️ Administraciones</h3><p class="muted">Infraestructura digital en la España vaciada con impacto local.</p></div>
+      <div class="card"><h3>👨‍💻 Autónomos</h3><p class="muted">Creador web IA con dominio. Ideal para bares y profesionales.</p></div>
+      <div class="card"><h3>🏢 PYMES</h3><p class="muted">Hosting, e-commerce y analítica para crecer online.</p></div>
+      <div class="card"><h3>🎓 Universidades</h3><p class="muted">GPU Cloud para IA e investigación a bajo coste.</p></div>
     </div>
   </div>
 </section>
@@ -186,53 +212,25 @@
 <section id="contacto">
   <div class="main-wrap">
     <h2>Contactar</h2>
-    <form action="https://formspree.io/f/your-id" method="POST" class="card" style="display:grid;gap:.75rem">
-      <label>Nombre<input required name="nombre" type="text" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></label>
-      <label>Email<input required name="email" type="email" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></label>
-      <label>Mensaje<textarea required name="mensaje" rows="4" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></textarea></label>
+    <form class="card" style="display:grid;gap:.75rem">
+      <label>Nombre<input type="text" required></label>
+      <label>Email<input type="email" required></label>
+      <label>Mensaje<textarea rows="4" required></textarea></label>
       <button class="btn primary" type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="main-wrap" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-    <small>© <span id="y"></span> Data Center Encinas</small>
-    <small class="muted">Encinas de Esgueva (Valladolid)</small>
+  <div class="main-wrap">
+    <small>© <span id="y"></span> Data Center Encinas — Encinas de Esgueva</small>
   </div>
 </footer>
 
 <script>
-  // Año
   document.getElementById('y').textContent = new Date().getFullYear();
-  // Menú móvil
   const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
-  if(btn&&nav){btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
-  // Resaltar sección activa
-  const links=document.querySelectorAll('#site-nav a');
-  const secs=Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
-  const onScroll=()=>{const y=window.scrollY+120;let active=0;secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)active=i;});links.forEach((a,i)=>a.classList.toggle('active',i===active));};
-  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
-
-  // Demo generador
-  function generarDemo(){
-    const f=document.getElementById('webBuilder');
-    const fondo=f.fondo.value||"—";
-    const prod=f.productos.value||"—";
-    const est=f.estilo.value||"—";
-    const desc=f.descripcion.value||"—";
-    const demo=document.getElementById('demoContent');
-    demo.innerHTML=`
-      <p><strong>Fondo/fotos:</strong> ${fondo}</p>
-      <p><strong>Productos:</strong> ${prod}</p>
-      <p><strong>Estilo:</strong> ${est}</p>
-      <p><strong>Descripción:</strong> ${desc}</p>
-      <div style="margin-top:1rem;padding:1rem;background:#0b2851;border-radius:.6rem">
-        <h4 style="margin:0;color:var(--brand)">🌐 Demo visual</h4>
-        <p style="color:var(--text)">[Simulación de web generada con tus datos]</p>
-      </div>`;
-    document.getElementById('demoWeb').style.display="block";
-  }
+  btn.addEventListener('click',()=>nav.classList.toggle('open'));
 </script>
 
 </body>
