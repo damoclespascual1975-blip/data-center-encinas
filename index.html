@@ -12,52 +12,42 @@
       --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
       --text:#e6efff; --muted:#b7c7e6;
       --brand:#60a5fa; --brand-2:#93c5fd;
-      --ok:#22c55e;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
       line-height:1.6;color:var(--text);
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));
-    }
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     [id]{scroll-margin-top:88px}
     .main-wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:50;
+    header{position:sticky;top:0;z-index:50;
       background:rgba(5,14,30,.8);backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
+      border-bottom:1px solid rgba(255,255,255,.08);}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.9rem 1rem}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.2px}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
     .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand)}
     .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:.5rem .75rem;border-radius:.75rem}
     nav#site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;padding:0 1rem 1rem}
     nav#site-nav a{padding:.5rem .8rem;border-radius:.6rem}
     nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
 
-    /* Hero */
-    .hero{
-      position:relative;min-height:90vh;display:flex;align-items:center;
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;
       background:url('castillo.jpg') center/cover no-repeat;
-      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);
-    }
+      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);}
     .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65))}
     .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem}
     .badge{display:inline-block;font-size:.85rem;padding:.25rem .55rem;border-radius:.5rem;background:rgba(255,255,255,.16);margin-bottom:.75rem}
     .hero h1{font-size:2.6rem;line-height:1.15;margin:.2rem 0 1rem}
     .hero p.lead{font-size:1.15rem;color:var(--brand-2);margin:0 0 1.2rem}
     .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.75rem 1.1rem;border-radius:.75rem;font-weight:700;border:1px solid transparent}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.75rem 1.1rem;border-radius:.75rem;font-weight:700;border:1px solid transparent;cursor:pointer}
     .btn.primary{background:var(--brand);color:#081326}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.35)}
     .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-    /* Secciones */
     section{padding:2.2rem 1rem}
     section h2{font-size:1.6rem;margin:0 0 1rem}
     .muted{color:var(--muted)}
@@ -66,14 +56,10 @@
     .card h3{margin:.15rem 0 .5rem}
     .pill{display:inline-block;font-size:.75rem;padding:.15rem .5rem;border-radius:999px;background:rgba(255,255,255,.12);margin-bottom:.5rem}
     .price{display:inline-flex;gap:.4rem;align-items:center;padding:.25rem .55rem;border-radius:.5rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);font-weight:700}
-
     .offer{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid var(--panel-b);border-radius:1rem;padding:1rem;margin-top:1.25rem}
 
-    /* Footer */
     footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;background:rgba(5,14,30,.7);color:var(--muted)}
 
-    /* Responsive */
-    @media (max-width:900px){ .hero{min-height:78vh} }
     @media (max-width:768px){
       .hero h1{font-size:2rem}.hero p.lead{font-size:1rem}
       .cta-row{flex-direction:column}.btn{width:100%}
@@ -127,120 +113,52 @@
 <section id="ofrecemos">
   <div class="main-wrap">
     <h2>Qué ofrecemos</h2>
-
     <div class="grid-3">
-      <a class="card" href="#dominios">
-        <span class="pill">Dominios</span>
-        <h3>.com / .net / .org</h3>
-        <p class="muted">Privacidad WHOIS incluida.</p>
-        <span class="price">14 €/año</span>
-      </a>
-
-      <a class="card" href="#wordpress">
-        <span class="pill">WordPress</span>
-        <h3>Hosting gestionado</h3>
-        <p class="muted">Copias diarias, WAF, CDN, staging.</p>
-        <span class="price">2,79 €/mes promo · 15,49 €/mes renovación</span>
-      </a>
-
-      <a class="card" href="#vps">
-        <span class="pill">VPS</span>
-        <h3>NVMe & 1 Gbps</h3>
-        <p class="muted">Root, snapshots, tráfico ilimitado.</p>
-        <span class="price">4 €/mes</span>
-      </a>
-
-      <a class="card" href="#gpu">
-        <span class="pill">GPU IA</span>
-        <h3>A100 · H100 on-demand</h3>
-        <p class="muted">Entrenamiento e inferencia por hora.</p>
-        <span class="price">A100 80 GB: 1,49 €/h · H100 80 GB: 2,89 €/h</span>
-      </a>
-
-      <a class="card" href="#blockchain">
-        <span class="pill">Blockchain</span>
-        <h3>Nodos gestionados</h3>
-        <p class="muted">Ethereum / Hyperledger, monitorización 24/7.</p>
-        <span class="price">desde 59 €/mes</span>
-      </a>
-
-      <a class="card" href="#hpc">
-        <span class="pill">HPC</span>
-        <h3>Colas de cómputo</h3>
-        <p class="muted">SLURM, optimización y soporte científico.</p>
-        <span class="price">desde 199 €/mes</span>
-      </a>
-
-      <a class="card" href="#webia">
-        <span class="pill">Web fácil</span>
-        <h3>Creador con IA</h3>
-        <p class="muted">Plantillas + prompts sencillos.</p>
-        <span class="price">Bono 14 €/mes</span>
-      </a>
+      <a class="card" href="#dominios"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></a>
+      <a class="card" href="#vps"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Root, snapshots, tráfico ilimitado.</p><span class="price">4 €/mes</span></a>
+      <a class="card" href="#gpu"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></a>
+      <a class="card" href="#webia"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></a>
     </div>
 
-    <!-- Detalle ofertas -->
-    <div id="dominios" class="offer">
-      <h3>Dominios</h3>
-      <ul class="muted">
-        <li>.com, .net, .org — <strong>14 €/año</strong> (privacidad WHOIS incluida).</li>
-        <li>DNS Anycast, DNSSEC y gestión avanzada (A/AAAA/CNAME/MX/TXT).</li>
-      </ul>
-      <small class="muted">Referencia mercado: .com ~ 14,98 $/año (renov.).</small>
-    </div>
-
-    <div id="wordpress" class="offer">
-      <h3>WordPress gestionado</h3>
-      <ul class="muted">
-        <li><strong>2,79 €/mes</strong> (promo 1er año) · <strong>15,49 €/mes</strong> renovación.</li>
-        <li>CDN, WAF, copias diarias, staging y soporte 24/7.</li>
-        <li>Gratis: migración y SSL (Let’s Encrypt).</li>
-      </ul>
-    </div>
-
-    <div id="vps" class="offer">
-      <h3>VPS NVMe</h3>
-      <ul class="muted">
-        <li>1 vCPU · 2 GB RAM · 40 GB NVMe — <strong>4 €/mes</strong>.</li>
-        <li>Tráfico ilimitado hasta 1 Gbps, snapshots y firewall.</li>
-        <li>Localización: España/UE.</li>
-      </ul>
-    </div>
-
-    <div id="gpu" class="offer">
-      <h3>GPU Cloud para IA</h3>
-      <ul class="muted">
-        <li><strong>A100 80 GB: 1,49 €/h</strong> · <strong>H100 80 GB: 2,89 €/h</strong>.</li>
-        <li>Imágenes listas (PyTorch/CUDA), volúmenes NVMe, Jupyter.</li>
-        <li>Facturación por segundo, parar/reanudar sin coste.</li>
-      </ul>
-    </div>
-
-    <div id="blockchain" class="offer">
-      <h3>Blockchain</h3>
-      <ul class="muted">
-        <li>Nodos Ethereum/Hyperledger gestionados — <strong>desde 59 €/mes</strong>.</li>
-        <li>Monitorización, alertas y snapshots; endpoints HTTPS/WSS.</li>
-      </ul>
-    </div>
-
-    <div id="hpc" class="offer">
-      <h3>HPC</h3>
-      <ul class="muted">
-        <li>SLURM, optimización de jobs y profiling.</li>
-        <li><strong>desde 199 €/mes</strong> (cola dedicada pequeña).</li>
-      </ul>
-    </div>
-
+    <!-- Oferta Web fácil con IA -->
     <div id="webia" class="offer">
       <h3>Web fácil con IA — Bono 14 €/mes</h3>
+      <p class="muted">
+        Incluye dominio, hosting y un asistente paso a paso para crear tu web sin programar.
+        <span style="display:inline-block;margin-top:.5rem;padding:.2rem .6rem;background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.4);border-radius:.5rem;font-weight:700;color:#22c55e">
+          🟢 Dominio GRATIS el 1er año
+        </span>
+      </p>
+
       <ul class="muted">
-        <li>Incluye 1 dominio (.com/.net/.org) y hosting gestionado.</li>
+        <li>1 dominio (.com/.net/.org) GRATIS el primer año (renovación 14 €/año).</li>
+        <li>Hosting web básico gestionado.</li>
         <li>Creador con plantillas (restaurante, tienda, blog, portfolio…).</li>
-        <li>IA que redacta textos con prompts sencillos (“Soy un bar en Valladolid…”).</li>
+        <li>IA que redacta textos con prompts sencillos.</li>
         <li>Soporte básico y SSL incluidos.</li>
       </ul>
-      <small class="muted">Referencia mercado: Wix/Squarespace 15–20 €/mes. Nosotros: 14 €/mes con dominio y hosting.</small>
+
+      <!-- Formulario prompts -->
+      <form id="webBuilder" style="display:grid;gap:.75rem;margin-top:1rem">
+        <label>🖼 Tipo de fondo / fotos
+          <input type="text" name="fondo" placeholder="Ej: fondo azul, galería de 3 fotos" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)">
+        </label>
+        <label>🛒 Productos y precios escalados
+          <textarea name="productos" rows="3" placeholder="Ej: Camiseta 20€/u · desde 10 uds 15€/u" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea>
+        </label>
+        <label>🎨 Colores / estilo
+          <input type="text" name="estilo" placeholder="Ej: oscuro elegante, botones verdes" style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)">
+        </label>
+        <label>✍️ Descripción del negocio
+          <textarea name="descripcion" rows="3" placeholder="Ej: Somos un bar en Valladolid especializado en tapas." style="width:100%;padding:.6rem;border-radius:.5rem;border:1px solid var(--panel-b);background:var(--panel);color:var(--text)"></textarea>
+        </label>
+        <button type="button" class="btn primary" onclick="generarDemo()">Generar mi web demo</button>
+      </form>
+
+      <div id="demoWeb" style="margin-top:1.5rem;padding:1rem;border-radius:1rem;border:1px dashed var(--brand);display:none">
+        <h4>🌐 Vista previa simulada</h4>
+        <div id="demoContent" class="muted"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -262,18 +180,9 @@
   <div class="main-wrap">
     <h2>Contactar</h2>
     <form action="https://formspree.io/f/your-id" method="POST" class="card" style="display:grid;gap:.75rem">
-      <label><span>Nombre</span>
-        <input required name="nombre" type="text"
-          style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)">
-      </label>
-      <label><span>Email</span>
-        <input required name="email" type="email"
-          style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)">
-      </label>
-      <label><span>Mensaje</span>
-        <textarea required name="mensaje" rows="4"
-          style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></textarea>
-      </label>
+      <label>Nombre<input required name="nombre" type="text" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></label>
+      <label>Email<input required name="email" type="email" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></label>
+      <label>Mensaje<textarea required name="mensaje" rows="4" style="width:100%;padding:.7rem .9rem;border:1px solid var(--panel-b);border-radius:.6rem;background:var(--panel);color:var(--text)"></textarea></label>
       <button class="btn primary" type="submit">Enviar</button>
     </form>
   </div>
@@ -290,13 +199,30 @@
   // Año
   document.getElementById('y').textContent = new Date().getFullYear();
   // Menú móvil
-  const btn=document.querySelector('.nav-toggle'); const nav=document.querySelector('#site-nav');
-  if(btn&&nav){ btn.addEventListener('click',()=>{ const o=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',o); }); }
+  const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
+  if(btn&&nav){btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);});}
   // Resaltar sección activa
   const links=document.querySelectorAll('#site-nav a');
   const secs=Array.from(links).map(a=>document.querySelector(a.getAttribute('href')));
-  const onScroll=()=>{ const y=window.scrollY+120; let active=0; secs.forEach((s,i)=>{ if(s && s.offsetTop<=y) active=i; }); links.forEach((a,i)=>a.classList.toggle('active',i===active)); };
-  document.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  const onScroll=()=>{const y=window.scrollY+120;let active=0;secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)active=i;});links.forEach((a,i)=>a.classList.toggle('active',i===active));};
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Demo generador de webs
+  function generarDemo(){
+    const f=document.getElementById('webBuilder');
+    const fondo=f.fondo.value||"—";
+    const prod=f.productos.value||"—";
+    const est=f.estilo.value||"—";
+    const desc=f.descripcion.value||"—";
+    const demo=document.getElementById('demoContent');
+    demo.innerHTML=`
+      <p><strong>Fondo/fotos:</strong> ${fondo}</p>
+      <p><strong>Productos:</strong> ${prod}</p>
+      <p><strong>Estilo:</strong> ${est}</p>
+      <p><strong>Descripción:</strong> ${desc}</p>
+      <p>✅ Tu web ha sido generada en modo DEMO. En la versión real se crearán páginas y diseño automáticamente.</p>`;
+    document.getElementById('demoWeb').style.display="block";
+  }
 </script>
 
 </body>
