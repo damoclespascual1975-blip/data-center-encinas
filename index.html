@@ -7,209 +7,155 @@
   <meta name="description" content="Centro de datos modular y sostenible en Encinas de Esgueva: IA, eficiencia energética y ODS." />
 
   <style>
-    /* ====== Reset y base ====== */
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif; line-height:1.5; color:#111}
-    img, svg, video{max-width:100%; height:auto; display:block}
-    a{color:inherit}
+    a{color:inherit; text-decoration:none}
 
-    /* ====== Layout ====== */
-    .main-wrap{ width:min(1100px, 100% - 2rem); margin-inline:auto }
+    .main-wrap{width:min(1100px, 100% - 2rem); margin-inline:auto}
     [id]{scroll-margin-top:72px}
 
-    /* ====== Header + Nav ====== */
-    header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid #eee }
-    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.75rem 1rem }
-    .brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.2px }
-    .brand .dot{ width:10px; height:10px; border-radius:999px; background:#0ea5e9 }
-    .tagline{ font-size:.85rem; color:#555 }
+    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 1rem}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:#0ea5e9}
+    .nav-toggle{display:none;background:none;border:1px solid #ddd;padding:.5rem .75rem;border-radius:.75rem}
+    nav#site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;padding:.25rem 1rem 1rem}
+    nav#site-nav a{padding:.55rem .85rem;border-radius:.6rem}
+    nav#site-nav a:hover{background:#f5f5f5}
 
-    .nav-toggle{ display:none; background:none; border:1px solid #ddd; padding:.5rem .75rem; border-radius:.75rem; font-size:1rem }
-    nav#site-nav{ display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; padding:.25rem 1rem 1rem }
-
-    nav#site-nav a{
-      text-decoration:none; padding:.55rem .85rem; border-radius:.6rem;
-      border:1px solid transparent;
+    /* === Hero con el castillo de fondo === */
+    .hero{
+      position:relative;
+      min-height:90vh;
+      display:flex;align-items:center;
+      background:url('castillo.jpg') center/cover no-repeat;
+      color:#fff;
     }
-    nav#site-nav a:hover{ background:#f5f5f5; border-color:#eee }
-
-    /* ====== Hero ====== */
-    .hero{ padding:2.5rem 1rem; background:linear-gradient(180deg,#f8fbff, #ffffff) }
-    .hero .content{ display:grid; grid-template-columns: 1.2fr .8fr; gap:2rem; align-items:center }
-    .hero h1{ font-size:2.25rem; line-height:1.15; margin:.25rem 0 .5rem }
-    .hero p.lead{ font-size:1.1rem; color:#444; margin:0 0 1rem }
-    .badge{ display:inline-block; font-size:.8rem; padding:.25rem .55rem; border-radius:.5rem; background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd }
-    .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.75rem }
-    .btn{ display:inline-flex; justify-content:center; align-items:center; gap:.5rem; padding:.7rem 1rem; border-radius:.75rem; text-decoration:none; font-weight:600; border:1px solid #0ea5e9 }
-    .btn.primary{ background:#0ea5e9; color:white; border-color:#0ea5e9 }
-    .btn.ghost{ background:white; color:#0ea5e9 }
-    .hero .mock{ border:1px solid #eee; border-radius:1rem; padding:1rem; background:white; box-shadow:0 10px 30px rgba(0,0,0,.05) }
-
-    /* ====== Secciones ====== */
-    section{ padding:2rem 1rem }
-    section h2{ font-size:1.6rem; margin:0 0 .75rem }
-    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem }
-    .card{ border:1px solid #eee; border-radius:1rem; padding:1rem; background:#fff }
-    .card h3{ margin:.25rem 0 .5rem; font-size:1.1rem }
-    .muted{ color:#555 }
-
-    /* ====== Footer ====== */
-    footer{ border-top:1px solid #eee; padding:1.25rem 1rem; color:#555; background:#fafafa }
-
-    /* ====== Responsivo ====== */
-    @media (max-width: 900px){
-      .hero .content{ grid-template-columns:1fr }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:rgba(14,165,233,0.45); /* capa azulada translúcida */
     }
-    @media (max-width: 480px){
-      .nav-toggle{ display:block; margin-left:1rem }
-      nav#site-nav{ display:none }
-      nav#site-nav.open{ display:flex; flex-direction:column }
-      .hero{ padding:1.5rem 1rem }
-      .hero h1{ font-size:1.6rem; line-height:1.2; margin:0 0 .5rem }
-      .hero p.lead{ font-size:1rem }
-      section{ padding:1.25rem 1rem }
-      .grid-3{ grid-template-columns:1fr }
-      .cta-row{ flex-direction:column }
-      .btn{ width:100% }
+    .hero .content{
+      position:relative;
+      z-index:1;
+      max-width:700px;
+      padding:2rem;
+      text-shadow:1px 1px 4px rgba(0,0,0,0.7);
+    }
+    .hero h1{font-size:2.5rem;margin:0 0 1rem}
+    .hero p.lead{font-size:1.2rem;margin:0 0 1.5rem}
+    .badge{display:inline-block;font-size:.85rem;padding:.3rem .6rem;border-radius:.5rem;background:rgba(255,255,255,0.2);margin-bottom:.75rem}
+    .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.7rem 1.2rem;border-radius:.75rem;font-weight:600}
+    .btn.primary{background:#0ea5e9;color:#fff}
+    .btn.ghost{background:rgba(255,255,255,.2);color:#fff;border:1px solid #fff}
+
+    section{padding:2rem 1rem}
+    section h2{font-size:1.6rem;margin:0 0 1rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{border:1px solid #eee;border-radius:1rem;padding:1rem;background:#fff}
+    .muted{color:#555}
+
+    footer{border-top:1px solid #eee;padding:1.25rem 1rem;color:#555;background:#fafafa}
+
+    @media(max-width:768px){
+      .hero h1{font-size:1.8rem}
+      .hero p.lead{font-size:1rem}
+      .cta-row{flex-direction:column}
+      .btn{width:100%}
+      .nav-toggle{display:block;margin-left:1rem}
+      nav#site-nav{display:none}
+      nav#site-nav.open{display:flex;flex-direction:column}
     }
   </style>
 </head>
 <body>
 
-  <!-- ====== Header ====== -->
-  <header>
-    <div class="topbar main-wrap">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Data Center Encinas</span>
-      </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰ Menú</button>
+<header>
+  <div class="topbar main-wrap">
+    <div class="brand">
+      <span class="dot"></span><span>Data Center Encinas</span>
     </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰ Menú</button>
+  </div>
+  <nav id="site-nav" class="main-wrap">
+    <a href="#objetivos">Objetivos</a>
+    <a href="#ofrecemos">Qué ofrecemos</a>
+    <a href="#ods">ODS</a>
+    <a href="#contacto">Contactar</a>
+  </nav>
+</header>
 
-    <nav id="site-nav" class="main-wrap" role="navigation">
-      <a href="#objetivos">Objetivos</a>
-      <a href="#ofrecemos">Qué ofrecemos</a>
-      <a href="#ods">ODS</a>
-      <a href="#contacto">Contactar</a>
-    </nav>
-  </header>
-
-  <!-- ====== Hero ====== -->
-  <section class="hero">
-    <div class="main-wrap content">
-      <div>
-        <span class="badge">Proyecto sostenible • IA • Eficiencia energética</span>
-        <h1>Centro de datos modular y eficiente en Encinas de Esgueva</h1>
-        <p class="lead">Energía renovable, <strong>free cooling</strong> y <strong>reutilización del calor</strong> para calefacción y comunidad. Preparado para cargas de IA con costes controlados.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="#contacto">Solicitar información</a>
-          <a class="btn ghost" href="#ofrecemos">Ver qué ofrecemos</a>
-        </div>
-      </div>
-      <div class="mock" aria-label="Castillo de Encinas de Esgueva">
-        <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva" />
-      </div>
+<section class="hero">
+  <div class="content main-wrap">
+    <span class="badge">Proyecto sostenible • IA • Eficiencia energética</span>
+    <h1>Centro de datos modular y eficiente en Encinas de Esgueva</h1>
+    <p class="lead">Energía renovable, <strong>free cooling</strong> y <strong>reutilización del calor</strong> para calefacción y comunidad. Preparado para cargas de IA con costes controlados.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contacto">Solicitar información</a>
+      <a class="btn ghost" href="#ofrecemos">Ver qué ofrecemos</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Objetivos ====== -->
-  <section id="objetivos">
-    <div class="main-wrap">
-      <h2>Objetivos</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>⚡ Eficiencia energética</h3>
-          <p class="muted">Diseño con PUE objetivo bajo, free cooling y recuperación térmica para usos comunitarios.</p>
-        </article>
-        <article class="card">
-          <h3>🌱 Sostenibilidad</h3>
-          <p class="muted">Integración de fotovoltaica y estrategias de reducción de huella de carbono.</p>
-        </article>
-        <article class="card">
-          <h3>👥 Impacto local</h3>
-          <p class="muted">Empleo cualificado y servicios digitales para la “España vaciada”.</p>
-        </article>
-      </div>
+<section id="objetivos">
+  <div class="main-wrap">
+    <h2>Objetivos</h2>
+    <div class="grid-3">
+      <div class="card"><h3>⚡ Eficiencia energética</h3><p class="muted">Diseño con PUE objetivo bajo, free cooling y recuperación térmica para usos comunitarios.</p></div>
+      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Integración de fotovoltaica y estrategias de reducción de huella de carbono.</p></div>
+      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo cualificado y servicios digitales para la “España vaciada”.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Qué ofrecemos ====== -->
-  <section id="ofrecemos">
-    <div class="main-wrap">
-      <h2>Qué ofrecemos</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Hosting IA / HPC</h3>
-          <p class="muted">Capacidad para cargas de entrenamiento e inferencia, conectividad fiable.</p>
-        </article>
-        <article class="card">
-          <h3>Colocation modular</h3>
-          <p class="muted">Escalado por racks/unidades, SLA y monitorización.</p>
-        </article>
-        <article class="card">
-          <h3>Servicios gestionados</h3>
-          <p class="muted">Backups, observabilidad, hardening y soporte técnico.</p>
-        </article>
-      </div>
+<section id="ofrecemos">
+  <div class="main-wrap">
+    <h2>Qué ofrecemos</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Hosting IA / HPC</h3><p class="muted">Capacidad para cargas de entrenamiento e inferencia, conectividad fiable.</p></div>
+      <div class="card"><h3>Colocation modular</h3><p class="muted">Escalado por racks/unidades, SLA y monitorización.</p></div>
+      <div class="card"><h3>Servicios gestionados</h3><p class="muted">Backups, observabilidad, hardening y soporte técnico.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== ODS ====== -->
-  <section id="ods">
-    <div class="main-wrap">
-      <h2>Alineación con los ODS</h2>
-      <div class="grid-3">
-        <article class="card"><h3>ODS 7</h3><p class="muted">Energía asequible y no contaminante.</p></article>
-        <article class="card"><h3>ODS 9</h3><p class="muted">Industria, innovación e infraestructura.</p></article>
-        <article class="card"><h3>ODS 13</h3><p class="muted">Acción por el clima mediante eficiencia.</p></article>
-      </div>
+<section id="ods">
+  <div class="main-wrap">
+    <h2>Alineación con los ODS</h2>
+    <div class="grid-3">
+      <div class="card"><h3>ODS 7</h3><p class="muted">Energía asequible y no contaminante.</p></div>
+      <div class="card"><h3>ODS 9</h3><p class="muted">Industria, innovación e infraestructura.</p></div>
+      <div class="card"><h3>ODS 13</h3><p class="muted">Acción por el clima mediante eficiencia.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== Contacto ====== -->
-  <section id="contacto">
-    <div class="main-wrap">
-      <h2>Contactar</h2>
-      <p class="muted">Cuéntanos tus necesidades (IA, colocation, servicios gestionados) y te respondemos.</p>
-      <form action="https://formspree.io/f/your-id" method="POST" class="card" style="display:grid; gap:.75rem">
-        <label>
-          <span>Nombre</span>
-          <input required name="nombre" type="text" placeholder="Tu nombre" style="width:100%; padding:.7rem .9rem; border:1px solid #ddd; border-radius:.6rem">
-        </label>
-        <label>
-          <span>Email</span>
-          <input required name="email" type="email" placeholder="tucorreo@dominio.com" style="width:100%; padding:.7rem .9rem; border:1px solid #ddd; border-radius:.6rem">
-        </label>
-        <label>
-          <span>Mensaje</span>
-          <textarea required name="mensaje" rows="4" placeholder="¿Qué necesitas?" style="width:100%; padding:.7rem .9rem; border:1px solid #ddd; border-radius:.6rem"></textarea>
-        </label>
-        <button class="btn primary" type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
+<section id="contacto">
+  <div class="main-wrap">
+    <h2>Contactar</h2>
+    <form action="https://formspree.io/f/your-id" method="POST" class="card" style="display:grid;gap:.75rem">
+      <label><span>Nombre</span><input required name="nombre" type="text" style="width:100%;padding:.7rem .9rem;border:1px solid #ddd;border-radius:.6rem"></label>
+      <label><span>Email</span><input required name="email" type="email" style="width:100%;padding:.7rem .9rem;border:1px solid #ddd;border-radius:.6rem"></label>
+      <label><span>Mensaje</span><textarea required name="mensaje" rows="4" style="width:100%;padding:.7rem .9rem;border:1px solid #ddd;border-radius:.6rem"></textarea></label>
+      <button class="btn primary" type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
 
-  <footer>
-    <div class="main-wrap" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <small>© <span id="y"></span> Data Center Encinas</small>
-      <small class="muted">Encinas de Esgueva (Valladolid)</small>
-    </div>
-  </footer>
+<footer>
+  <div class="main-wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap">
+    <small>© <span id="y"></span> Data Center Encinas</small>
+    <small class="muted">Encinas de Esgueva (Valladolid)</small>
+  </div>
+</footer>
 
-  <script>
-    // Año dinámico en el footer
-    document.getElementById('y').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
+  if(btn&&nav){btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);});}
+</script>
 
-    // Toggle del menú en móvil
-    const btn = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('#site-nav');
-    if(btn && nav){
-      btn.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen);
-      });
-    }
-  </script>
 </body>
 </html>
