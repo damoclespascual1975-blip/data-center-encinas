@@ -159,8 +159,10 @@
   </footer>
 
   <script>
+    // Año dinámico en el footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // Formulario: abre mailto con los datos
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
