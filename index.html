@@ -1,45 +1,38 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Data Center Encinas — IA • HPC • Blockchain</title>
-<meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Center Encinas — IA • HPC • Hosting</title>
+<meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS y creador de webs con IA. Sostenible y con impacto local.">
 <style>
-  /* === MODO A PRUEBA DE FALLOS === */
-  :root{
-    --bg:#0b1226; --fg:#eaf1ff; --muted:#a9b7d6;
-    --panel:#141d38; --border:#2a3860; --accent:#66a3ff; --ok:#2bd185;
-    --radius:14px; --max:1100px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.6}
-  a{color:var(--accent);text-decoration:none}
-  .wrap{width:min(var(--max),100% - 2rem);margin:0 auto}
-  header,section,footer{padding:16px 0}
-  .bar{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
-  .brand{font-weight:800;letter-spacing:.2px}
-  .chip{display:inline-block;background:#1b264a;border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:14px;color:var(--muted)}
-  .hero{padding:16px 0;border-bottom:1px solid var(--border)}
-  .hero h1{font-size:28px;margin:10px 0 6px}
-  .lead{color:#bcd0ff;font-size:18px;margin:6px 0 12px}
-  .btns{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:#1a2550;color:var(--fg);font-weight:800}
-  .btn.primary{background:var(--accent);color:#071022}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media (max-width:900px){.grid3,.grid2{grid-template-columns:1fr}}
-  h2{font-size:22px;margin:0 0 12px;text-align:center}
-  h3{margin:6px 0 8px}
-  table{width:100%;border-collapse:collapse}
-  th,td{border:1px solid var(--border);padding:10px;text-align:center}
-  th{background:#1a2550}
-  .muted{color:var(--muted);font-size:14px}
-  .img-frame{background:#0e1734;border:1px solid var(--border);border-radius:12px;padding:8px}
-  .center{text-align:center}
-  /* Barra de prueba visible (si ves esta franja, NO hay pantalla en blanco) */
-  .testbar{background:#ff4d7a;color:#14010c;padding:6px 10px;border-radius:8px;display:inline-block;font-weight:800}
+  /* Estilos ultra simples y visibles (fondo blanco, texto negro) */
+  :root { --w: min(1100px, 100% - 2rem); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:#fff; color:#111; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; }
+  .wrap { width: var(--w); margin: 0 auto; }
+  header, section, footer { padding: 16px 0; }
+  h1 { font-size: 28px; margin: 10px 0; }
+  h2 { font-size: 22px; margin: 0 0 10px; }
+  h3 { font-size: 18px; margin: 10px 0 6px; }
+  .bar { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:2px solid #ddd; }
+  .pill { display:inline-block; font-weight:700; font-size:14px; padding:6px 10px; border-radius:999px; background:#f0f3ff; border:1px solid #cbd5ff; }
+  .card { background:#fafafa; border:1px solid #ddd; border-radius:12px; padding:14px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  @media (max-width:900px) { .grid3, .grid2 { grid-template-columns:1fr; } }
+  .img-frame { background:#fff; border:1px solid #ddd; border-radius:12px; padding:8px; }
+  img { width:100%; height:auto; display:block; }
+  .btn { display:inline-block; padding:12px 16px; border-radius:10px; background:#1a56db; color:#fff; text-decoration:none; font-weight:800; border:1px solid #1242a8; }
+  .btn.alt { background:#f3f4f6; color:#111; border:1px solid #ccc; }
+  label { font-weight:700; display:block; margin:8px 0 4px; }
+  input, select, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:10px; font-size:16px; background:#fff; color:#111; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #ddd; padding:10px; text-align:center; }
+  th { background:#f5f7ff; }
+  .muted { color:#555; font-size:15px; }
+  .test { display:inline-block; background:#ffe0e6; color:#8a0032; padding:6px 10px; border-radius:8px; font-weight:900; }
+  .notice { background:#fff7e6; border:1px solid #ffd28a; padding:10px; border-radius:8px; }
 </style>
 </head>
 <body>
@@ -47,28 +40,29 @@
 <header>
   <div class="wrap">
     <div class="bar">
-      <div class="brand">Data Center Encinas</div>
-      <div class="chip">IA • HPC • Blockchain • Hosting</div>
+      <strong>Data Center Encinas</strong>
+      <span class="pill">IA • HPC • Hosting</span>
     </div>
   </div>
 </header>
 
-<section class="hero">
+<section id="test">
   <div class="wrap">
-    <div class="center" style="margin-bottom:10px">
-      <span class="testbar">TEST: si lees esto, la página carga bien</span>
-    </div>
+    <div class="notice"><span class="test">PRUEBA:</span> Si ves esta franja, la página está cargando bien. Si no ves imágenes, se mostrarán <em>placeholders</em>.</div>
+  </div>
+</section>
 
-    <!-- IMAGEN HERO: si el archivo falta, verás el recuadro y el ALT -->
+<section id="hero">
+  <div class="wrap">
     <div class="img-frame">
-      <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva (imagen principal)" style="width:100%;height:auto;display:block" />
+      <!-- Hero: si no existe castillo.jpg, verás un placeholder -->
+      <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva (imagen principal)" onerror="this.onerror=null; this.src='https://placehold.co/1200x500?text=castillo.jpg%20no%20encontrado';">
     </div>
-
     <h1>Centro de datos de IA en Encinas de Esgueva</h1>
-    <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
-    <div class="btns">
-      <a class="btn primary" href="#ofrecemos">Ver ofertas</a>
-      <a class="btn" href="#contacto">Pedir presupuesto</a>
+    <p class="muted">GPU Cloud, VPS y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="btn" href="#ofrecemos">Ver ofertas</a>
+      <a class="btn alt" href="#contacto">Pedir presupuesto</a>
     </div>
   </div>
 </section>
@@ -115,68 +109,94 @@
 
 <section id="ods">
   <div class="wrap">
-    <h2>ODS — Compromiso</h2>
+    <h2>ODS — Compromiso (explicado)</h2>
     <div class="grid2">
       <div class="card">
         <h3>ODS 7 · Energía asequible y limpia</h3>
-        <p class="muted">Paneles solares, microeólica y biomasa. Excedentes que pueden beneficiar a la comunidad.</p>
-        <h3>ODS 9 · Innovación e infraestructura</h3>
-        <p class="muted">Nodo de IA/HPC en zona rural: startups, teletrabajo, digitalización de pymes.</p>
+        <p class="muted">Usamos renovables (FV, microeólica, biomasa) y optimizamos PUE para reducir costes y emisiones.</p>
+
+        <h3>ODS 9 · Industria, innovación e infraestructura</h3>
+        <p class="muted">Infraestructura digital (IA/HPC) en entorno rural para atraer startups, teletrabajo y modernizar pymes.</p>
+
+        <h3>ODS 11 · Ciudades y comunidades sostenibles</h3>
+        <p class="muted">Servicios digitales locales y recuperación de calor para mejorar calidad de vida y eficiencia energética.</p>
+
+        <h3>ODS 12 · Producción y consumo responsables</h3>
+        <p class="muted">Economía circular: reutilización térmica del CPD y planificación responsable de recursos.</p>
+
         <h3>ODS 13 · Acción por el clima</h3>
-        <p class="muted">Free cooling y reutilización térmica para reducir CO₂.</p>
+        <p class="muted">Free cooling, menor huella de carbono y reportes de emisiones para decisiones informadas.</p>
       </div>
+
       <div class="card">
-        <!-- PÓSTER ODS: intenta con ods-2030.jpg; si no existe, verás el ALT y un recuadro -->
         <div class="img-frame">
-          <img src="ods-2030.jpg" alt="Póster ODS 2030" style="width:100%;height:auto;display:block" />
+          <!-- Intento 1: ods-2030.jpg -->
+          <img id="odsimg" src="ods-2030.jpg" alt="Póster ODS 2030"
+               onerror="this.onerror=null;
+                        this.src='S-SDG-%20Poster_-%20Letter.jpg';">
         </div>
-        <p class="muted" style="margin-top:8px">Si tu archivo se llama “S-SDG- Poster_- Letter.jpg”, te recomiendo renombrarlo a <strong>ods-2030.jpg</strong> (sin espacios).</p>
+        <p class="muted" style="margin-top:8px">
+          Si no ves el póster arriba, renombra tu archivo a <strong>ods-2030.jpg</strong> (misma carpeta). Si tampoco existe, se intentó cargar <em>S-SDG- Poster_- Letter.jpg</em>.
+          Como última prueba, cambia el <code>src</code> por este placeholder:
+          <code>https://placehold.co/1000x1400?text=ODS+2030</code>.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="clientes">
+<section id="rgpd">
   <div class="wrap">
-    <h2>Clientes y casos de uso</h2>
-    <div class="grid3">
-      <div class="card"><h3>👨‍💻 Autónomos</h3><p class="muted">Creador web IA + dominio. Ideal para bares y profesionales.</p></div>
-      <div class="card"><h3>🏢 PYMES</h3><p class="muted">Hosting, e-commerce y analítica para crecer online.</p></div>
-      <div class="card"><h3>🎓 Universidades</h3><p class="muted">GPU Cloud para IA e investigación con costes contenidos.</p></div>
+    <h2>Tratamiento de datos (RGPD)</h2>
+    <div class="card">
+      <p><strong>Responsable:</strong> Data Center Encinas (contacto en el formulario inferior).</p>
+      <p><strong>Finalidad:</strong> responder a tu solicitud y elaborar una propuesta técnica/económica.</p>
+      <p><strong>Legitimación:</strong> tu consentimiento al enviarnos el formulario.</p>
+      <p><strong>Conservación:</strong> el tiempo necesario para atender la relación y obligaciones legales.</p>
+      <p><strong>Derechos:</strong> acceso, rectificación, supresión, oposición y portabilidad. Puedes ejercerlos solicitándolo por el formulario.</p>
+      <p class="notice" style="margin:0"><strong>Nota de plazos:</strong> el presupuesto <u>se enviará en función de la carga de trabajo</u>; disculpen las molestias.</p>
     </div>
   </div>
 </section>
 
 <section id="contacto">
   <div class="wrap">
-    <h2>Contactar</h2>
-    <div class="card" style="display:grid;gap:10px">
-      <!-- Si usas Formspree, cambia el action por tu endpoint -->
-      <form method="POST" action="https://formspree.io/f/your-endpoint" style="display:grid;gap:10px">
-        <label>Nombre<br><input name="nombre" type="text" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0f1733;color:var(--fg)"></label>
-        <label>Email<br><input name="email" type="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0f1733;color:var(--fg)"></label>
-        <label>Mensaje<br><textarea name="mensaje" rows="5" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0f1733;color:var(--fg)"></textarea></label>
-        <label>Servicio<br>
-          <select name="servicio" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0f1733;color:var(--fg)">
-            <option value="">Selecciona…</option>
-            <option>GPU Cloud & IA</option>
-            <option>VPS & Hosting</option>
-            <option>Dominios</option>
-            <option>Otro</option>
-          </select>
-        </label>
-        <button type="submit" class="btn">Enviar</button>
-        <p class="muted" style="margin:0">El presupuesto <strong>se enviará en función de la carga de trabajo</strong>; disculpen las molestias.</p>
+    <h2>Contacto</h2>
+    <div class="card">
+      <!-- Cambia el action por tu endpoint real de Formspree u otro -->
+      <form method="POST" action="https://formspree.io/f/your-endpoint">
+        <label>Nombre</label>
+        <input name="nombre" type="text" placeholder="Tu nombre" required>
+
+        <label>Email</label>
+        <input name="email" type="email" placeholder="tucorreo@dominio.com" required>
+
+        <label>Servicio</label>
+        <select name="servicio" required>
+          <option value="">Selecciona…</option>
+          <option>GPU Cloud & IA</option>
+          <option>VPS & Hosting</option>
+          <option>Dominios</option>
+          <option>Otro</option>
+        </select>
+
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="5" placeholder="Requisitos, plazos y presupuesto objetivo…" required></textarea>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+          <button type="submit" class="btn">Enviar</button>
+          <span class="muted">Respuesta sujeta a carga de trabajo.</span>
+        </div>
       </form>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap" style="border-top:2px solid #ddd; padding-top:12px; text-align:center;">
     <small class="muted">© 2025 Data Center Encinas — Encinas de Esgueva</small>
   </div>
 </footer>
 
 </body>
-</html>
+</html
