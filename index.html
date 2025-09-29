@@ -110,6 +110,78 @@
     nav{flex-direction:column; gap:.5rem}
     .navlinks{justify-content:center}
   }
+    /* Animaciones suaves sin romper layout */
+@media (prefers-reduced-motion: no-preference) {
+  /* Tarjetas (Servicios, FAQ, etc.) */
+  .card {
+    transform: translateZ(0);
+    transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    will-change: transform;
+  }
+  .card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    border-color: rgba(96,165,250,.45);
+  }
+
+  /* Botones */
+  .btn {
+    transform: translateZ(0);
+    transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+    will-change: transform;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    filter: brightness(1.02);
+  }
+
+  /* Badges del hero (PUE, Renovable, ODS) */
+  .badge {
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .badge:hover {
+    transform: translateY(-2px) scale(1.03);
+    background: #0f1b2e;
+    border-color: rgba(96,165,250,.45);
+  }
+
+  /* Ítems ODS */
+  .ods-item {
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .ods-item:hover {
+    box-shadow: 0 10px 26px rgba(0,0,0,.30);
+    border-color: rgba(74,222,128,.35);
+  }
+  .ods-item .ods-icon {
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    will-change: transform;
+  }
+  .ods-item:hover .ods-icon {
+    transform: scale(1.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    filter: saturate(1.05);
+  }
+
+  /* Imagen del hero */
+  .hero-figure img {
+    transition: transform .25s ease, box-shadow .25s ease;
+    will-change: transform;
+  }
+  .hero-figure img:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 42px rgba(0,0,0,.45);
+  }
+}
+
+/* Menos movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .card, .btn, .badge, .ods-item, .hero-figure img {
+    transition: none !important;
+  }
+}
+
   </style>
 </head>
 
