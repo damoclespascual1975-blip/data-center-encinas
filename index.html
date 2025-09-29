@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Center Encinas — IA, GPU y Hosting Sostenible</title>
   <meta name="description" content="Centro de datos modular y sostenible en Encinas de Esgueva: GPU Cloud, colocation, VPS y soluciones alineadas con los ODS 2030." />
-
   <style>
     :root{
       --bg:#0b0f17; --fg:#e9edf3; --muted:#a9b3c7; --brand:#4ade80; --brand-2:#60a5fa;
-      --card:#111827; --border:#1f2937; --accent:#f59e0b;
-      --max:1200px;
-      --radius:1.25rem;
+      --card:#111827; --border:#1f2937; --accent:#f59e0b; --max:1200px; --radius:1.25rem;
     }
     *{box-sizing:border-box}
     html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif; line-height:1.5}
@@ -29,12 +26,12 @@
 
     /* HERO */
     .hero{position:relative; isolation:isolate;}
-   .hero::before{
-  content:""; position:absolute; inset:0; z-index:-2;
-  background:
-    linear-gradient(180deg, rgba(11,15,23,.35) 0%, rgba(11,15,23,.55) 60%, #0b0f17 100%),
-   url('castillo.jpg') bottom/cover no-repeat;
-}
+    .hero::before{
+      content:""; position:absolute; inset:0; z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(11,15,23,.35) 0%, rgba(11,15,23,.55) 60%, #0b0f17 100%),
+        url('castillo.jpg') bottom/cover no-repeat;
+    }
     .hero .inner{padding:clamp(3rem, 7vw, 7rem) 0}
     .hero h1{font-size:clamp(1.8rem, 3.6vw, 3rem); margin:0 0 .5rem}
     .hero p{color:var(--muted); margin:0 0 1.25rem; max-width:60ch}
@@ -159,10 +156,7 @@
   </footer>
 
   <script>
-    // Año dinámico en el footer
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Formulario: abre mailto con los datos
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
