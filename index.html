@@ -7,98 +7,70 @@
   <meta name="description" content="Centro de datos modular y sostenible en Encinas de Esgueva: GPU Cloud, colocation, VPS y soluciones alineadas con los ODS 2030." />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Data Center Encinas — IA, GPU y Hosting Sostenible" />
-  <meta property="og:description" content="GPU Cloud, colocation y VPS con energía renovable local y compromiso ODS 2030." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://damoclespascual1975-blip.github.io/data-center-encinas/" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Center Encinas — IA, GPU y Hosting Sostenible" />
-  <meta name="twitter:description" content="GPU Cloud, colocation y VPS con energía renovable local y compromiso ODS 2030." />
-
   <style>
   :root{
-    --bg:#0a1a2f; /* azul marino */
+    --bg:#0a1a2f;
     --fg:#e9edf3;
     --muted:#a9b3c7;
     --brand:#4ade80;
     --brand-2:#60a5fa;
     --card:#111827;
     --border:#1f2937;
-    --accent:#f59e0b;
-    --max:1200px;
-    --radius:1.25rem;
+    --radius:1rem;
   }
-
   *{box-sizing:border-box}
   html,body{
-    min-height:100%;
     margin:0; padding:0;
-    background:var(--bg) !important;
-    color:var(--fg);
+    background:var(--bg); color:var(--fg);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
     line-height:1.5;
     scroll-behavior:smooth;
   }
-
-  img{max-width:100%; height:auto; display:block}
+  img{max-width:100%; display:block}
   a{color:var(--brand-2); text-decoration:none}
   a:hover{text-decoration:underline}
-  .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
-
-  /* Foco accesible */
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-    outline: 2px solid #60a5fa; outline-offset: 3px;
-  }
+  .container{max-width:1200px; margin:auto; padding:0 1rem}
 
   /* Header */
-  header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:rgba(11,15,23,.6); border-bottom:1px solid var(--border)}
-  nav{display:flex; align-items:center; justify-content:space-between; min-height:64px}
-  .brand{display:flex; gap:.5rem; align-items:center; font-weight:700}
-  .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
-  .navlinks{display:flex; gap:1rem; flex-wrap:wrap}
-  .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1rem; border-radius:.875rem; border:1px solid var(--border); background:linear-gradient(180deg,#101521,#0a1a2f); color:var(--fg)}
-  .btn.primary{border-color:transparent; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0a1a2f; font-weight:700}
+  header{position:sticky; top:0; z-index:50; background:rgba(11,15,23,.7); backdrop-filter:blur(6px); border-bottom:1px solid var(--border)}
+  nav{display:flex; justify-content:space-between; align-items:center; min-height:64px}
+  .brand{font-weight:700; display:flex; align-items:center; gap:.5rem}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+  .navlinks{display:flex; gap:1rem}
+  .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border-radius:.5rem; border:1px solid var(--border); background:#111827; color:var(--fg)}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0a1a2f; font-weight:700; border:0}
 
   /* Hero */
-  .hero{display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:2rem; min-height:85vh; padding:2rem 0;}
-  .hero-text{padding:2rem}
-  .hero-text h1{font-size:clamp(1.8rem, 3.6vw, 3rem); margin:0 0 .75rem}
-  .hero-text p{color:var(--muted); margin:0 0 1.25rem; max-width:50ch}
-  .badges{display:flex; gap:.5rem; flex-wrap:wrap; margin:.75rem 0 1.25rem}
-  .badge{font-size:.875rem; padding:.35rem .6rem; border:1px solid var(--border); border-radius:999px; color:var(--fg); background:#0f1625}
-  .hero-figure img{width:100%; border-radius:var(--radius); box-shadow:0 10px 40px rgba(0,0,0,.35)}
+  .hero{display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; padding:2rem 0; min-height:80vh}
+  .hero-text h1{font-size:clamp(1.8rem,4vw,3rem); margin:0 0 1rem}
+  .badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0}
+  .badge{background:#0f1625; padding:.3rem .7rem; border-radius:999px; font-size:.85rem; border:1px solid var(--border)}
+  .hero-figure img{border-radius:var(--radius); box-shadow:0 10px 40px rgba(0,0,0,.4)}
 
   /* Secciones */
-  .section{padding:clamp(2rem, 5vw, 4rem) 0}
+  .section{padding:3rem 0}
   .grid{display:grid; gap:1rem}
-  @media (min-width:768px){.grid.cols-3{grid-template-columns:repeat(3, 1fr)} }
-  @media (min-width:768px){.grid.cols-2{grid-template-columns:repeat(2, 1fr)} }
-
-  /* Tarjetas */
-  .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem}
-  .card h3{margin:.25rem 0 .5rem}
+  @media(min-width:768px){.grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; transition:.3s}
+  .card:hover{transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.3)}
   .muted{color:var(--muted)}
 
   /* ODS */
   .ods-grid{display:grid; gap:1.5rem}
   @media(min-width:768px){.ods-grid{grid-template-columns:repeat(2,1fr)}}
-  .ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; display:flex; gap:1rem; align-items:flex-start}
-  .ods-icon{flex:0 0 52px; width:52px; height:52px; border-radius:.5rem; display:grid; place-items:center; font-weight:800; font-size:1.1rem; color:#fff}
-  .ods-item h3{margin:.2rem 0 .4rem}
-  .ods-kpi{font-size:.85rem; color:var(--muted)}
+  .ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem}
+  .ods-icon{width:40px; height:40px; border-radius:.3rem; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#fff; margin-right:.5rem}
+  .ods-item summary{list-style:none; cursor:pointer; font-weight:700}
 
   /* Footer */
-  footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted)}
+  footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted); font-size:.9rem; text-align:center}
   </style>
 </head>
 
 <body>
   <header>
     <div class="container">
-      <nav aria-label="Principal">
+      <nav>
         <div class="brand"><span class="dot"></span> Data Center Encinas</div>
         <div class="navlinks">
           <a href="#servicios">Servicios</a>
@@ -111,7 +83,7 @@
     </div>
   </header>
 
-  <main id="inicio">
+  <main>
     <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
@@ -119,32 +91,33 @@
         <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad.</p>
         <div class="badges">
           <span class="badge">PUE optimizado</span>
-          <span class="badge">Energía renovable local</span>
+          <span class="badge">Energía renovable</span>
           <span class="badge">Compromiso ODS 2030</span>
         </div>
-        <div style="display:flex; gap:.75rem; flex-wrap:wrap">
-          <a class="btn primary" href="#contacto">Pedir presupuesto</a>
-          <a class="btn" href="#servicios">Ver servicios</a>
-        </div>
+        <a class="btn primary" href="#contacto">Pedir presupuesto</a>
       </div>
       <figure class="hero-figure">
-        <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva" width="1200" height="800">
+        <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
       </figure>
     </section>
 
-    <!-- Servicios -->
+    <!-- SERVICIOS -->
     <section class="section" id="servicios">
       <div class="container">
         <h2>Servicios</h2>
         <div class="grid cols-3">
-          <div class="card"><h3>GPU Cloud</h3><p class="muted">Instancias dedicadas IA/ML.</p></div>
-          <div class="card"><h3>Colocation</h3><p class="muted">Espacio y conectividad segura.</p></div>
-          <div class="card"><h3>VPS & Backup</h3><p class="muted">Servidores virtuales y copias.</p></div>
+          <div class="card"><h3>GPU Cloud</h3><p class="muted">Instancias dedicadas para IA/ML e inferencia.</p></div>
+          <div class="card"><h3>Colocation</h3><p class="muted">Espacio, energía y conectividad para tus servidores.</p></div>
+          <div class="card"><h3>VPS & Backup</h3><p class="muted">Servidores virtuales y copias de seguridad.</p></div>
+        </div>
+        <div class="card" style="margin-top:2rem">
+          <h3>Comparativa rápida</h3>
+          <p class="muted">GPU: potencia gráfica · Colocation: tu hardware · VPS: flexibilidad.</p>
         </div>
       </div>
     </section>
 
-    <!-- Precios -->
+    <!-- PRECIOS -->
     <section class="section" id="precios">
       <div class="container">
         <h2>Precios orientativos</h2>
@@ -161,19 +134,16 @@
       <div class="container">
         <h2>Compromiso con los ODS 2030</h2>
         <div class="ods-grid">
-          <article class="ods-item"><div class="ods-icon" style="background:#FBC412">7</div><div><h3>ODS 7 — Energía asequible y no contaminante</h3><p>Operación con renovables locales (fotovoltaica y almacenamiento). <strong>Reutilización del calor</strong> de servidores para calefacción comunitaria.</p><p class="ods-kpi">▶ Meta: 250 MWh/año renovables · 20 hogares beneficiados.</p></div></article>
-          <article class="ods-item"><div class="ods-icon" style="background:#A21942">8</div><div><h3>ODS 8 — Trabajo decente y crecimiento económico</h3><p>Empleo cualificado en entorno rural y convenios de formación con UNED/cooperativas.</p><p class="ods-kpi">▶ Meta: 10 empleos directos + 25 indirectos.</p></div></article>
-          <article class="ods-item"><div class="ods-icon" style="background:#FD6925">9</div><div><h3>ODS 9 — Industria, innovación e infraestructura</h3><p>Infraestructura modular eficiente (GPU cloud, fibra, baja latencia) que habilita proyectos I+D.</p><p class="ods-kpi">▶ Meta: latencia &lt; 5 ms regional · 12 proyectos I+D en 2026.</p></div></article>
-          <article class="ods-item"><div class="ods-icon" style="background:#FD9D24">11</div><div><h3>ODS 11 — Ciudades y comunidades sostenibles</h3><p>Rehabilitación de edificio público como hub digital y coworking.</p><p class="ods-kpi">▶ Meta: 1 edificio rehabilitado · 5 municipios conectados.</p></div></article>
-          <article class="ods-item"><div class="ods-icon" style="background:#BF8B2E">12</div><div><h3>ODS 12 — Producción y consumo responsables</h3><p>Contratos PPA locales y ciclo de vida responsable del hardware.</p><p class="ods-kpi">▶ Meta: 90% de equipos reciclados · -70% uso de agua.</p></div></article>
-          <article class="ods-item"><div class="ods-icon" style="background:#3F7E44">13</div><div><h3>ODS 13 — Acción por el clima</h3><p>Eficiencia energética (PUE &lt; 1.2) y plan de neutralidad climática 2030.</p><p class="ods-kpi">▶ Meta: -400 tCO₂/año · Inventario GEI anual.</p></div></article>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#FBC412">7</span> Energía asequible</summary><p>Usamos energías renovables locales y fomentamos el aprovechamiento del calor residual.</p></details>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#A21942">8</span> Trabajo decente</summary><p>Creación de empleo cualificado en entorno rural y formación local.</p></details>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#FD6925">9</span> Innovación</summary><p>Infraestructura modular que impulsa proyectos de IA e investigación.</p></details>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#FD9D24">11</span> Comunidades sostenibles</summary><p>Rehabilitación de espacios públicos y conexión digital para municipios.</p></details>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#BF8B2E">12</span> Consumo responsable</summary><p>Uso eficiente de recursos y gestión responsable del hardware.</p></details>
+          <details class="ods-item"><summary><span class="ods-icon" style="background:#3F7E44">13</span> Acción climática</summary><p>Compromiso con la reducción de emisiones y la eficiencia energética.</p></details>
         </div>
-        <div class="ods-wrap" style="margin-top:2rem">
-          <figure class="ods">
-            <img src="ods-2030.jpg" alt="Póster ODS 2030" width="1100" height="780">
-            <figcaption>Fuente: Naciones Unidas</figcaption>
-          </figure>
-        </div>
+        <figure style="margin-top:2rem">
+          <img src="ods-2030.jpg" alt="Póster oficial ODS 2030">
+        </figure>
       </div>
     </section>
 
@@ -182,29 +152,30 @@
       <div class="container">
         <h2>Preguntas frecuentes</h2>
         <div class="grid cols-2">
-          <div class="card"><details><summary><strong>¿Cómo pedir presupuesto?</strong></summary><p class="muted">Usa el formulario o envíanos un correo y respondemos en 24h.</p></details></div>
-          <div class="card"><details><summary><strong>¿Disponibilidad?</strong></summary><p class="muted">Monitorización 24/7 y SLA definidos.</p></details></div>
-          <div class="card"><details><summary><strong>¿Seguridad?</strong></summary><p class="muted">Segmentación de red y backups georredundantes.</p></details></div>
-          <div class="card"><details><summary><strong>¿Migraciones?</strong></summary><p class="muted">Sí, con plan de pruebas y reversibilidad.</p></details></div>
+          <div class="card"><strong>¿Cómo pedir presupuesto?</strong><p class="muted">Usa el formulario o escribe un correo. Respondemos en 24h.</p></div>
+          <div class="card"><strong>¿Disponibilidad?</strong><p class="muted">Servicios monitorizados y soporte escalable.</p></div>
+          <div class="card"><strong>¿Seguridad de datos?</strong><p class="muted">Cumplimos la normativa de protección de datos. Tus datos solo se usan para responder.</p></div>
+          <div class="card"><strong>¿Migraciones?</strong><p class="muted">Plan de migración sin parada siempre que sea posible.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- CONTACTO -->
     <section class="section" id="contacto">
       <div class="container">
         <h2>Contacto</h2>
         <div class="grid cols-2">
           <div class="card">
-            <form id="contactForm" aria-label="Formulario de contacto">
-              <label class="muted" for="nombre">Nombre</label>
-              <input id="nombre" type="text" name="nombre" required>
-              <label class="muted" for="email">Email</label>
-              <input id="email" type="email" name="email" required>
-              <label class="muted" for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" required></textarea>
+            <form id="contactForm">
+              <label class="muted">Nombre</label>
+              <input type="text" name="nombre" required>
+              <label class="muted">Email</label>
+              <input type="email" name="email" required>
+              <label class="muted">Mensaje</label>
+              <textarea name="mensaje" required></textarea>
+              <label><input type="checkbox" required> Acepto la <a href="privacidad.html">Política de Privacidad</a></label>
               <button class="btn primary" type="submit">Enviar</button>
-              <p class="muted" style="margin:.5rem 0 0">El formulario usa tu cliente de correo (mailto).</p>
+              <p class="muted" style="font-size:.85rem">Tus datos se usan solo para responder a tu consulta.</p>
             </form>
           </div>
           <div class="card">
@@ -219,7 +190,7 @@
 
   <footer>
     <div class="container">
-      <small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global</small>
+      <p>© <span id="y"></span> Data Center Encinas · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></p>
     </div>
   </footer>
 
@@ -228,12 +199,11 @@
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
-      const nombre = encodeURIComponent(data.get('nombre'));
-      const email = encodeURIComponent(data.get('email'));
-      const mensaje = encodeURIComponent(data.get('mensaje'));
       const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
       const subject = encodeURIComponent('Contacto web – Data Center Encinas');
-      const body = encodeURIComponent(`Nombre: ${decodeURIComponent(nombre)}\nEmail: ${decodeURIComponent(email)}\n\nMensaje:\n${decodeURIComponent(mensaje)}`);
+      const body = encodeURIComponent(
+        `Nombre: ${data.get('nombre')}\nEmail: ${data.get('email')}\n\nMensaje:\n${data.get('mensaje')}`
+      );
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
   </script>
