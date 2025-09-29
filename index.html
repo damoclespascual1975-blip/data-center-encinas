@@ -12,8 +12,8 @@
     --bg:#0a1a2f;
     --fg:#e9edf3;
     --muted:#a9b3c7;
-    --brand:#4ade80;
-    --brand-2:#60a5fa;
+    --brand:#4ade80;      /* verde */
+    --brand-2:#60a5fa;    /* azul claro corporativo */
     --card:#111827;
     --border:#1f2937;
     --radius:1rem;
@@ -31,6 +31,8 @@
   a:hover{text-decoration:underline}
   .container{max-width:1200px; margin:auto; padding:0 1rem}
 
+  h1,h2,h3{overflow-wrap:anywhere}
+
   /* Header */
   header{position:sticky; top:0; z-index:50; background:rgba(11,15,23,.75); backdrop-filter:blur(6px); border-bottom:1px solid var(--border)}
   nav{display:flex; justify-content:space-between; align-items:center; min-height:64px; flex-wrap:wrap}
@@ -40,7 +42,7 @@
   .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border-radius:.5rem; border:1px solid var(--border); background:#111827; color:var(--fg)}
   .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0a1a2f; font-weight:700; border:0}
 
-  /* Hero */
+  /* Hero (grid dentro del container) */
   .hero > .container{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -53,7 +55,7 @@
     margin-left:auto;
     margin-right:auto;
     text-align:left;
-    padding-left:2rem; /* aire extra */
+    padding-left:2rem; /* aire extra sin tocar tamaño de la foto */
   }
   .hero-text h1{font-size:clamp(1.8rem,4vw,3rem); margin:0 0 1rem}
   .badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0}
@@ -71,7 +73,7 @@
   .card:hover{transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.3)}
   .muted{color:var(--muted)}
 
-  /* Resalte secciones */
+  /* Resalte secciones (sin desplazar) */
   section:target{
     box-shadow: inset 0 0 0 3px var(--brand-2);
     border-radius: var(--radius);
@@ -110,78 +112,76 @@
     nav{flex-direction:column; gap:.5rem}
     .navlinks{justify-content:center}
   }
-    /* Animaciones suaves sin romper layout */
-@media (prefers-reduced-motion: no-preference) {
-  /* Tarjetas (Servicios, FAQ, etc.) */
-  .card {
-    transform: translateZ(0);
-    transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
-    will-change: transform;
-  }
-  .card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
-    border-color: rgba(96,165,250,.45);
+
+  /* Animaciones suaves sin romper layout */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Tarjetas (Servicios, FAQ, etc.) */
+    .card {
+      transform: translateZ(0);
+      transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+      will-change: transform;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      border-color: rgba(96,165,250,.45);
+    }
+
+    /* Botones */
+    .btn {
+      transform: translateZ(0);
+      transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+      will-change: transform;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+      filter: brightness(1.02);
+    }
+
+    /* Badges del hero */
+    .badge {
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .badge:hover {
+      transform: translateY(-2px) scale(1.03);
+      background: #0f1b2e;
+      border-color: rgba(96,165,250,.45);
+    }
+
+    /* Ítems ODS */
+    .ods-item {
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .ods-item:hover {
+      box-shadow: 0 10px 26px rgba(0,0,0,.30);
+      border-color: rgba(74,222,128,.35);
+    }
+    .ods-item .ods-icon {
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      will-change: transform;
+    }
+    .ods-item:hover .ods-icon {
+      transform: scale(1.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+      filter: saturate(1.05);
+    }
+
+    /* Imagen del hero */
+    .hero-figure img {
+      transition: transform .25s ease, box-shadow .25s ease;
+      will-change: transform;
+    }
+    .hero-figure img:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 14px 42px rgba(0,0,0,.45);
+    }
   }
 
-  /* Botones */
-  .btn {
-    transform: translateZ(0);
-    transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
-    will-change: transform;
+  /* Menos movimiento si el usuario lo pide */
+  @media (prefers-reduced-motion: reduce) {
+    .card, .btn, .badge, .ods-item, .hero-figure img { transition: none !important; }
   }
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0,0,0,.35);
-    filter: brightness(1.02);
-  }
-
-  /* Badges del hero (PUE, Renovable, ODS) */
-  .badge {
-    transition: transform .15s ease, background .2s ease, border-color .2s ease;
-  }
-  .badge:hover {
-    transform: translateY(-2px) scale(1.03);
-    background: #0f1b2e;
-    border-color: rgba(96,165,250,.45);
-  }
-
-  /* Ítems ODS */
-  .ods-item {
-    transition: border-color .2s ease, box-shadow .2s ease;
-  }
-  .ods-item:hover {
-    box-shadow: 0 10px 26px rgba(0,0,0,.30);
-    border-color: rgba(74,222,128,.35);
-  }
-  .ods-item .ods-icon {
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    will-change: transform;
-  }
-  .ods-item:hover .ods-icon {
-    transform: scale(1.06);
-    box-shadow: 0 6px 18px rgba(0,0,0,.35);
-    filter: saturate(1.05);
-  }
-
-  /* Imagen del hero */
-  .hero-figure img {
-    transition: transform .25s ease, box-shadow .25s ease;
-    will-change: transform;
-  }
-  .hero-figure img:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 14px 42px rgba(0,0,0,.45);
-  }
-}
-
-/* Menos movimiento si el usuario lo pide */
-@media (prefers-reduced-motion: reduce) {
-  .card, .btn, .badge, .ods-item, .hero-figure img {
-    transition: none !important;
-  }
-}
-
   </style>
 </head>
 
@@ -246,34 +246,112 @@
       </div>
     </section>
 
-    <!-- ODS -->
+    <!-- ODS COMPLETO -->
     <section class="section" id="ods">
       <div class="container reveal">
         <h2>Compromiso con los ODS 2030</h2>
+
         <div class="ods-grid">
+          <!-- ODS 7 -->
           <article class="ods-item">
-            <div class="ods-head"><span class="ods-icon" style="background:#FBC412">7</span><h3>ODS 7 — Energía asequible y no contaminante</h3></div>
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#FBC412">7</span>
+              <h3>ODS 7 — Energía asequible y no contaminante</h3>
+            </div>
             <div class="ods-sub">
-              <b>Qué hacemos</b><p>Integración de renovables locales y reutilización del calor de servidores.</p>
-              <b>Cómo impacta</b><p>Reduce la huella de carbono y la dependencia de combustibles fósiles.</p>
+              <b>Qué hacemos</b>
+              <p>Integración de renovables locales y diseño térmico que permite aprovechar el calor residual de los servidores.</p>
+              <b>Cómo impacta</b>
+              <p>Reduce el consumo eléctrico de la infraestructura y la dependencia de fuentes fósiles en el entorno.</p>
+              <b>Con quién</b>
+              <p>Proveedores de energía verde, ayuntamiento y tejido asociativo local.</p>
             </div>
           </article>
+
+          <!-- ODS 8 -->
           <article class="ods-item">
-            <div class="ods-head"><span class="ods-icon" style="background:#A21942">8</span><h3>ODS 8 — Trabajo decente y crecimiento económico</h3></div>
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#A21942">8</span>
+              <h3>ODS 8 — Trabajo decente y crecimiento económico</h3>
+            </div>
             <div class="ods-sub">
-              <b>Qué hacemos</b><p>Empleo técnico cualificado en entorno rural.</p>
-              <b>Cómo impacta</b><p>Frena la despoblación y fomenta el emprendimiento digital.</p>
+              <b>Qué hacemos</b>
+              <p>Generamos empleo técnico (sistemas, redes, soporte) y creamos itinerarios de formación con centros educativos.</p>
+              <b>Cómo impacta</b>
+              <p>Frena la despoblación con oportunidades cualificadas y fomenta el emprendimiento digital en la comarca.</p>
+              <b>Con quién</b>
+              <p>Universidades, UNED y cooperativas locales para prácticas y capacitación.</p>
             </div>
           </article>
+
+          <!-- ODS 9 -->
           <article class="ods-item">
-            <div class="ods-head"><span class="ods-icon" style="background:#FD6925">9</span><h3>ODS 9 — Industria, innovación e infraestructura</h3></div>
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#FD6925">9</span>
+              <h3>ODS 9 — Industria, innovación e infraestructura</h3>
+            </div>
             <div class="ods-sub">
-              <b>Qué hacemos</b><p>Infraestructura modular y GPU cloud de baja latencia.</p>
-              <b>Cómo impacta</b><p>Acerca capacidad tecnológica a pymes y municipios.</p>
+              <b>Qué hacemos</b>
+              <p>Infraestructura modular, GPU cloud y conectividad de baja latencia para IA, simulación y datos.</p>
+              <b>Cómo impacta</b>
+              <p>Acerca capacidad tecnológica de alto rendimiento a pymes y administraciones sin desplazarse a grandes núcleos.</p>
+              <b>Con quién</b>
+              <p>Empresas TIC y grupos de I+D que requieren recursos computacionales cercanos.</p>
+            </div>
+          </article>
+
+          <!-- ODS 11 -->
+          <article class="ods-item">
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#FD9D24">11</span>
+              <h3>ODS 11 — Ciudades y comunidades sostenibles</h3>
+            </div>
+            <div class="ods-sub">
+              <b>Qué hacemos</b>
+              <p>Rehabilitamos un espacio público como hub digital y coworking con servicios cloud de proximidad.</p>
+              <b>Cómo impacta</b>
+              <p>Mejora el acceso a servicios digitales municipales y favorece la actividad económica local.</p>
+              <b>Con quién</b>
+              <p>Ayuntamientos, asociaciones y negocios de la zona para digitalizar trámites y procesos.</p>
+            </div>
+          </article>
+
+          <!-- ODS 12 -->
+          <article class="ods-item">
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#BF8B2E">12</span>
+              <h3>ODS 12 — Producción y consumo responsables</h3>
+            </div>
+            <div class="ods-sub">
+              <b>Qué hacemos</b>
+              <p>Priorizamos reacondicionamiento de equipos, gestión responsable del fin de vida y refrigeración eficiente.</p>
+              <b>Cómo impacta</b>
+              <p>Disminuye residuos tecnológicos y consumo de recursos, mejorando la sostenibilidad del ciclo de vida.</p>
+              <b>Con quién</b>
+              <p>Gestores autorizados y proveedores comprometidos con la economía circular.</p>
+            </div>
+          </article>
+
+          <!-- ODS 13 -->
+          <article class="ods-item">
+            <div class="ods-head">
+              <span class="ods-icon" style="background:#3F7E44">13</span>
+              <h3>ODS 13 — Acción por el clima</h3>
+            </div>
+            <div class="ods-sub">
+              <b>Qué hacemos</b>
+              <p>Diseño energético eficiente, priorizando técnicas de enfriamiento pasivo y consumo responsable.</p>
+              <b>Cómo impacta</b>
+              <p>Reduce la huella ambiental del servicio y promueve prácticas de menor emisión en el entorno.</p>
+              <b>Con quién</b>
+              <p>Colaboración con entidades locales para iniciativas de sensibilización y mejora energética.</p>
             </div>
           </article>
         </div>
-        <figure style="margin-top:2rem"><img src="ods-2030.jpg" alt="Póster oficial ODS 2030"></figure>
+
+        <figure style="margin-top:2rem">
+          <img src="ods-2030.jpg" alt="Póster oficial ODS 2030">
+        </figure>
       </div>
     </section>
 
@@ -282,9 +360,30 @@
       <div class="container reveal">
         <h2>Preguntas frecuentes</h2>
         <div class="grid cols-2">
-          <div class="card"><details open><summary><strong>¿Cómo pedir presupuesto?</strong></summary><p class="muted">Completa el formulario o envíanos un correo. Respondemos en menos de 24h.</p></details></div>
-          <div class="card"><details><summary><strong>¿Disponibilidad y soporte?</strong></summary><p class="muted">Servicios monitorizados con SLA claros y soporte escalable.</p></details></div>
-          <div class="card"><details><summary><strong>¿Protección de datos?</strong></summary><p class="muted">Cumplimos la normativa vigente. Tus datos solo se usan para responder tu consulta.</p></details></div>
+          <div class="card">
+            <details open>
+              <summary><strong>¿Cómo pedir presupuesto?</strong></summary>
+              <p class="muted">Completa el formulario de contacto o envíanos un correo. Respondemos en menos de 24 horas.</p>
+            </details>
+          </div>
+          <div class="card">
+            <details>
+              <summary><strong>¿Disponibilidad y soporte?</strong></summary>
+              <p class="muted">Servicios monitorizados y con SLA claros. El soporte escala según la criticidad de cada caso.</p>
+            </details>
+          </div>
+          <div class="card">
+            <details>
+              <summary><strong>¿Seguridad y protección de datos?</strong></summary>
+              <p class="muted">Cumplimos la normativa de protección de datos. La información que nos envíes se usa solo para responder a tu consulta.</p>
+            </details>
+          </div>
+          <div class="card">
+            <details>
+              <summary><strong>¿Hacéis migraciones?</strong></summary>
+              <p class="muted">Sí. Planificamos la migración con pruebas y, cuando es posible, sin interrupción del servicio.</p>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -296,16 +395,20 @@
         <div class="grid cols-2">
           <div class="card">
             <form id="contactForm">
-              <label class="muted">Nombre</label><input type="text" name="nombre" required>
-              <label class="muted">Email</label><input type="email" name="email" required>
-              <label class="muted">Mensaje</label><textarea name="mensaje" required></textarea>
+              <label class="muted">Nombre</label>
+              <input type="text" name="nombre" required>
+              <label class="muted">Email</label>
+              <input type="email" name="email" required>
+              <label class="muted">Mensaje</label>
+              <textarea name="mensaje" required></textarea>
               <label><input type="checkbox" required> Acepto la <a href="privacidad.html">Política de Privacidad</a></label>
               <button class="btn primary" type="submit">Enviar</button>
+              <p class="muted" style="font-size:.85rem">Tus datos se usan solo para responder a tu consulta.</p>
             </form>
           </div>
           <div class="card">
             <h3>También por email</h3>
-            <p class="muted"><a id="directEmail" href="mailto:mpascual582@alumno.uned.es">mpascual582@alumno.uned.es</a></p>
+            <p class="muted">Escríbenos: <a id="directEmail" href="mailto:mpascual582@alumno.uned.es">mpascual582@alumno.uned.es</a></p>
             <p class="muted">Dirección: Encinas de Esgueva (Valladolid)</p>
           </div>
         </div>
@@ -315,26 +418,44 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container"><p>© <span id="y"></span> Data Center Encinas · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></p></div>
+    <div class="container">
+      <p>© <span id="y"></span> Data Center Encinas · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></p>
+    </div>
   </footer>
 
+  <!-- Botón subir arriba -->
   <button id="toTop" aria-label="Volver arriba">⬆</button>
 
   <script>
+    // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Formulario: mailto
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
       const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
       const subject = encodeURIComponent('Contacto web – Data Center Encinas');
-      const body = encodeURIComponent(`Nombre: ${data.get('nombre')}\nEmail: ${data.get('email')}\n\nMensaje:\n${data.get('mensaje')}`);
+      const body = encodeURIComponent(
+        `Nombre: ${data.get('nombre')}\nEmail: ${data.get('email')}\n\nMensaje:\n${data.get('mensaje')}`
+      );
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
-    const toTop=document.getElementById('toTop');
-    window.addEventListener('scroll',()=>{toTop.style.display=window.scrollY>400?'block':'none'});
-    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-    const revealEls=document.querySelectorAll('.reveal,.card,.ods-item');
-    const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.15});
+
+    // Botón subir arriba
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      toTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Animaciones reveal al hacer scroll
+    const revealEls = document.querySelectorAll('.reveal, .card, .ods-item');
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
     revealEls.forEach(el=>io.observe(el));
   </script>
 </body>
