@@ -1,295 +1,90 @@
 <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Center Encinas — IA • HPC • Blockchain</title>
-  <meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local." />
-  <style>
-    :root{
-      --bg1:#071a33; --bg2:#0b2851;
-      --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
-      --text:#e6efff; --muted:#b7c7e6;
-      --brand:#60a5fa; --brand-2:#93c5fd; --ok:#22c55e;
-      --ods7:#ffd60a; --ods9:#f77f00; --ods11:#2ea44f; --ods12:#c084fc; --ods13:#2dc653;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      line-height:1.65;color:var(--text);
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));
-      font-size:18px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    [id]{scroll-margin-top:88px}
-    .main-wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
-
-    /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(5,14,30,.8);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:1rem}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand)}
-    .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:.5rem .75rem;border-radius:.75rem}
-    nav#site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;padding:0 1rem 1rem}
-    nav#site-nav a{padding:.55rem .9rem;border-radius:.6rem;transition:.2s}
-    nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
-
-    /* Hero (SOLO fondo con castillo) */
-    .hero{
-      position:relative;min-height:90vh;display:flex;align-items:center;
-      background:url('castillo.jpg') center/cover no-repeat;
-      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);
-      overflow:hidden;
-    }
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65))}
-    .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem}
-    .badge{display:inline-block;font-size:1rem;padding:.35rem .7rem;border-radius:.6rem;background:rgba(255,255,255,.16);margin-bottom:1rem}
-    .hero h1{font-size:clamp(2rem,4.2vw,3rem);line-height:1.15;margin:.2rem 0 1rem}
-    .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--brand-2);margin:0 0 1.4rem}
-    .cta-row{display:flex;gap:.7rem;flex-wrap:wrap}
-    .btn{display:inline-flex;justify-content:center;align-items:center;padding:1rem 1.2rem;border-radius:.9rem;font-weight:900;border:1px solid rgba(255,255,255,.25);cursor:pointer}
-    .btn.primary{background:var(--brand);color:#081326;border-color:transparent}
-    .btn.primary:hover{background:#3b82f6}
-    .btn.ghost{background:transparent;color:var(--text)}
-    .btn.ghost:hover{background:rgba(255,255,255,.08)}
-
-    /* Secciones */
-    section{padding:2.5rem 1rem}
-    section h2{font-size:1.9rem;margin:0 0 1.2rem;text-align:center}
-    .muted{color:var(--muted)}
-
-    /* Grid y tarjetas */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text)}
-    .card h3{margin:.2rem 0 .6rem}
-    .pill{display:inline-block;font-size:.85rem;padding:.25rem .6rem;border-radius:999px;background:rgba(255,255,255,.14);margin-bottom:.6rem}
-    .price{display:inline-flex;gap:.4rem;align-items:center;padding:.35rem .65rem;border-radius:.6rem;background:rgba(34,197,94,.18);font-weight:800}
-
-    /* Tabla planes */
-    .plans{width:100%;border-collapse:collapse;margin-top:1rem}
-    .plans th,.plans td{padding:1rem;border:1px solid var(--panel-b);text-align:center}
-    .plans th{background:rgba(255,255,255,.08)}
-    .plans td{background:var(--panel)}
-
-    /* ODS */
-    .ods-block{border-radius:1rem;padding:1.2rem;margin-top:1rem}
-    .ods7{background:rgba(255,214,10,.15)}
-    .ods9{background:rgba(247,127,0,.15)}
-    .ods11{background:rgba(46,164,79,.15)}
-    .ods12{background:rgba(192,132,252,.15)}
-    .ods13{background:rgba(45,198,83,.15)}
-
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;text-align:center;color:var(--muted)}
-    @media (max-width:768px){
-      .hero h1{font-size:2.1rem}.hero p.lead{font-size:1rem}
-      .cta-row{flex-direction:column}.btn{width:100%}
-      .nav-toggle{display:block}
-      nav#site-nav{display:none}
-      nav#site-nav.open{display:flex;flex-direction:column}
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="topbar main-wrap">
-    <div class="brand"><span class="dot"></span><span>Data Center Encinas</span></div>
-    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">☰ Menú</button>
-  </div>
-  <nav id="site-nav" class="main-wrap" aria-label="Principal">
-    <a href="#objetivos">Objetivos</a>
-    <a href="#ofrecemos">Qué ofrecemos</a>
-    <a href="#planes">Planes</a>
-    <a href="#ods">ODS</a>
-    <a href="#contacto">Contactar</a>
-  </nav>
-</header>
-
-<section class="hero" aria-label="Presentación">
-  <div class="content main-wrap">
-    <span class="badge">IA • HPC • Blockchain • Hosting</span>
-    <h1>Centro de datos de IA en Encinas de Esgueva</h1>
-    <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="#ofrecemos">Ver soluciones</a>
-      <a class="btn ghost" href="#contacto">Solicitar propuesta personalizada</a>
-    </div>
-  </div>
+<section class="section" id="servicios">
+<div class="container">
+<h2 style="margin:0 0 .75rem">Servicios</h2>
+<p class="muted" style="margin:0 0 1rem">Soluciones técnicas y transparentes para empezar sin fricciones.</p>
+<div class="grid cols-3">
+<div class="card">
+<h3>GPU Cloud</h3>
+<p class="muted">Instancias dedicadas para IA/ML e inferencia. Facturación clara y soporte cercano.</p>
+</div>
+<div class="card">
+<h3>Colocation</h3>
+<p class="muted">Espacio, energía y conectividad para tus servidores con monitorización 24/7.</p>
+</div>
+<div class="card">
+<h3>VPS & Backup</h3>
+<p class="muted">VPS optimizados y copias de seguridad georredundantes.</p>
+</div>
+</div>
+</div>
 </section>
 
-<!-- Objetivos (mejorados) -->
-<section id="objetivos" aria-label="Objetivos clave">
-  <div class="main-wrap">
-    <h2>Objetivos</h2>
-    <div class="grid-3">
-      <article class="card">
-        <span class="pill">⚡ Eficiencia</span>
-        <h3>Más rendimiento con menos energía</h3>
-        <ul class="muted" style="margin:0 0 0 18px">
-          <li>PUE objetivo &lt; 1,2 con <em>free cooling</em> y pasillos frío/calor.</li>
-          <li>NVMe y redes 1/10 Gbps para reducir latencias.</li>
-          <li>Orquestación por cargas (CPU/GPU) para maximizar uso real.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="pill">🌱 Sostenibilidad</span>
-        <h3>Energía limpia y economía circular</h3>
-        <ul class="muted" style="margin:0 0 0 18px">
-          <li>Prioridad a renovables (FV, microeólica, biomasa).</li>
-          <li>Reutilización del calor a red de baja temperatura.</li>
-          <li>Medición y reporte de huella de carbono.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="pill">👥 Impacto local</span>
-        <h3>Desarrollo y talento en la zona</h3>
-        <ul class="muted" style="margin:0 0 0 18px">
-          <li>Servicios digitales a negocios y administraciones.</li>
-          <li>Formación y empleo técnico vinculados al CPD.</li>
-          <li>Convenios con universidades y centros de FP.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
+
+<section class="section" id="ods">
+<div class="container">
+<h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
+<p class="muted" style="margin:0 0 1rem">Transparencia y trazabilidad del impacto. Mostramos el póster oficial de la Agenda 2030 para referencia pública.</p>
+<div class="ods-wrap">
+<figure class="ods">
+<!-- IMPORTANTE: coloca el archivo junto a index.html y nómbralo exactamente 'ods-2030.jpg' -->
+<img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy">
+<figcaption>Fuente: Naciones Unidas (uso informativo). Si no ves la imagen, revisa el nombre del archivo y su ubicación.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 
-<!-- Qué ofrecemos -->
-<section id="ofrecemos">
-  <div class="main-wrap">
-    <h2>Qué ofrecemos</h2>
-    <div class="grid-3">
-      <div class="card"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></div>
-      <div class="card"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Snapshots y tráfico ilimitado.</p><span class="price">4 €/mes</span></div>
-      <div class="card"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></div>
-      <div class="card"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- Planes -->
-<section id="planes">
-  <div class="main-wrap">
-    <h2>Planes y precios</h2>
-    <table class="plans" aria-describedby="nota-precios">
-      <thead><tr><th>Plan</th><th>Incluye</th><th>Dominios</th><th>Recursos</th><th>Precio</th></tr></thead>
-      <tbody>
-        <tr><td>Básico</td><td>Web IA + SSL + soporte básico</td><td>1 dominio gratis 1er año</td><td>Hosting estándar</td><td>14 €/mes</td></tr>
-        <tr class="recommended"><td>Pro ⭐</td><td>WordPress gestionado, CDN</td><td>1 dominio + 3 subdominios</td><td>VPS 1 vCPU · 2 GB</td><td>29 €/mes</td></tr>
-        <tr><td>Premium</td><td>E-commerce, backups avanzados</td><td>2 dominios + 5 subdominios</td><td>VPS 2 vCPU · 4 GB</td><td>49 €/mes</td></tr>
-      </tbody>
-    </table>
-    <p id="nota-precios" class="muted" style="margin-top:.6rem;text-align:center">* Precios orientativos. Cotización final según requisitos.</p>
-  </div>
+<section class="section" id="contacto">
+<div class="container">
+<h2 style="margin:0 0 .75rem">Contacto</h2>
+<div class="grid cols-2">
+<div class="card">
+<form id="contactForm">
+<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="mensaje" placeholder="Cuéntanos tu necesidad (GPU, colocation, etc.)" required></textarea>
+<button class="btn primary" type="submit">Enviar</button>
+<p class="muted" style="margin:.5rem 0 0">El formulario usa tu cliente de correo (mailto) para enviarnos el mensaje.</p>
+</form>
+</div>
+<div class="card">
+<h3>También por email</h3>
+<!-- SUSTITUYE ESTE EMAIL POR EL TUYO SI QUIERES -->
+<p class="muted">Prefieres escribir directamente: <a id="directEmail" href="mailto:mpascual582@alumno.uned.es">mpascual582@alumno.uned.es</a></p>
+<p class="muted">Dirección: Encinas de Esgueva (Valladolid)</p>
+</div>
+</div>
+</div>
 </section>
+</main>
 
-<!-- ODS explicados + póster -->
-<section id="ods" aria-label="Objetivos de Desarrollo Sostenible">
-  <div class="main-wrap">
-    <h2>ODS — Cómo contribuimos</h2>
-    <div class="grid-2">
-      <div class="card ods-block ods7">
-        <h3>ODS 7 · Energía asequible y no contaminante</h3>
-        <ul style="margin:0 0 0 18px">
-          <li>Integración de renovables y almacenamiento.</li>
-          <li>Compra eléctrica con garantía de origen renovable.</li>
-          <li>Optimización PUE y automatización térmica.</li>
-        </ul>
-      </div>
-      <div class="card ods-block ods9">
-        <h3>ODS 9 · Industria, innovación e infraestructura</h3>
-        <ul style="margin:0 0 0 18px">
-          <li>Infraestructura IA/HPC de proximidad para PYMES y academia.</li>
-          <li>Entornos listos (CUDA, PyTorch, TensorFlow) y soporte de migraciones.</li>
-          <li>Monitorización proactiva y SLO/SLA a medida.</li>
-        </ul>
-      </div>
-      <div class="card ods-block ods11">
-        <h3>ODS 11 · Ciudades y comunidades sostenibles</h3>
-        <ul style="margin:0 0 0 18px">
-          <li>Digitalización local y nube soberana (datos en España).</li>
-          <li>Reutilización del calor del CPD en equipamientos municipales.</li>
-          <li>Impulso al teletrabajo y servicios online.</li>
-        </ul>
-      </div>
-      <div class="card ods-block ods12">
-        <h3>ODS 12 · Producción y consumo responsables</h3>
-        <ul style="margin:0 0 0 18px">
-          <li>Economía circular: mantenimiento y reciclaje de hardware.</li>
-          <li>Backups responsables y borrado seguro certificado.</li>
-          <li>Compras verdes y eficiencia de materiales.</li>
-        </ul>
-      </div>
-      <div class="card ods-block ods13">
-        <h3>ODS 13 · Acción por el clima</h3>
-        <ul style="margin:0 0 0 18px">
-          <li><em>Free cooling</em>, pasillos frío/calor y control de carga.</li>
-          <li>Métricas de huella e informes de reducción.</li>
-          <li>Plan de resiliencia climática.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Póster Agenda 2030: usa tu nombre actual "AGENDA 2020jpg" -->
-    <figure class="card" style="margin-top:1rem;padding:0;overflow:hidden">
-      <img src="AGENDA%202020jpg" alt="Agenda 2030 — Los 17 Objetivos de Desarrollo Sostenible">
-      <figcaption style="text-align:center;color:var(--muted);font-size:.9rem;padding:.5rem">
-        Agenda 2030 — Imagen oficial con los 17 ODS
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- Contacto (más intencional) -->
-<section id="contacto" aria-label="Formulario de contacto">
-  <div class="main-wrap">
-    <h2>¿Preparamos tu propuesta?</h2>
-    <div class="card" style="display:grid;gap:.9rem">
-      <p class="muted" style="margin:0">
-        Cuéntanos <strong>qué necesitas y para cuándo</strong>. Responderemos con una <strong>propuesta clara</strong> y alternativas para ajustar coste/tiempos.
-      </p>
-      <ul class="muted" style="margin:0 0 .4rem 18px">
-        <li>✅ Costes transparentes y sin letra pequeña</li>
-        <li>✅ Soporte técnico en España</li>
-        <li>✅ Datos alojados en España (RGPD)</li>
-      </ul>
-      <form class="form" method="POST" action="#" style="display:grid;gap:.75rem">
-        <label>Nombre<input type="text" name="nombre" required aria-required="true"></label>
-        <label>Email<input type="email" name="email" required aria-required="true"></label>
-        <label>Servicio
-          <select name="servicio" required aria-required="true">
-            <option value="">Selecciona…</option>
-            <option>GPU Cloud & IA</option>
-            <option>VPS & Hosting</option>
-            <option>Dominios</option>
-            <option>Otro</option>
-          </select>
-        </label>
-        <label>Mensaje
-          <textarea rows="4" name="mensaje" placeholder="Ej.: Entrenamiento IA 2 semanas con GPU; web WordPress + tienda; migración de VPS..." required aria-required="true"></textarea>
-        </label>
-        <button class="btn primary" type="submit">Solicitar propuesta personalizada</button>
-        <p class="muted" style="margin:0">La respuesta se enviará en función de la carga de trabajo.</p>
-      </form>
-    </div>
-  </div>
-</section>
 
 <footer>
-  <div class="main-wrap"><small>© <span id="y"></span> Data Center Encinas — Encinas de Esgueva</small></div>
+<div class="container">
+<small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global.</small>
+</div>
 </footer>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-  const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
-  if(btn && nav){ btn.addEventListener('click',()=> {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });}
-</script>
 
+<script>
+// Año dinámico
+document.getElementById('y').textContent = new Date().getFullYear();
+
+
+// Formulario: abre mailto con los datos
+document.getElementById('contactForm').addEventListener('submit', function(e){
+e.preventDefault();
+const data = new FormData(e.target);
+const nombre = encodeURIComponent(data.get('nombre'));
+const email = encodeURIComponent(data.get('email'));
+const mensaje = encodeURIComponent(data.get('mensaje'));
+const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
+const subject = encodeURIComponent('Contacto web – Data Center Encinas');
+const body = encodeURIComponent(`Nombre: ${decodeURIComponent(nombre)}\nEmail: ${decodeURIComponent(email)}\n\nMensaje:\n${decodeURIComponent(mensaje)}`);
+window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+});
+</script>
 </body>
 </html>
