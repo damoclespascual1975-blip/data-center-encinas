@@ -42,12 +42,12 @@
     /* Hero */
     .hero{
       position:relative;min-height:90vh;display:flex;align-items:center;
+      background:url('castillo.jpg') center/cover no-repeat;
       color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);
       overflow:hidden;
-      background:#0b2851; /* fallback */
     }
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65));z-index:0}
-    .hero .content{position:relative;z-index:2;max-width:760px;padding:2rem;animation:fadeIn 1.5s}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65))}
+    .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem;animation:fadeIn 1.5s}
     .badge{display:inline-block;font-size:.9rem;padding:.3rem .6rem;border-radius:.5rem;background:rgba(255,255,255,.16);margin-bottom:.9rem}
     .hero h1{font-size:2.8rem;line-height:1.15;margin:.2rem 0 1rem}
     .hero p.lead{font-size:1.2rem;color:var(--brand-2);margin:0 0 1.4rem}
@@ -57,9 +57,6 @@
     .btn.primary:hover{background:#3b82f6}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.35)}
     .btn.ghost:hover{background:rgba(255,255,255,.08)}
-
-    /* NUEVO: imagen visible en hero */
-    .hero .bg-img{position:absolute;inset:0;z-index:1;opacity:.45;object-fit:cover;width:100%;height:100%}
 
     /* Secciones */
     section{padding:2.5rem 1rem;animation:fadeIn 1.2s}
@@ -121,8 +118,6 @@
 </header>
 
 <section class="hero">
-  <!-- NUEVO: imagen visible; si falta castillo.jpg, no rompe la página -->
-  <img class="bg-img" src="castillo.jpg" alt="Castillo de Encinas de Esgueva" />
   <div class="content main-wrap">
     <span class="badge">IA • HPC • Blockchain • Hosting</span>
     <h1>Centro de datos de IA en Encinas de Esgueva</h1>
@@ -198,11 +193,6 @@
       <h3>ODS 13 · Acción por el clima</h3>
       <p>Free cooling, reutilización térmica y energías renovables permiten reducir drásticamente las emisiones de CO₂.</p>
     </div>
-
-    <!-- NUEVO: imagen del póster ODS visible -->
-    <figure class="card" style="margin-top:1rem;padding:0;overflow:hidden">
-      <img src="ods-2030.jpg" alt="Póster ODS 2030" />
-    </figure>
   </div>
 </section>
 
@@ -222,24 +212,11 @@
 <section id="contacto">
   <div class="main-wrap">
     <h2>Contactar</h2>
-    <form class="card" style="display:grid;gap:.75rem" method="POST" action="https://formspree.io/f/your-endpoint"><!-- NUEVO: method + action -->
-      <label>Nombre<input type="text" name="nombre" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Mensaje<textarea rows="4" name="mensaje" required></textarea></label>
-      <label>Servicio
-        <select name="servicio" required>
-          <option value="">Selecciona…</option>
-          <option>GPU Cloud & IA</option>
-          <option>VPS & Hosting</option>
-          <option>Dominios</option>
-          <option>Otro</option>
-        </select>
-      </label>
+    <form class="card" style="display:grid;gap:.75rem">
+      <label>Nombre<input type="text" required></label>
+      <label>Email<input type="email" required></label>
+      <label>Mensaje<textarea rows="4" required></textarea></label>
       <button class="btn primary" type="submit">Enviar</button>
-      <!-- NUEVO: texto actualizado del presupuesto -->
-      <p class="muted" style="margin:0">
-        El presupuesto <strong>se enviará en función de la carga de trabajo</strong>; disculpen las molestias.
-      </p>
     </form>
   </div>
 </section>
