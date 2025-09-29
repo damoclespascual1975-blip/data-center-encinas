@@ -2,236 +2,331 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Center Encinas — IA • HPC • Blockchain</title>
-  <meta name="description" content="Centro de datos de IA en Encinas de Esgueva. GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Center Encinas — IA, GPU y Hosting Sostenible</title>
+  <meta name="description" content="Infraestructura IA, GPU cloud, VPS y hosting sostenible en Encinas de Esgueva. Presupuesto personalizado en menos de 24h. Cumplimiento RGPD sin pedir datos bancarios." />
   <style>
-    :root{
-      --bg1:#071a33; --bg2:#0b2851;
-      --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
-      --text:#e6efff; --muted:#b7c7e6;
-      --brand:#60a5fa; --brand-2:#93c5fd; --ok:#22c55e; --warn:#f59e0b;
-      --ods7:#ffd60a; --ods9:#f77f00; --ods13:#2dc653;
-    }
+    :root{--brand:#1f6feb;--bg:#0b1020;--text:#0f172a;--muted:#475569;--panel:#fafafa}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      line-height:1.6;color:var(--text);
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);line-height:1.6;background:#ffffff}
+    header,footer,section{padding:24px 16px}
+    .container{max-width:1100px;margin:0 auto}
+    h1,h2,h3{line-height:1.25;margin:0 0 12px}
+    h1{font-size:2.2rem} h2{font-size:1.8rem} h3{font-size:1.15rem}
+    p{margin:0 0 10px}
+    a{color:var(--brand);text-decoration:none}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;border:0}
+    .hero{padding:64px 16px;text-align:center;background:var(--panel)}
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px}
+    .muted{color:var(--muted);font-size:.95rem}
+    .lead{max-width:760px;margin:0 auto 12px}
+    .input,select,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;background:#fff}
+    textarea{resize:vertical}
+    .cta-sticky{position:fixed;right:16px;bottom:16px;background:var(--brand);color:#fff;padding:12px 16px;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+    footer{background:var(--bg);color:#cbd5e1}
+    .footer-nav a{color:#cbd5e1;margin-left:12px}
+    details{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px}
+    summary{cursor:pointer;font-weight:600}
+    .ok{color:#166534}
+    .err{color:#b91c1c}
+    .flag{display:inline-block;border-radius:999px;padding:2px 8px;font-size:.8rem;background:#e5efff}
+    .ods-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .ods-card h4{margin:0 0 6px;font-size:1.05rem}
+    .section-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    nav a:hover{text-decoration:underline}
+    .kbd{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:0 6px}
+    @media (prefers-color-scheme: dark){
+      body{background:#0b1220;color:#e5e7eb}
+      .hero{background:#0f172a}
+      .card,details{background:#0f172a;border-color:#243045}
+      .input,select,textarea{background:#0b1220;color:#e5e7eb;border-color:#243045}
+      .flag{background:#102446}
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    [id]{scroll-margin-top:88px}
-    .main-wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
-
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(5,14,30,.8);backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--brand)}
-    .nav-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:var(--text);padding:.5rem .75rem;border-radius:.75rem}
-    nav#site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;padding:0 1rem 1rem}
-    nav#site-nav a{padding:.5rem .8rem;border-radius:.6rem;transition:.3s}
-    nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
-
-    /* Hero */
-    .hero{
-      position:relative;min-height:90vh;display:flex;align-items:center;
-      background:url('castillo.jpg') center/cover no-repeat;
-      color:var(--text);text-shadow:1px 1px 4px rgba(0,0,0,.7);
-      overflow:hidden;
-    }
-    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,51,.55),rgba(11,40,81,.65))}
-    .hero .content{position:relative;z-index:1;max-width:760px;padding:2rem;animation:fadeIn 1.5s}
-    .badge{display:inline-block;font-size:.9rem;padding:.3rem .6rem;border-radius:.5rem;background:rgba(255,255,255,.16);margin-bottom:.9rem}
-    .hero h1{font-size:2.8rem;line-height:1.15;margin:.2rem 0 1rem}
-    .hero p.lead{font-size:1.2rem;color:var(--brand-2);margin:0 0 1.4rem}
-    .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.8rem 1.2rem;border-radius:.75rem;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.3s}
-    .btn.primary{background:var(--brand);color:#081326}
-    .btn.primary:hover{background:#3b82f6}
-    .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.35)}
-    .btn.ghost:hover{background:rgba(255,255,255,.08)}
-
-    /* Secciones */
-    section{padding:2.5rem 1rem;animation:fadeIn 1.2s}
-    section h2{font-size:1.7rem;margin:0 0 1.2rem;text-align:center}
-    .muted{color:var(--muted)}
-
-    /* Grid */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:.3s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
-    .card h3{margin:.2rem 0 .6rem}
-    .pill{display:inline-block;font-size:.75rem;padding:.2rem .55rem;border-radius:999px;background:rgba(255,255,255,.12);margin-bottom:.6rem}
-    .price{display:inline-flex;gap:.4rem;align-items:center;padding:.3rem .6rem;border-radius:.5rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);font-weight:700}
-
-    /* Tabla planes */
-    .plans{width:100%;border-collapse:collapse;margin-top:1rem}
-    .plans th,.plans td{padding:1rem;border:1px solid var(--panel-b);text-align:center}
-    .plans th{background:rgba(255,255,255,.08)}
-    .plans td{background:var(--panel)}
-    .plans tr.recommended td{background:rgba(96,165,250,.15);border:2px solid var(--brand)}
-    .plans tr.recommended td:first-child{font-weight:800;color:var(--brand)}
-
-    /* ODS */
-    .ods-block{border-radius:1rem;padding:1.5rem;margin-top:1rem;color:#000}
-    .ods-block h3{margin-top:0}
-    .ods7{background:var(--ods7)}
-    .ods9{background:var(--ods9);color:#fff}
-    .ods13{background:var(--ods13);color:#fff}
-
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;background:rgba(5,14,30,.7);color:var(--muted);text-align:center}
-
-    @media (max-width:768px){
-      .hero h1{font-size:2.1rem}.hero p.lead{font-size:1rem}
-      .cta-row{flex-direction:column}.btn{width:100%}
-      .nav-toggle{display:block;margin-left:1rem}
-      nav#site-nav{display:none}
-      nav#site-nav.open{display:flex;flex-direction:column}
-      .grid-3{grid-template-columns:1fr}
-    }
-
-    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 <body>
 
-<header>
-  <div class="topbar main-wrap">
-    <div class="brand"><span class="dot"></span><span>Data Center Encinas</span></div>
-    <button class="nav-toggle">☰ Menú</button>
-  </div>
-  <nav id="site-nav" class="main-wrap">
-    <a href="#objetivos">Objetivos</a>
-    <a href="#ofrecemos">Qué ofrecemos</a>
-    <a href="#planes">Planes</a>
-    <a href="#ods">ODS</a>
-    <a href="#clientes">Clientes</a>
-    <a href="#contacto">Contactar</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="content main-wrap">
-    <span class="badge">IA • HPC • Blockchain • Hosting</span>
-    <h1>Centro de datos de IA en Encinas de Esgueva</h1>
-    <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="#ofrecemos">Ver ofertas</a>
-      <a class="btn ghost" href="#contacto">Pedir presupuesto</a>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <strong>Data Center Encinas</strong>
+      <nav style="display:flex;gap:16px">
+        <a href="#confianza">Por qué nosotros</a>
+        <a href="#ods">ODS</a>
+        <a href="#contacto" class="btn" style="padding:8px 14px">Solicitar presupuesto</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- Objetivos -->
-<section id="objetivos">
-  <div class="main-wrap">
-    <h2>Objetivos</h2>
-    <div class="grid-3">
-      <div class="card"><h3>⚡ Eficiencia</h3><p class="muted">PUE &lt; 1.2 con free cooling y optimización.</p></div>
-      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Renovables y reutilización térmica.</p></div>
-      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo y servicios digitales rurales.</p></div>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container" style="text-align:center">
+      <h1>Infraestructura IA, GPU y Hosting Sostenible</h1>
+      <p class="lead">
+        Dimensionamos tu proyecto y te enviamos un <strong>presupuesto 100% personalizado</strong> sin compromiso en <strong>&lt; 24 h</strong>.
+        <br/>No pedimos datos bancarios.
+      </p>
+      <a href="#contacto" class="btn">Solicitar presupuesto</a>
+      <p class="muted" style="margin-top:8px">🔒 Tus datos solo se usarán para responder a tu solicitud.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Qué ofrecemos -->
-<section id="ofrecemos">
-  <div class="main-wrap">
-    <h2>Qué ofrecemos</h2>
-    <div class="grid-3">
-      <div class="card"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></div>
-      <div class="card"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Snapshots y tráfico ilimitado.</p><span class="price">4 €/mes</span></div>
-      <div class="card"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></div>
-      <div class="card"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></div>
+  <!-- ===== CONFianza / PRUEBA SOCIAL ===== -->
+  <section id="confianza">
+    <div class="container">
+      <div class="section-title">
+        <h2>Por qué nos eligen</h2>
+        <span class="flag">Ahorro · Escalabilidad · Sostenibilidad</span>
+      </div>
+      <div class="grid cards" style="margin-top:8px">
+        <div class="card">
+          <h3>Ahorro real</h3>
+          <p>Optimización de arquitectura y costes: <strong>20–35% de ahorro</strong> frente a soluciones genéricas.</p>
+        </div>
+        <div class="card">
+          <h3>Escalabilidad</h3>
+          <p>GPU cloud, VPS y hosting adaptados a tu carga, con soporte cercano y priorización por SLA.</p>
+        </div>
+        <div class="card">
+          <h3>Sostenibilidad</h3>
+          <p>Eficiencia energética y diseño para reducir consumo y emisiones (free-cooling, reutilización de calor).</p>
+        </div>
+      </div>
+
+      <div class="grid cards" style="margin-top:16px">
+        <blockquote class="card"><p style="margin:0 0 8px">“Reducimos costes un 28% y aceleramos entrenamientos IA 5×.”</p><small>— Dra. S. Ruiz, Universidad (I+D)</small></blockquote>
+        <blockquote class="card"><p style="margin:0 0 8px">“Migración sin caída y soporte impecable.”</p><small>— CTO, Startup SaaS</small></blockquote>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Planes -->
-<section id="planes">
-  <div class="main-wrap">
-    <h2>Planes y precios</h2>
-    <table class="plans">
-      <thead>
-        <tr><th>Plan</th><th>Incluye</th><th>Dominios</th><th>Recursos</th><th>Precio</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Básico</td><td>Web IA + SSL + soporte básico</td><td>1 dominio gratis 1er año</td><td>Hosting estándar</td><td>14 €/mes</td>
-        </tr>
-        <tr class="recommended">
-          <td>Pro ⭐</td><td>WordPress gestionado, CDN</td><td>1 dominio + 3 subdominios</td><td>VPS 1 vCPU · 2 GB</td><td>29 €/mes</td>
-        </tr>
-        <tr>
-          <td>Premium</td><td>E-commerce, backups avanzados</td><td>2 dominios + 5 subdominios</td><td>VPS 2 vCPU · 4 GB</td><td>49 €/mes</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+  <!-- ===== ODS: CÓMO CONTRIBUIMOS (1–17) ===== -->
+  <section id="ods" style="background:var(--panel)">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contribución a los ODS (Agenda 2030)</h2>
+        <span class="muted">No solo decimos cuáles: explicamos <strong>cómo</strong>.</span>
+      </div>
 
-<!-- ODS -->
-<section id="ods">
-  <div class="main-wrap">
-    <h2>ODS — Compromiso</h2>
-    <div class="ods-block ods7">
-      <h3>ODS 7 · Energía asequible y limpia</h3>
-      <p>Paneles solares, microeólica y biomasa reducen costes y emisiones. Excedentes eléctricos pueden beneficiar a la comunidad.</p>
+      <div class="ods-grid" style="margin-top:12px">
+        <div class="card ods-card">
+          <h4>ODS 1 · Fin de la pobreza</h4>
+          <p>Empleo local cualificado en zonas rurales y cadena de proveedores locales (mantenimiento, obra, energía), generando renta estable.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 2 · Hambre cero</h4>
+          <p>Compra de biomasa agrícola/forestal para energía y contratos con cooperativas rurales, aportando ingresos complementarios al campo.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 3 · Salud y bienestar</h4>
+          <p>Reducción de contaminación acústica/térmica, protocolos de seguridad laboral y telemedicina soportada por la infraestructura digital.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 4 · Educación de calidad</h4>
+          <p>Convenios con centros educativos/UNED para prácticas y formación en IA, redes y energías; becas y talleres STEM locales.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 5 · Igualdad de género</h4>
+          <p>Política de igualdad en contratación, conciliación y programas de mentorización para mujeres en tecnología y operaciones.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 6 · Agua limpia y saneamiento</h4>
+          <p>Uso eficiente del agua (ciclos cerrados, free-cooling) y monitorización para minimizar consumo y vertidos.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 7 · Energía asequible y no contaminante</h4>
+          <p>Fotovoltaica, almacenamiento y eficiencia (PUE bajo); contratos de energía renovable y gestión inteligente de cargas.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 8 · Trabajo decente y crecimiento económico</h4>
+          <p>Empleo directo e indirecto, formación continua, prevención de riesgos y proveedores con cláusulas laborales responsables.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 9 · Industria, innovación e infraestructura</h4>
+          <p>Centro de datos modular con soporte a I+D, startups y universidades; conectividad avanzada y servicios de cómputo GPU.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 10 · Reducción de desigualdades</h4>
+          <p>Acceso a servicios digitales avanzados desde la España rural, precios escalables y becas para proyectos sociales.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 11 · Ciudades y comunidades sostenibles</h4>
+          <p>Reutilización de calor para edificios cercanos, integración paisajística y planes de emergencia/comunidad.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 12 · Producción y consumo responsables</h4>
+          <p>Compra circular (equipos reacondicionados cuando procede), reciclaje de RAEE y reporting de huella ambiental.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 13 · Acción por el clima</h4>
+          <p>Plan de descarbonización (mix renovable, PUE y ERF), medición de CO₂ evitado y objetivos anuales auditables.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 14 · Vida submarina</h4>
+          <p>Política cero vertidos contaminantes, preferencia por refrigerantes de bajo impacto y gestión responsable de residuos.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 15 · Vida de ecosistemas terrestres</h4>
+          <p>Selección de emplazamientos sin afección a hábitats protegidos, revegetación y planes de biodiversidad local.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 16 · Paz, justicia e instituciones sólidas</h4>
+          <p>Cumplimiento RGPD/LOPDGDD, seguridad de la información, transparencia de datos y canales éticos de denuncia.</p>
+        </div>
+        <div class="card ods-card">
+          <h4>ODS 17 · Alianzas para lograr los objetivos</h4>
+          <p>Acuerdos con universidades, empresas y administraciones para innovación abierta y financiación público-privada.</p>
+        </div>
+      </div>
     </div>
-    <div class="ods-block ods9">
-      <h3>ODS 9 · Innovación e infraestructura</h3>
-      <p>Un nodo de IA, HPC y blockchain en la España vaciada. Atrae startups, fomenta teletrabajo y digitaliza pymes.</p>
+  </section>
+
+  <!-- ===== FORMULARIO PRINCIPAL (RGPD por capas, sin datos bancarios) ===== -->
+  <section id="contacto">
+    <div class="container">
+      <h2>Solicita tu presupuesto</h2>
+      <p class="muted" style="margin-top:0">Cuéntanos lo básico. Responderemos en &lt; 24 h. <strong>No pedimos datos bancarios.</strong></p>
+
+      <!-- INFO BÁSICA RGPD (capa 1) -->
+      <details style="margin:12px 0 20px">
+        <summary>Información básica de protección de datos</summary>
+        <div class="muted" style="margin-top:8px">
+          <p><strong>Responsable:</strong> [Nombre/Razón social].</p>
+          <p><strong>Finalidad:</strong> Atender tu solicitud de información/presupuesto.</p>
+          <p><strong>Legitimación:</strong> Consentimiento del interesado (art. 6.1.a RGPD).</p>
+          <p><strong>Destinatarios:</strong> No se ceden datos a terceros salvo obligación legal o encargados necesarios (hosting/correo) bajo contrato art. 28 RGPD.</p>
+          <p><strong>Conservación:</strong> Durante la gestión de la solicitud y un máximo de 12 meses.</p>
+          <p><strong>Derechos:</strong> Acceso, rectificación, supresión y otros en <a href="mailto:CONTACTO@TU-DOMINIO">CONTACTO@TU-DOMINIO</a>. +info en la <a href="#politica-privacidad">Política de Privacidad</a>.</p>
+        </div>
+      </details>
+
+      <form id="presupuestoForm" onsubmit="return handleMainSubmit(event)" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start;gap:12px">
+        <!-- Minimización de datos: nombre, email, servicio y mensaje -->
+        <label>
+          <span class="muted">Nombre</span>
+          <input class="input" type="text" name="nombre" required autocomplete="name">
+        </label>
+
+        <label>
+          <span class="muted">Email</span>
+          <input class="input" type="email" name="email" required autocomplete="email">
+        </label>
+
+        <label>
+          <span class="muted">Servicio de interés</span>
+          <select class="input" name="servicio" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option>GPU IA</option>
+            <option>VPS</option>
+            <option>Hosting</option>
+            <option>Web con IA</option>
+            <option>Otro</option>
+          </select>
+        </label>
+
+        <label style="grid-column:1/-1">
+          <span class="muted">Mensaje / necesidades</span>
+          <textarea class="input" name="mensaje" rows="5" required placeholder="Cuéntanos tu objetivo, escala (p. ej., nº de GPUs o tráfico) y plazos estimados..."></textarea>
+        </label>
+
+        <!-- Consentimiento explícito -->
+        <label style="grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:.95rem">
+          <input type="checkbox" name="consent" required>
+          <span>He leído y acepto la <a href="#politica-privacidad">Política de Privacidad</a> y autorizo el tratamiento de mis datos para responder a mi solicitud.</span>
+        </label>
+
+        <div style="grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <button class="btn" type="submit">Solicitar presupuesto</button>
+          <span class="muted">⏱️ &lt; 24 h · 🔒 Sin cesión no necesaria · ❌ Sin datos bancarios</span>
+        </div>
+
+        <p id="formMsg" style="grid-column:1/-1;display:none" class="ok"></p>
+      </form>
     </div>
-    <div class="ods-block ods13">
-      <h3>ODS 13 · Acción por el clima</h3>
-      <p>Free cooling, reutilización térmica y energías renovables permiten reducir drásticamente las emisiones de CO₂.</p>
+  </section>
+
+  <!-- ===== CTA STICKY ===== -->
+  <a href="#contacto" class="cta-sticky" aria-label="Solicitar presupuesto">Pedir presupuesto</a>
+
+  <!-- ===== POLÍTICA DE PRIVACIDAD (capa 2, en la misma página) ===== -->
+  <section id="politica-privacidad" style="background:var(--panel)">
+    <div class="container">
+      <h2>Política de Privacidad</h2>
+      <p><strong>Responsable:</strong> [Nombre/Razón social], [NIF/CIF], [domicilio], <a href="mailto:[EMAIL-DE-CONTACTO]">[EMAIL-DE-CONTACTO]</a>.</p>
+
+      <h3>1. Datos y finalidad</h3>
+      <p>Solo recabamos los datos que nos proporcionas en el formulario: nombre, email, servicio de interés y mensaje. La finalidad es <strong>atender tu solicitud de información y/o enviar un presupuesto</strong>. No solicitamos datos bancarios en esta fase.</p>
+
+      <h3>2. Base jurídica</h3>
+      <p>Tu <strong>consentimiento</strong> (art. 6.1.a RGPD), otorgado al marcar la casilla antes de enviar el formulario.</p>
+
+      <h3>3. Conservación</h3>
+      <p>Conservamos los datos durante la gestión de la solicitud y, como máximo, <strong>12 meses</strong> desde la última interacción, salvo obligación legal.</p>
+
+      <h3>4. Destinatarios</h3>
+      <p>No cedemos datos a terceros salvo obligación legal. Podrán acceder proveedores necesarios (alojamiento web, correo) como <em>encargados del tratamiento</em> conforme al art. 28 RGPD, con contrato.</p>
+
+      <h3>5. Derechos</h3>
+      <p>Puedes ejercer <strong>acceso, rectificación, supresión, oposición, limitación y portabilidad</strong> escribiéndonos a <a href="mailto:[EMAIL-DE-CONTACTO]">[EMAIL-DE-CONTACTO]</a>. También puedes reclamar ante la <a target="_blank" rel="noopener" href="https://www.aepd.es/">AEPD</a>.</p>
+
+      <h3>6. Seguridad</h3>
+      <p>Aplicamos medidas técnicas y organizativas adecuadas al riesgo: transmisión por HTTPS, control de acceso y minimización de datos.</p>
+
+      <p class="muted" style="margin-top:16px">Última actualización: <span id="fecha-pp"></span></p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Clientes -->
-<section id="clientes">
-  <div class="main-wrap">
-    <h2>Clientes y casos de uso</h2>
-    <div class="grid-3">
-      <div class="card"><h3>👨‍💻 Autónomos</h3><p class="muted">Creador web IA con dominio. Ideal para bares y profesionales.</p></div>
-      <div class="card"><h3>🏢 PYMES</h3><p class="muted">Hosting, e-commerce y analítica para crecer online.</p></div>
-      <div class="card"><h3>🎓 Universidades</h3><p class="muted">GPU Cloud para IA e investigación a bajo coste.</p></div>
+  <!-- ===== AVISO LEGAL (en la misma página) ===== -->
+  <section id="aviso-legal">
+    <div class="container">
+      <h2>Aviso legal</h2>
+      <p><strong>Titular:</strong> [Nombre/Razón social], [NIF/CIF], [domicilio], <a href="mailto:[EMAIL-DE-CONTACTO]">[EMAIL-DE-CONTACTO]</a>.</p>
+      <p>El acceso a este sitio implica la aceptación de las condiciones de uso. Los contenidos, marcas y logotipos son propiedad del titular o se usan con licencia. Queda prohibida su reproducción no autorizada.</p>
+      <p>Este sitio puede contener enlaces de terceros. El titular no se hace responsable de sus contenidos. Legislación aplicable: española.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contacto -->
-<section id="contacto">
-  <div class="main-wrap">
-    <h2>Contactar</h2>
-    <form class="card" style="display:grid;gap:.75rem">
-      <label>Nombre<input type="text" required></label>
-      <label>Email<input type="email" required></label>
-      <label>Mensaje<textarea rows="4" required></textarea></label>
-      <button class="btn primary" type="submit">Enviar</button>
-    </form>
-  </div>
-</section>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+      <span>© <span id="year"></span> [Nombre/Razón social]. Todos los derechos reservados.</span>
+      <div class="footer-nav">
+        <a href="#politica-privacidad">Política de Privacidad</a>
+        <a href="#aviso-legal">Aviso legal</a>
+        <span class="kbd">Pruebas</span>
+      </div>
+    </div>
+  </footer>
 
-<footer>
-  <div class="main-wrap">
-    <small>© <span id="y"></span> Data Center Encinas — Encinas de Esgueva</small>
-  </div>
-</footer>
+  <!-- ===== JS mínimo (simulación envío en pruebas) ===== -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('fecha-pp').textContent = new Date().toLocaleDateString('es-ES');
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-  const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
-  btn.addEventListener('click',()=>nav.classList.toggle('open'));
-</script>
+    // Este envío es solo una simulación para GitHub Pages.
+    // Cuando tengas backend o proveedor (Formspree/Formspark/tu API), reemplaza por fetch(...) y borra el preventDefault.
+    function handleMainSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      if(!form.querySelector('input[name="consent"]').checked){ return false; }
 
+      // MINIMIZACIÓN: solo tratamos lo necesario
+      const payload = {
+        nombre: form.nombre.value.trim(),
+        email: form.email.value.trim(),
+        servicio: form.servicio.value,
+        mensaje: form.mensaje.value.trim()
+      };
+
+      // TODO: Reemplazar por envío real (HTTPS + DPA)
+      const msg = document.getElementById('formMsg');
+      msg.style.display = 'block';
+      msg.textContent = '¡Gracias! Hemos recibido tu solicitud. Te responderemos en menos de 24 horas.';
+      form.reset();
+      return false;
+    }
+  </script>
 </body>
 </html>
