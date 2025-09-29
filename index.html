@@ -42,11 +42,16 @@
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
     
 /* ODS iconitos */
-.ods-grid{display:grid; gap:1rem}
-@media (min-width:768px){.ods-grid{grid-template-columns:repeat(3,1fr)}}
-.ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; display:flex; gap:.9rem; align-items:flex-start}
-.ods-icon{flex:0 0 44px; width:44px; height:44px; border-radius:.5rem; display:grid; place-items:center; font-weight:800; color:#fff; font-size:1rem; line-height:1}
-.ods-item h3{margin:.15rem 0 .35rem}
+
+    /* ODS expandido */
+.ods-grid{display:grid; gap:1.5rem}
+@media(min-width:768px){.ods-grid{grid-template-columns:repeat(2,1fr)}}
+.ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; display:flex; gap:1rem; align-items:flex-start}
+.ods-icon{flex:0 0 52px; width:52px; height:52px; border-radius:.5rem; display:grid; place-items:center; font-weight:800; font-size:1.1rem; color:#fff}
+.ods-item h3{margin:.2rem 0 .4rem}
+.ods-item p{margin:0 0 .35rem}
+.ods-kpi{font-size:.85rem; color:var(--muted)}
+
 
     /* Header */
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:rgba(11,15,23,.6); border-bottom:1px solid var(--border)}
@@ -252,73 +257,80 @@
     </section>
 
  <!-- ODS EXPLICATIVO + PÓSTER -->
+<!-- ODS EXPANDIDO -->
 <section class="section" id="ods">
   <div class="container">
     <h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
-    <p class="muted" style="margin:0 0 1rem">
-      Nuestro Centro de Datos es motor de desarrollo rural, eficiencia energética y sostenibilidad, en línea con la Agenda 2030.
+    <p class="muted" style="margin:0 0 1.25rem">
+      Nuestro Centro de Datos no es solo infraestructura TI: está diseñado como un nodo de transformación rural, eficiencia energética e innovación social,
+      alineado con los Objetivos de Desarrollo Sostenible de Naciones Unidas.
     </p>
 
-    <!-- Tarjetas ODS con icono y color -->
-    <div class="ods-grid" style="margin-bottom:2rem">
+    <div class="ods-grid">
       <article class="ods-item" aria-label="ODS 7 Energía asequible y no contaminante">
-        <div class="ods-icon" style="background:#FBC412" aria-hidden="true">7</div>
+        <div class="ods-icon" style="background:#FBC412">7</div>
         <div>
-          <h3>ODS 7 — Energía</h3>
-          <p class="muted">Autoconsumo renovable local y <strong>reutilización de calor</strong> para servicios de la comunidad.</p>
+          <h3>ODS 7 — Energía asequible y no contaminante</h3>
+          <p>Operación con renovables locales (fotovoltaica y almacenamiento). <strong>Reutilización del calor</strong> de servidores para calefacción comunitaria y ACS.</p>
+          <p class="ods-kpi">▶ Meta: 250 MWh/año renovables · 20 hogares/edificios beneficiados con calor reciclado.</p>
         </div>
       </article>
 
       <article class="ods-item" aria-label="ODS 8 Trabajo decente y crecimiento económico">
-        <div class="ods-icon" style="background:#A21942" aria-hidden="true">8</div>
+        <div class="ods-icon" style="background:#A21942">8</div>
         <div>
-          <h3>ODS 8 — Empleo</h3>
-          <p class="muted">Empleo cualificado en entorno rural y atracción de talento digital con formación práctica.</p>
+          <h3>ODS 8 — Trabajo decente y crecimiento económico</h3>
+          <p>Empleo cualificado en entorno rural (sistemas, redes, soporte) y convenios de formación con UNED/cooperativas.</p>
+          <p class="ods-kpi">▶ Meta: 10 empleos directos + 25 indirectos · 3 convenios de prácticas/aula digital.</p>
         </div>
       </article>
 
       <article class="ods-item" aria-label="ODS 9 Industria, innovación e infraestructura">
-        <div class="ods-icon" style="background:#FD6925" aria-hidden="true">9</div>
+        <div class="ods-icon" style="background:#FD6925">9</div>
         <div>
-          <h3>ODS 9 — Innovación</h3>
-          <p class="muted">Infraestructura modular eficiente (IA/GPU), redes de baja latencia y soporte a I+D.</p>
+          <h3>ODS 9 — Industria, innovación e infraestructura</h3>
+          <p>Infraestructura modular eficiente (GPU cloud, fibra y baja latencia) que habilita IA, simulación y proyectos I+D en la comarca.</p>
+          <p class="ods-kpi">▶ Meta: latencia &lt; 5 ms regional · 12 proyectos I+D alojados en 2026.</p>
         </div>
       </article>
 
       <article class="ods-item" aria-label="ODS 11 Ciudades y comunidades sostenibles">
-        <div class="ods-icon" style="background:#FD9D24" aria-hidden="true">11</div>
+        <div class="ods-icon" style="background:#FD9D24">11</div>
         <div>
-          <h3>ODS 11 — Comunidad</h3>
-          <p class="muted">Servicios digitales de proximidad para pymes, cooperativas y administración local.</p>
+          <h3>ODS 11 — Ciudades y comunidades sostenibles</h3>
+          <p>Rehabilitación de edificio público como hub digital y coworking; servicios cloud de proximidad para pymes, bodegas y ayuntamientos.</p>
+          <p class="ods-kpi">▶ Meta: 1 edificio rehabilitado · 5 municipios conectados a servicios digitales.</p>
         </div>
       </article>
 
       <article class="ods-item" aria-label="ODS 12 Producción y consumo responsables">
-        <div class="ods-icon" style="background:#BF8B2E" aria-hidden="true">12</div>
+        <div class="ods-icon" style="background:#BF8B2E">12</div>
         <div>
-          <h3>ODS 12 — Circularidad</h3>
-          <p class="muted">Eficiencia energética, menos residuos y <strong>transparencia</strong> del impacto (KPIs).</p>
+          <h3>ODS 12 — Producción y consumo responsables</h3>
+          <p>Contratos PPA locales, ciclo de vida del hardware responsable y refrigeración cerrada con <em>mínimo uso de agua</em>.</p>
+          <p class="ods-kpi">▶ Meta: 90% de equipos reciclados/reacondicionados · -70% uso de agua en cooling.</p>
         </div>
       </article>
 
       <article class="ods-item" aria-label="ODS 13 Acción por el clima">
-        <div class="ods-icon" style="background:#3F7E44" aria-hidden="true">13</div>
+        <div class="ods-icon" style="background:#3F7E44">13</div>
         <div>
-          <h3>ODS 13 — Clima</h3>
-          <p class="muted">Bajas emisiones con renovables y microred local; reducción de huella en operación.</p>
+          <h3>ODS 13 — Acción por el clima</h3>
+          <p>Eficiencia energética (PUE objetivo &lt; 1.2), comunidad energética local y plan de neutralidad climática 2030.</p>
+          <p class="ods-kpi">▶ Meta: -400 tCO₂/año evitadas · PUE proyectado 1.18 · Inventario GEI anual.</p>
         </div>
       </article>
     </div>
 
-    <!-- Póster oficial ODS -->
-    <div class="ods-wrap">
+    <div class="ods-wrap" style="margin-top:2rem">
       <figure class="ods">
         <img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy" decoding="async">
-        <figcaption>Fuente: Naciones Unidas (uso informativo). Compromiso con acciones medibles, no solo declaración.</figcaption>
+        <figcaption>Fuente: Naciones Unidas (uso informativo). Mostramos alineamiento real con acciones y métricas.</figcaption>
       </figure>
     </div>
   </div>
 </section>
+
 
 
     <!-- FAQ -->
