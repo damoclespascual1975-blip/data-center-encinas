@@ -37,7 +37,7 @@
     nav#site-nav a{padding:.55rem .9rem;border-radius:.6rem;transition:.2s}
     nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
 
-    /* Hero (SOLO fondo con castillo, sin <img> extra) */
+    /* Hero (solo fondo con castillo) */
     .hero{
       position:relative;min-height:90vh;display:flex;align-items:center;
       background:url('castillo.jpg') center/cover no-repeat;
@@ -61,11 +61,10 @@
     section h2{font-size:1.9rem;margin:0 0 1.2rem;text-align:center}
     .muted{color:var(--muted)}
 
-    /* Grid */
+    /* Grid y tarjetas */
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
     .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
     @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
-
     .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text)}
     .card h3{margin:.2rem 0 .6rem}
     .pill{display:inline-block;font-size:.85rem;padding:.25rem .6rem;border-radius:999px;background:rgba(255,255,255,.14);margin-bottom:.6rem}
@@ -86,7 +85,6 @@
     .ods13{background:rgba(45,198,83,.15)}
 
     footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;text-align:center;color:var(--muted)}
-
     @media (max-width:768px){
       .hero h1{font-size:2.1rem}.hero p.lead{font-size:1rem}
       .cta-row{flex-direction:column}.btn{width:100%}
@@ -124,6 +122,7 @@
   </div>
 </section>
 
+<!-- Objetivos -->
 <section id="objetivos">
   <div class="main-wrap">
     <h2>Objetivos</h2>
@@ -135,6 +134,7 @@
   </div>
 </section>
 
+<!-- Qué ofrecemos -->
 <section id="ofrecemos">
   <div class="main-wrap">
     <h2>Qué ofrecemos</h2>
@@ -146,6 +146,7 @@
   </div>
 </section>
 
+<!-- Planes -->
 <section id="planes">
   <div class="main-wrap">
     <h2>Planes y precios</h2>
@@ -160,6 +161,7 @@
   </div>
 </section>
 
+<!-- ODS -->
 <section id="ods">
   <div class="main-wrap">
     <h2>ODS — Compromiso</h2>
@@ -171,9 +173,9 @@
       <div class="card ods-block ods13"><h3>ODS 13</h3><p>Reducción de CO₂ con free cooling y reutilización térmica.</p></div>
     </div>
 
-    <!-- Póster Agenda 2030: usando el nombre exacto que tienes ahora -->
+    <!-- Póster Agenda 2030 (usa el nombre que tienes ahora) -->
     <figure class="card" style="margin-top:1rem;padding:0;overflow:hidden">
-      <img src="AGENDA%202020jpg" alt="Agenda 2030 — Los 17 Objetivos de Desarrollo Sostenible" />
+      <img src="AGENDA%202020jpg" alt="Agenda 2030 — Los 17 Objetivos de Desarrollo Sostenible">
       <figcaption style="text-align:center;color:var(--muted);font-size:.9rem;padding:.5rem">
         Agenda 2030 — Imagen oficial con los 17 ODS
       </figcaption>
@@ -181,6 +183,7 @@
   </div>
 </section>
 
+<!-- Contacto -->
 <section id="contacto">
   <div class="main-wrap">
     <h2>Contactar</h2>
@@ -195,7 +198,7 @@
 </section>
 
 <footer>
-  <div class="main-wrap"><small>© <span id="y"></span> Data Center Encinas</small></div>
+  <div class="main-wrap"><small>© <span id="y"></span> Data Center Encinas — Encinas de Esgueva</small></div>
 </footer>
 
 <script>
