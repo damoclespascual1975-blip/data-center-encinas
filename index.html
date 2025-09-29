@@ -1,90 +1,177 @@
 <!doctype html>
-<section class="section" id="servicios">
-<div class="container">
-<h2 style="margin:0 0 .75rem">Servicios</h2>
-<p class="muted" style="margin:0 0 1rem">Soluciones técnicas y transparentes para empezar sin fricciones.</p>
-<div class="grid cols-3">
-<div class="card">
-<h3>GPU Cloud</h3>
-<p class="muted">Instancias dedicadas para IA/ML e inferencia. Facturación clara y soporte cercano.</p>
-</div>
-<div class="card">
-<h3>Colocation</h3>
-<p class="muted">Espacio, energía y conectividad para tus servidores con monitorización 24/7.</p>
-</div>
-<div class="card">
-<h3>VPS & Backup</h3>
-<p class="muted">VPS optimizados y copias de seguridad georredundantes.</p>
-</div>
-</div>
-</div>
-</section>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Center Encinas — IA, GPU y Hosting Sostenible</title>
+  <meta name="description" content="Centro de datos modular y sostenible en Encinas de Esgueva: GPU Cloud, colocation, VPS y soluciones alineadas con los ODS 2030." />
 
+  <style>
+    :root{
+      --bg:#0b0f17; --fg:#e9edf3; --muted:#a9b3c7; --brand:#4ade80; --brand-2:#60a5fa;
+      --card:#111827; --border:#1f2937; --accent:#f59e0b;
+      --max:1200px;
+      --radius:1.25rem;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif; line-height:1.5}
+    img{max-width:100%; height:auto; display:block}
+    a{color:var(--brand-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:rgba(11,15,23,.6); border-bottom:1px solid var(--border)}
+    nav{display:flex; align-items:center; justify-content:space-between; min-height:64px}
+    .brand{display:flex; gap:.5rem; align-items:center; font-weight:700}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .navlinks{display:flex; gap:1rem; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1rem; border-radius:.875rem; border:1px solid var(--border); background:linear-gradient(180deg,#101521,#0b0f17); color:var(--fg)}
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b0f17; font-weight:700}
 
-<section class="section" id="ods">
-<div class="container">
-<h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
-<p class="muted" style="margin:0 0 1rem">Transparencia y trazabilidad del impacto. Mostramos el póster oficial de la Agenda 2030 para referencia pública.</p>
-<div class="ods-wrap">
-<figure class="ods">
-<!-- IMPORTANTE: coloca el archivo junto a index.html y nómbralo exactamente 'ods-2030.jpg' -->
-<img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy">
-<figcaption>Fuente: Naciones Unidas (uso informativo). Si no ves la imagen, revisa el nombre del archivo y su ubicación.</figcaption>
-</figure>
-</div>
-</div>
-</section>
+    /* HERO */
+    .hero{position:relative; isolation:isolate;}
+    .hero::before{
+      content:""; position:absolute; inset:0; z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(11,15,23,.65) 0%, rgba(11,15,23,.85) 60%, #0b0f17 100%),
+        url('castillo.jpg') center/cover no-repeat;
+    }
+    .hero .inner{padding:clamp(3rem, 7vw, 7rem) 0}
+    .hero h1{font-size:clamp(1.8rem, 3.6vw, 3rem); margin:0 0 .5rem}
+    .hero p{color:var(--muted); margin:0 0 1.25rem; max-width:60ch}
+    .badges{display:flex; gap:.5rem; flex-wrap:wrap; margin:.75rem 0 0}
+    .badge{font-size:.875rem; padding:.35rem .6rem; border:1px solid var(--border); border-radius:999px; color:var(--fg); background:#0f1625}
 
+    /* SECTIONS */
+    section{scroll-margin-top:90px;}
+    .section{padding:clamp(2rem, 5vw, 4rem) 0}
+    .grid{display:grid; gap:1rem}
+    @media (min-width: 768px){.grid.cols-3{grid-template-columns:repeat(3, 1fr)} }
+    @media (min-width: 768px){.grid.cols-2{grid-template-columns:repeat(2, 1fr)} }
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem}
+    .card h3{margin:.25rem 0 .5rem}
+    .muted{color:var(--muted)}
 
-<section class="section" id="contacto">
-<div class="container">
-<h2 style="margin:0 0 .75rem">Contacto</h2>
-<div class="grid cols-2">
-<div class="card">
-<form id="contactForm">
-<input type="text" name="nombre" placeholder="Nombre" required>
-<input type="email" name="email" placeholder="Email" required>
-<textarea name="mensaje" placeholder="Cuéntanos tu necesidad (GPU, colocation, etc.)" required></textarea>
-<button class="btn primary" type="submit">Enviar</button>
-<p class="muted" style="margin:.5rem 0 0">El formulario usa tu cliente de correo (mailto) para enviarnos el mensaje.</p>
-</form>
-</div>
-<div class="card">
-<h3>También por email</h3>
-<!-- SUSTITUYE ESTE EMAIL POR EL TUYO SI QUIERES -->
-<p class="muted">Prefieres escribir directamente: <a id="directEmail" href="mailto:mpascual582@alumno.uned.es">mpascual582@alumno.uned.es</a></p>
-<p class="muted">Dirección: Encinas de Esgueva (Valladolid)</p>
-</div>
-</div>
-</div>
-</section>
-</main>
+    /* ODS Poster wrapper */
+    .ods-wrap{display:flex; justify-content:center}
+    .ods{width:min(100%, 1100px); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.35)}
+    .ods figcaption{padding:.75rem 1rem; background:#0f1625; border-top:1px solid var(--border); font-size:.95rem; color:var(--muted)}
 
+    /* CONTACTO */
+    form{display:grid; gap:.75rem}
+    input, textarea{background:#0f1625; color:var(--fg); border:1px solid var(--border); border-radius:.75rem; padding:.75rem}
+    textarea{min-height:120px; resize:vertical}
 
-<footer>
-<div class="container">
-<small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global.</small>
-</div>
-</footer>
+    footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot"></span> Data Center Encinas</div>
+        <div class="navlinks">
+          <a href="#servicios">Servicios</a>
+          <a href="#ods">ODS 2030</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container inner">
+        <h1>IA, GPU y Hosting sostenible en Encinas de Esgueva</h1>
+        <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad. Servicios listos para PYMEs, administraciones y proyectos de I+D.</p>
+        <div class="badges">
+          <span class="badge">PUE optimizado</span>
+          <span class="badge">Energía renovable local</span>
+          <span class="badge">Compromiso ODS 2030</span>
+        </div>
+        <div style="margin-top:1.25rem; display:flex; gap:.75rem; flex-wrap:wrap">
+          <a class="btn primary" href="#contacto">Pedir presupuesto</a>
+          <a class="btn" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </section>
 
-<script>
-// Año dinámico
-document.getElementById('y').textContent = new Date().getFullYear();
+    <section class="section" id="servicios">
+      <div class="container">
+        <h2 style="margin:0 0 .75rem">Servicios</h2>
+        <p class="muted" style="margin:0 0 1rem">Soluciones técnicas y transparentes para empezar sin fricciones.</p>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>GPU Cloud</h3>
+            <p class="muted">Instancias dedicadas para IA/ML e inferencia. Facturación clara y soporte cercano.</p>
+          </div>
+          <div class="card">
+            <h3>Colocation</h3>
+            <p class="muted">Espacio, energía y conectividad para tus servidores con monitorización 24/7.</p>
+          </div>
+          <div class="card">
+            <h3>VPS & Backup</h3>
+            <p class="muted">VPS optimizados y copias de seguridad georredundantes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="ods">
+      <div class="container">
+        <h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
+        <p class="muted" style="margin:0 0 1rem">Transparencia y trazabilidad del impacto. Mostramos el póster oficial de la Agenda 2030 para referencia pública.</p>
+        <div class="ods-wrap">
+          <figure class="ods">
+            <img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy">
+            <figcaption>Fuente: Naciones Unidas (uso informativo). Si no ves la imagen, revisa el nombre del archivo y su ubicación.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-// Formulario: abre mailto con los datos
-document.getElementById('contactForm').addEventListener('submit', function(e){
-e.preventDefault();
-const data = new FormData(e.target);
-const nombre = encodeURIComponent(data.get('nombre'));
-const email = encodeURIComponent(data.get('email'));
-const mensaje = encodeURIComponent(data.get('mensaje'));
-const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
-const subject = encodeURIComponent('Contacto web – Data Center Encinas');
-const body = encodeURIComponent(`Nombre: ${decodeURIComponent(nombre)}\nEmail: ${decodeURIComponent(email)}\n\nMensaje:\n${decodeURIComponent(mensaje)}`);
-window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-});
-</script>
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 style="margin:0 0 .75rem">Contacto</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <form id="contactForm">
+              <input type="text" name="nombre" placeholder="Nombre" required>
+              <input type="email" name="email" placeholder="Email" required>
+              <textarea name="mensaje" placeholder="Cuéntanos tu necesidad (GPU, colocation, etc.)" required></textarea>
+              <button class="btn primary" type="submit">Enviar</button>
+              <p class="muted" style="margin:.5rem 0 0">El formulario usa tu cliente de correo (mailto) para enviarnos el mensaje.</p>
+            </form>
+          </div>
+          <div class="card">
+            <h3>También por email</h3>
+            <p class="muted">Prefieres escribir directamente: <a id="directEmail" href="mailto:mpascual582@alumno.uned.es">mpascual582@alumno.uned.es</a></p>
+            <p class="muted">Dirección: Encinas de Esgueva (Valladolid)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const nombre = encodeURIComponent(data.get('nombre'));
+      const email = encodeURIComponent(data.get('email'));
+      const mensaje = encodeURIComponent(data.get('mensaje'));
+      const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
+      const subject = encodeURIComponent('Contacto web – Data Center Encinas');
+      const body = encodeURIComponent(`Nombre: ${decodeURIComponent(nombre)}\nEmail: ${decodeURIComponent(email)}\n\nMensaje:\n${decodeURIComponent(mensaje)}`);
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
