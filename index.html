@@ -10,7 +10,7 @@
       --bg1:#071a33; --bg2:#0b2851;
       --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
       --text:#e6efff; --muted:#b7c7e6;
-      --brand:#60a5fa; --brand-2:#93c5fd;
+      --brand:#60a5fa; --brand-2:#93c5fd; --ok:#22c55e;
       --ods7:#ffd60a; --ods9:#f77f00; --ods11:#2ea44f; --ods12:#c084fc; --ods13:#2dc653;
     }
     *{box-sizing:border-box}
@@ -19,8 +19,7 @@
       margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
       line-height:1.65;color:var(--text);
       background:linear-gradient(180deg,var(--bg1),var(--bg2));
-      font-size:18px;
-      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+      font-size:18px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
@@ -37,7 +36,7 @@
     nav#site-nav a{padding:.55rem .9rem;border-radius:.6rem;transition:.2s}
     nav#site-nav a:hover, nav#site-nav a.active{background:rgba(255,255,255,.08)}
 
-    /* Hero (solo fondo con castillo) */
+    /* Hero (SOLO fondo con castillo) */
     .hero{
       position:relative;min-height:90vh;display:flex;align-items:center;
       background:url('castillo.jpg') center/cover no-repeat;
@@ -117,19 +116,43 @@
     <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
     <div class="cta-row">
       <a class="btn primary" href="#ofrecemos">Ver soluciones</a>
-      <a class="btn ghost" href="#contacto">Solicitar propuesta</a>
+      <a class="btn ghost" href="#contacto">Solicitar propuesta personalizada</a>
     </div>
   </div>
 </section>
 
-<!-- Objetivos -->
-<section id="objetivos">
+<!-- Objetivos (mejorados) -->
+<section id="objetivos" aria-label="Objetivos clave">
   <div class="main-wrap">
     <h2>Objetivos</h2>
     <div class="grid-3">
-      <div class="card"><h3>⚡ Eficiencia</h3><p class="muted">PUE &lt; 1,2 con free cooling y orquestación de cargas.</p></div>
-      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Renovables, biomasa y reutilización térmica.</p></div>
-      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo, digitalización y servicios rurales.</p></div>
+      <article class="card">
+        <span class="pill">⚡ Eficiencia</span>
+        <h3>Más rendimiento con menos energía</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>PUE objetivo &lt; 1,2 con <em>free cooling</em> y pasillos frío/calor.</li>
+          <li>NVMe y redes 1/10 Gbps para reducir latencias.</li>
+          <li>Orquestación por cargas (CPU/GPU) para maximizar uso real.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="pill">🌱 Sostenibilidad</span>
+        <h3>Energía limpia y economía circular</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>Prioridad a renovables (FV, microeólica, biomasa).</li>
+          <li>Reutilización del calor a red de baja temperatura.</li>
+          <li>Medición y reporte de huella de carbono.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="pill">👥 Impacto local</span>
+        <h3>Desarrollo y talento en la zona</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>Servicios digitales a negocios y administraciones.</li>
+          <li>Formación y empleo técnico vinculados al CPD.</li>
+          <li>Convenios con universidades y centros de FP.</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -142,6 +165,7 @@
       <div class="card"><span class="pill">Dominios</span><h3>.com / .net / .org</h3><p class="muted">Privacidad WHOIS incluida.</p><span class="price">14 €/año</span></div>
       <div class="card"><span class="pill">VPS</span><h3>NVMe & 1 Gbps</h3><p class="muted">Snapshots y tráfico ilimitado.</p><span class="price">4 €/mes</span></div>
       <div class="card"><span class="pill">GPU IA</span><h3>A100 · H100</h3><p class="muted">Entrenamiento IA por hora.</p><span class="price">1,49 €/h</span></div>
+      <div class="card"><span class="pill">Web fácil</span><h3>Creador con IA</h3><p class="muted">Plantillas + prompts sencillos.</p><span class="price">Bono 14 €/mes</span></div>
     </div>
   </div>
 </section>
@@ -150,30 +174,66 @@
 <section id="planes">
   <div class="main-wrap">
     <h2>Planes y precios</h2>
-    <table class="plans">
-      <thead><tr><th>Plan</th><th>Incluye</th><th>Precio</th></tr></thead>
+    <table class="plans" aria-describedby="nota-precios">
+      <thead><tr><th>Plan</th><th>Incluye</th><th>Dominios</th><th>Recursos</th><th>Precio</th></tr></thead>
       <tbody>
-        <tr><td>Básico</td><td>Web IA + SSL + soporte</td><td>14 €/mes</td></tr>
-        <tr><td>Pro ⭐</td><td>WordPress gestionado, CDN</td><td>29 €/mes</td></tr>
-        <tr><td>Premium</td><td>E-commerce, backups</td><td>49 €/mes</td></tr>
+        <tr><td>Básico</td><td>Web IA + SSL + soporte básico</td><td>1 dominio gratis 1er año</td><td>Hosting estándar</td><td>14 €/mes</td></tr>
+        <tr class="recommended"><td>Pro ⭐</td><td>WordPress gestionado, CDN</td><td>1 dominio + 3 subdominios</td><td>VPS 1 vCPU · 2 GB</td><td>29 €/mes</td></tr>
+        <tr><td>Premium</td><td>E-commerce, backups avanzados</td><td>2 dominios + 5 subdominios</td><td>VPS 2 vCPU · 4 GB</td><td>49 €/mes</td></tr>
       </tbody>
     </table>
+    <p id="nota-precios" class="muted" style="margin-top:.6rem;text-align:center">* Precios orientativos. Cotización final según requisitos.</p>
   </div>
 </section>
 
-<!-- ODS -->
-<section id="ods">
+<!-- ODS explicados + póster -->
+<section id="ods" aria-label="Objetivos de Desarrollo Sostenible">
   <div class="main-wrap">
-    <h2>ODS — Compromiso</h2>
+    <h2>ODS — Cómo contribuimos</h2>
     <div class="grid-2">
-      <div class="card ods-block ods7"><h3>ODS 7</h3><p>Renovables, almacenamiento y optimización energética.</p></div>
-      <div class="card ods-block ods9"><h3>ODS 9</h3><p>Infraestructura IA/HPC en la España vaciada.</p></div>
-      <div class="card ods-block ods11"><h3>ODS 11</h3><p>Servicios digitales locales y energía compartida.</p></div>
-      <div class="card ods-block ods12"><h3>ODS 12</h3><p>Economía circular y reciclaje tecnológico.</p></div>
-      <div class="card ods-block ods13"><h3>ODS 13</h3><p>Reducción de CO₂ con free cooling y reutilización térmica.</p></div>
+      <div class="card ods-block ods7">
+        <h3>ODS 7 · Energía asequible y no contaminante</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Integración de renovables y almacenamiento.</li>
+          <li>Compra eléctrica con garantía de origen renovable.</li>
+          <li>Optimización PUE y automatización térmica.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods9">
+        <h3>ODS 9 · Industria, innovación e infraestructura</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Infraestructura IA/HPC de proximidad para PYMES y academia.</li>
+          <li>Entornos listos (CUDA, PyTorch, TensorFlow) y soporte de migraciones.</li>
+          <li>Monitorización proactiva y SLO/SLA a medida.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods11">
+        <h3>ODS 11 · Ciudades y comunidades sostenibles</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Digitalización local y nube soberana (datos en España).</li>
+          <li>Reutilización del calor del CPD en equipamientos municipales.</li>
+          <li>Impulso al teletrabajo y servicios online.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods12">
+        <h3>ODS 12 · Producción y consumo responsables</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Economía circular: mantenimiento y reciclaje de hardware.</li>
+          <li>Backups responsables y borrado seguro certificado.</li>
+          <li>Compras verdes y eficiencia de materiales.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods13">
+        <h3>ODS 13 · Acción por el clima</h3>
+        <ul style="margin:0 0 0 18px">
+          <li><em>Free cooling</em>, pasillos frío/calor y control de carga.</li>
+          <li>Métricas de huella e informes de reducción.</li>
+          <li>Plan de resiliencia climática.</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Póster Agenda 2030 (usa el nombre que tienes ahora) -->
+    <!-- Póster Agenda 2030: usa tu nombre actual "AGENDA 2020jpg" -->
     <figure class="card" style="margin-top:1rem;padding:0;overflow:hidden">
       <img src="AGENDA%202020jpg" alt="Agenda 2030 — Los 17 Objetivos de Desarrollo Sostenible">
       <figcaption style="text-align:center;color:var(--muted);font-size:.9rem;padding:.5rem">
@@ -183,17 +243,38 @@
   </div>
 </section>
 
-<!-- Contacto -->
-<section id="contacto">
+<!-- Contacto (más intencional) -->
+<section id="contacto" aria-label="Formulario de contacto">
   <div class="main-wrap">
-    <h2>Contactar</h2>
-    <form class="card" style="display:grid;gap:.75rem">
-      <label>Nombre<input type="text" required></label>
-      <label>Email<input type="email" required></label>
-      <label>Mensaje<textarea rows="4" required></textarea></label>
-      <button class="btn primary" type="submit">Enviar</button>
-      <p class="muted">El presupuesto se enviará según la carga de trabajo. Disculpen las molestias.</p>
-    </form>
+    <h2>¿Preparamos tu propuesta?</h2>
+    <div class="card" style="display:grid;gap:.9rem">
+      <p class="muted" style="margin:0">
+        Cuéntanos <strong>qué necesitas y para cuándo</strong>. Responderemos con una <strong>propuesta clara</strong> y alternativas para ajustar coste/tiempos.
+      </p>
+      <ul class="muted" style="margin:0 0 .4rem 18px">
+        <li>✅ Costes transparentes y sin letra pequeña</li>
+        <li>✅ Soporte técnico en España</li>
+        <li>✅ Datos alojados en España (RGPD)</li>
+      </ul>
+      <form class="form" method="POST" action="#" style="display:grid;gap:.75rem">
+        <label>Nombre<input type="text" name="nombre" required aria-required="true"></label>
+        <label>Email<input type="email" name="email" required aria-required="true"></label>
+        <label>Servicio
+          <select name="servicio" required aria-required="true">
+            <option value="">Selecciona…</option>
+            <option>GPU Cloud & IA</option>
+            <option>VPS & Hosting</option>
+            <option>Dominios</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Mensaje
+          <textarea rows="4" name="mensaje" placeholder="Ej.: Entrenamiento IA 2 semanas con GPU; web WordPress + tienda; migración de VPS..." required aria-required="true"></textarea>
+        </label>
+        <button class="btn primary" type="submit">Solicitar propuesta personalizada</button>
+        <p class="muted" style="margin:0">La respuesta se enviará en función de la carga de trabajo.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -202,7 +283,6 @@
 </footer>
 
 <script>
-  // Año y menú móvil
   document.getElementById('y').textContent = new Date().getFullYear();
   const btn=document.querySelector('.nav-toggle');const nav=document.querySelector('#site-nav');
   if(btn && nav){ btn.addEventListener('click',()=> {
