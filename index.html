@@ -27,6 +27,13 @@
     a{color:var(--brand-2); text-decoration:none}
     a:hover{text-decoration:underline}
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
+    
+/* ODS iconitos */
+.ods-grid{display:grid; gap:1rem}
+@media (min-width:768px){.ods-grid{grid-template-columns:repeat(3,1fr)}}
+.ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; display:flex; gap:.9rem; align-items:flex-start}
+.ods-icon{flex:0 0 44px; width:44px; height:44px; border-radius:.5rem; display:grid; place-items:center; font-weight:800; color:#fff; font-size:1rem; line-height:1}
+.ods-item h3{margin:.15rem 0 .35rem}
 
     /* Header */
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:rgba(11,15,23,.6); border-bottom:1px solid var(--border)}
@@ -193,42 +200,66 @@
       </div>
     </section>
 
-  <!-- ODS EXPLICATIVO + PÓSTER -->
+ <!-- ODS EXPLICATIVO + PÓSTER -->
 <section class="section" id="ods">
   <div class="container">
     <h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
     <p class="muted" style="margin:0 0 1rem">
-      Nuestro Centro de Datos no solo es infraestructura tecnológica: es motor de desarrollo rural,
-      eficiencia energética y sostenibilidad, en línea con la Agenda 2030.
+      Nuestro Centro de Datos es motor de desarrollo rural, eficiencia energética y sostenibilidad, en línea con la Agenda 2030.
     </p>
 
-    <div class="grid cols-3" style="margin-bottom:2rem">
-      <div class="card" style="border-top:6px solid #FBC412">
-        <h3>ODS 7 — Energía</h3>
-        <p class="muted">Autoconsumo renovable local y reutilización de calor residual.</p>
-      </div>
-      <div class="card" style="border-top:6px solid #A21942">
-        <h3>ODS 8 — Empleo</h3>
-        <p class="muted">Trabajo cualificado y atracción de talento digital a lo rural.</p>
-      </div>
-      <div class="card" style="border-top:6px solid #FD6925">
-        <h3>ODS 9 — Innovación</h3>
-        <p class="muted">Infraestructura modular eficiente, preparada para IA e I+D.</p>
-      </div>
-      <div class="card" style="border-top:6px solid #FD9D24">
-        <h3>ODS 11 — Comunidad</h3>
-        <p class="muted">Servicios digitales para empresas y vecinos de Encinas.</p>
-      </div>
-      <div class="card" style="border-top:6px solid #BF8B2E">
-        <h3>ODS 12 — Circularidad</h3>
-        <p class="muted">Eficiencia, menos residuos y transparencia de impacto.</p>
-      </div>
-      <div class="card" style="border-top:6px solid #3F7E44">
-        <h3>ODS 13 — Clima</h3>
-        <p class="muted">Bajas emisiones, microred local y reducción de huella.</p>
-      </div>
+    <!-- Tarjetas ODS con icono y color -->
+    <div class="ods-grid" style="margin-bottom:2rem">
+      <article class="ods-item" aria-label="ODS 7 Energía asequible y no contaminante">
+        <div class="ods-icon" style="background:#FBC412" aria-hidden="true">7</div>
+        <div>
+          <h3>ODS 7 — Energía</h3>
+          <p class="muted">Autoconsumo renovable local y <strong>reutilización de calor</strong> para servicios de la comunidad.</p>
+        </div>
+      </article>
+
+      <article class="ods-item" aria-label="ODS 8 Trabajo decente y crecimiento económico">
+        <div class="ods-icon" style="background:#A21942" aria-hidden="true">8</div>
+        <div>
+          <h3>ODS 8 — Empleo</h3>
+          <p class="muted">Empleo cualificado en entorno rural y atracción de talento digital con formación práctica.</p>
+        </div>
+      </article>
+
+      <article class="ods-item" aria-label="ODS 9 Industria, innovación e infraestructura">
+        <div class="ods-icon" style="background:#FD6925" aria-hidden="true">9</div>
+        <div>
+          <h3>ODS 9 — Innovación</h3>
+          <p class="muted">Infraestructura modular eficiente (IA/GPU), redes de baja latencia y soporte a I+D.</p>
+        </div>
+      </article>
+
+      <article class="ods-item" aria-label="ODS 11 Ciudades y comunidades sostenibles">
+        <div class="ods-icon" style="background:#FD9D24" aria-hidden="true">11</div>
+        <div>
+          <h3>ODS 11 — Comunidad</h3>
+          <p class="muted">Servicios digitales de proximidad para pymes, cooperativas y administración local.</p>
+        </div>
+      </article>
+
+      <article class="ods-item" aria-label="ODS 12 Producción y consumo responsables">
+        <div class="ods-icon" style="background:#BF8B2E" aria-hidden="true">12</div>
+        <div>
+          <h3>ODS 12 — Circularidad</h3>
+          <p class="muted">Eficiencia energética, menos residuos y <strong>transparencia</strong> del impacto (KPIs).</p>
+        </div>
+      </article>
+
+      <article class="ods-item" aria-label="ODS 13 Acción por el clima">
+        <div class="ods-icon" style="background:#3F7E44" aria-hidden="true">13</div>
+        <div>
+          <h3>ODS 13 — Clima</h3>
+          <p class="muted">Bajas emisiones con renovables y microred local; reducción de huella en operación.</p>
+        </div>
+      </article>
     </div>
 
+    <!-- Póster oficial ODS -->
     <div class="ods-wrap">
       <figure class="ods">
         <img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy" decoding="async">
@@ -237,6 +268,7 @@
     </div>
   </div>
 </section>
+
 
     <!-- FAQ -->
     <section class="section" id="faq">
