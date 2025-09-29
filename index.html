@@ -11,7 +11,7 @@
       --panel:rgba(255,255,255,.06); --panel-b:rgba(255,255,255,.12);
       --text:#e6efff; --muted:#b7c7e6;
       --brand:#60a5fa; --brand-2:#93c5fd; --ok:#22c55e; --warn:#f59e0b;
-      --ods7:#ffd60a; --ods9:#f77f00; --ods13:#2dc653;
+      --ods7:#ffd60a; --ods9:#f77f00; --ods11:#2ea44f; --ods12:#c084fc; --ods13:#2dc653;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -52,7 +52,7 @@
     .hero h1{font-size:2.8rem;line-height:1.15;margin:.2rem 0 1rem}
     .hero p.lead{font-size:1.2rem;color:var(--brand-2);margin:0 0 1.4rem}
     .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.8rem 1.2rem;border-radius:.75rem;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.3s}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:.85rem 1.2rem;border-radius:.75rem;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s}
     .btn.primary{background:var(--brand);color:#081326}
     .btn.primary:hover{background:#3b82f6}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.35)}
@@ -60,13 +60,16 @@
 
     /* Secciones */
     section{padding:2.5rem 1rem;animation:fadeIn 1.2s}
-    section h2{font-size:1.7rem;margin:0 0 1.2rem;text-align:center}
+    section h2{font-size:1.9rem;margin:0 0 1.2rem;text-align:center}
     .muted{color:var(--muted)}
 
     /* Grid */
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:.3s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:1rem;padding:1.2rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:.2s}
+    .card:hover{transform:translateY(-3px)}
     .card h3{margin:.2rem 0 .6rem}
     .pill{display:inline-block;font-size:.75rem;padding:.2rem .55rem;border-radius:999px;background:rgba(255,255,255,.12);margin-bottom:.6rem}
     .price{display:inline-flex;gap:.4rem;align-items:center;padding:.3rem .6rem;border-radius:.5rem;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35);font-weight:700}
@@ -80,11 +83,13 @@
     .plans tr.recommended td:first-child{font-weight:800;color:var(--brand)}
 
     /* ODS */
-    .ods-block{border-radius:1rem;padding:1.5rem;margin-top:1rem;color:#000}
-    .ods-block h3{margin-top:0}
-    .ods7{background:var(--ods7)}
-    .ods9{background:var(--ods9);color:#fff}
-    .ods13{background:var(--ods13);color:#fff}
+    .ods-block{border-radius:1rem;padding:1.3rem;margin-top:1rem}
+    .ods-block h3{margin:.2rem 0 .6rem}
+    .ods7{background:linear-gradient(135deg,rgba(255,214,10,.25),rgba(255,214,10,.15));border:1px solid rgba(255,214,10,.45)}
+    .ods9{background:linear-gradient(135deg,rgba(247,127,0,.25),rgba(247,127,0,.15));border:1px solid rgba(247,127,0,.5)}
+    .ods11{background:linear-gradient(135deg,rgba(46,164,79,.25),rgba(46,164,79,.15));border:1px solid rgba(46,164,79,.5)}
+    .ods12{background:linear-gradient(135deg,rgba(192,132,252,.25),rgba(192,132,252,.15));border:1px solid rgba(192,132,252,.5)}
+    .ods13{background:linear-gradient(135deg,rgba(45,198,83,.25),rgba(45,198,83,.15));border:1px solid rgba(45,198,83,.5)}
 
     footer{border-top:1px solid rgba(255,255,255,.08);padding:1.25rem 1rem;background:rgba(5,14,30,.7);color:var(--muted);text-align:center}
 
@@ -112,6 +117,7 @@
     <a href="#ofrecemos">Qué ofrecemos</a>
     <a href="#planes">Planes</a>
     <a href="#ods">ODS</a>
+    <a href="#rgpd">RGPD</a>
     <a href="#clientes">Clientes</a>
     <a href="#contacto">Contactar</a>
   </nav>
@@ -123,20 +129,44 @@
     <h1>Centro de datos de IA en Encinas de Esgueva</h1>
     <p class="lead">GPU Cloud, VPS, dominios y creador de webs con IA. Sostenible, competitivo y con impacto local.</p>
     <div class="cta-row">
-      <a class="btn primary" href="#ofrecemos">Ver ofertas</a>
-      <a class="btn ghost" href="#contacto">Pedir presupuesto</a>
+      <a class="btn primary" href="#ofrecemos">Ver soluciones</a>
+      <a class="btn ghost" href="#contacto">Solicitar propuesta personalizada</a>
     </div>
   </div>
 </section>
 
-<!-- Objetivos -->
+<!-- Objetivos: versión más trabajada -->
 <section id="objetivos">
   <div class="main-wrap">
     <h2>Objetivos</h2>
     <div class="grid-3">
-      <div class="card"><h3>⚡ Eficiencia</h3><p class="muted">PUE &lt; 1.2 con free cooling y optimización.</p></div>
-      <div class="card"><h3>🌱 Sostenibilidad</h3><p class="muted">Renovables y reutilización térmica.</p></div>
-      <div class="card"><h3>👥 Impacto local</h3><p class="muted">Empleo y servicios digitales rurales.</p></div>
+      <div class="card">
+        <span class="pill">⚡ Eficiencia</span>
+        <h3>Rendimiento con menos energía</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>PUE objetivo &lt; 1,2 con <em>free cooling</em> y control térmico granular.</li>
+          <li>Almacenamiento NVMe y redes 1/10 Gbps para reducir tiempos de proceso.</li>
+          <li>Plan de operación por cargas (IA/CPU/GPU) para maximizar uso real.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">🌱 Sostenibilidad</span>
+        <h3>Energía limpia y economía circular</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>Prioridad a renovables (FV, microeólica, biomasa).</li>
+          <li>Reutilización del calor a red de baja temperatura (calefacción distrital).</li>
+          <li>Monitorización de huella de carbono y reporte a clientes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">👥 Impacto local</span>
+        <h3>Desarrollo y talento en la zona</h3>
+        <ul class="muted" style="margin:0 0 0 18px">
+          <li>Servicios digitales a negocios rurales y administraciones.</li>
+          <li>Formación y empleo técnico vinculados al CPD.</li>
+          <li>Colaboración con universidades y centros de FP.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -174,24 +204,70 @@
         </tr>
       </tbody>
     </table>
+    <p class="muted" style="margin-top:.6rem;text-align:center">* Precios orientativos. Cotización final según requisitos.</p>
   </div>
 </section>
 
-<!-- ODS -->
+<!-- ODS explicados -->
 <section id="ods">
   <div class="main-wrap">
-    <h2>ODS — Compromiso</h2>
-    <div class="ods-block ods7">
-      <h3>ODS 7 · Energía asequible y limpia</h3>
-      <p>Paneles solares, microeólica y biomasa reducen costes y emisiones. Excedentes eléctricos pueden beneficiar a la comunidad.</p>
+    <h2>ODS — Cómo contribuimos de forma concreta</h2>
+    <div class="grid-2">
+      <div class="card ods-block ods7">
+        <h3>ODS 7 · Energía asequible y no contaminante</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Integración de renovables y baterías para reducir coste energético.</li>
+          <li>Prioridad a contratación eléctrica de origen 100% renovable.</li>
+          <li>Optimización PUE y automatización térmica para menos consumo.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods9">
+        <h3>ODS 9 · Industria, innovación e infraestructura</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Infraestructura IA/HPC de proximidad para PYMES y academia.</li>
+          <li>Conectividad y servicios gestionados para acelerar proyectos.</li>
+          <li>Laboratorio de pruebas y entornos de desarrollo listos.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods11">
+        <h3>ODS 11 · Ciudades y comunidades sostenibles</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Servicios digitales locales para fijar población y empleo.</li>
+          <li>Reutilización del calor del CPD para equipamientos cercanos.</li>
+          <li>Apoyo a servicios públicos (educación, salud, administración).</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods12">
+        <h3>ODS 12 · Producción y consumo responsables</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Economía circular: diseño para mantenimiento y vida útil larga.</li>
+          <li>Backups responsables y borrado seguro de datos/equipos.</li>
+          <li>Compras verdes y reciclaje de componentes.</li>
+        </ul>
+      </div>
+      <div class="card ods-block ods13">
+        <h3>ODS 13 · Acción por el clima</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Free cooling y control de carga para reducir CO₂.</li>
+          <li>Métricas de huella e informes de reducción a clientes.</li>
+          <li>Planes de resiliencia climática (olas de calor/olas de frío).</li>
+        </ul>
+      </div>
     </div>
-    <div class="ods-block ods9">
-      <h3>ODS 9 · Innovación e infraestructura</h3>
-      <p>Un nodo de IA, HPC y blockchain en la España vaciada. Atrae startups, fomenta teletrabajo y digitaliza pymes.</p>
-    </div>
-    <div class="ods-block ods13">
-      <h3>ODS 13 · Acción por el clima</h3>
-      <p>Free cooling, reutilización térmica y energías renovables permiten reducir drásticamente las emisiones de CO₂.</p>
+  </div>
+</section>
+
+<!-- RGPD / transparencia -->
+<section id="rgpd">
+  <div class="main-wrap">
+    <h2>Tratamiento de datos (RGPD)</h2>
+    <div class="card">
+      <p><strong>Responsable:</strong> Data Center Encinas (contacto a través del formulario).</p>
+      <p><strong>Finalidad:</strong> responder a tu solicitud y preparar una propuesta técnica/económica.</p>
+      <p><strong>Legitimación:</strong> consentimiento del interesado (envío del formulario).</p>
+      <p><strong>Conservación:</strong> durante la relación y plazos legales aplicables.</p>
+      <p><strong>Derechos:</strong> acceso, rectificación, supresión, oposición y portabilidad.</p>
+      <p class="muted"><em>Nota:</em> el presupuesto <strong>se enviará en función de la carga de trabajo</strong>; disculpen las molestias.</p>
     </div>
   </div>
 </section>
@@ -208,16 +284,39 @@
   </div>
 </section>
 
-<!-- Contacto -->
+<!-- Contacto (más intencional) -->
 <section id="contacto">
   <div class="main-wrap">
-    <h2>Contactar</h2>
-    <form class="card" style="display:grid;gap:.75rem">
-      <label>Nombre<input type="text" required></label>
-      <label>Email<input type="email" required></label>
-      <label>Mensaje<textarea rows="4" required></textarea></label>
-      <button class="btn primary" type="submit">Enviar</button>
-    </form>
+    <h2>¿Preparamos tu propuesta?</h2>
+    <div class="card" style="display:grid;gap:.9rem">
+      <p class="muted" style="margin:0">
+        Cuéntanos <strong>qué necesitas y para cuándo</strong>. Te respondemos con una <strong>propuesta clara</strong> y alternativas para ajustar coste/tiempos.
+      </p>
+      <ul class="muted" style="margin:0 0 .4rem 18px">
+        <li>✅ Costes transparentes y sin letra pequeña</li>
+        <li>✅ Soporte técnico en España</li>
+        <li>✅ Datos alojados en España (RGPD)</li>
+      </ul>
+      <!-- Cambia method/action si quieres que envíe a Formspree u otro -->
+      <form method="POST" action="https://formspree.io/f/your-endpoint" style="display:grid;gap:.75rem">
+        <label>Nombre<input type="text" name="nombre" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Servicio
+          <select name="servicio" required>
+            <option value="">Selecciona…</option>
+            <option>GPU Cloud & IA</option>
+            <option>VPS & Hosting</option>
+            <option>Dominios</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Mensaje
+          <textarea rows="4" name="mensaje" placeholder="Ej.: Entrenamiento IA 2 semanas con GPU; web WordPress + tienda; migración de VPS..." required></textarea>
+        </label>
+        <button class="btn primary" type="submit">Solicitar propuesta personalizada</button>
+        <p class="muted" style="margin:0">La respuesta se enviará en función de la carga de trabajo.</p>
+      </form>
+    </div>
   </div>
 </section>
 
