@@ -3,46 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1f6feb">
   <title>Data Center Encinas — IA, GPU y Hosting Sostenible</title>
   <meta name="description" content="Infraestructura IA, GPU cloud, VPS y hosting sostenible en Encinas de Esgueva. Presupuesto personalizado en menos de 24h. Cumplimiento RGPD sin pedir datos bancarios." />
   <style>
-    :root{--brand:#1f6feb;--bg:#0b1020;--text:#0f172a;--muted:#475569;--panel:#fafafa}
+    :root{
+      --brand:#1f6feb;--bg:#0b1020;--text:#0f172a;--muted:#475569;--panel:#fafafa;
+      --radius:12px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);line-height:1.6;background:#ffffff}
+    html,body{margin:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); line-height:1.6; background:#fff;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
+    }
     header,footer,section{padding:24px 16px}
     .container{max-width:1100px;margin:0 auto}
     h1,h2,h3{line-height:1.25;margin:0 0 12px}
     h1{font-size:2.2rem} h2{font-size:1.8rem} h3{font-size:1.15rem}
     p{margin:0 0 10px}
     a{color:var(--brand);text-decoration:none}
-    .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;border:0}
+    nav a:hover{text-decoration:underline}
+    .btn{
+      display:inline-block; padding:14px 18px; border-radius:10px;
+      background:var(--brand); color:#fff; font-weight:700; border:0;
+      min-height:44px; line-height:1;
+    }
     .hero{padding:64px 16px;text-align:center;background:var(--panel)}
     .grid{display:grid;gap:16px}
     .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px}
+    .card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:16px}
     .muted{color:var(--muted);font-size:.95rem}
     .lead{max-width:760px;margin:0 auto 12px}
-    .input,select,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;background:#fff}
-    textarea{resize:vertical}
-    .cta-sticky{position:fixed;right:16px;bottom:16px;background:var(--brand);color:#fff;padding:12px 16px;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.15)}
-    footer{background:var(--bg);color:#cbd5e1}
-    .footer-nav a{color:#cbd5e1;margin-left:12px}
+    .input,select,textarea{
+      width:100%; padding:12px; border:1px solid #ccc; border-radius:8px; background:#fff;
+      font-size:16px; /* evita zoom en iOS */
+      min-height:44px;
+    }
+    textarea{resize:vertical; min-height:120px}
     details{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px}
-    summary{cursor:pointer;font-weight:600}
+    summary{cursor:pointer;font-weight:600; min-height:44px}
     .ok{color:#166534}
     .err{color:#b91c1c}
-    .flag{display:inline-block;border-radius:999px;padding:2px 8px;font-size:.8rem;background:#e5efff}
+    .flag{display:inline-block;border-radius:999px;padding:4px 10px;font-size:.8rem;background:#e5efff}
     .ods-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .ods-card h4{margin:0 0 6px;font-size:1.05rem}
     .section-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-    nav a:hover{text-decoration:underline}
     .kbd{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:6px;padding:0 6px}
+
+    /* CTA flotante en desktop */
+    .cta-sticky{
+      position:fixed; right:16px; bottom:16px; background:var(--brand); color:#fff;
+      padding:12px 16px; border-radius:999px; font-weight:700;
+      box-shadow:0 8px 24px rgba(0,0,0,.15); z-index:50;
+    }
+
+    /* Dark mode */
     @media (prefers-color-scheme: dark){
       body{background:#0b1220;color:#e5e7eb}
       .hero{background:#0f172a}
       .card,details{background:#0f172a;border-color:#243045}
       .input,select,textarea{background:#0b1220;color:#e5e7eb;border-color:#243045}
       .flag{background:#102446}
+      footer{background:#060a16}
+    }
+
+    /* ===== Ajustes MÓVIL (≤640px) ===== */
+    @media (max-width: 640px){
+      header,footer,section{padding:20px 14px}
+      h1{font-size:1.85rem}
+      h2{font-size:1.5rem}
+      .hero{padding:48px 14px}
+      /* Nav apilado en móvil */
+      header .container{gap:10px}
+      header nav{display:flex;gap:10px;flex-wrap:wrap}
+      header nav a{padding:10px 12px;border-radius:8px;background:transparent}
+      header nav .btn{width:100%;text-align:center}
+      /* Formularios: botones full width */
+      .btn{width:100%;text-align:center}
+      /* CTA flotante: barra inferior amplia */
+      .cta-sticky{
+        left:16px; right:16px; bottom:12px; border-radius:12px; text-align:center;
+      }
     }
   </style>
 </head>
@@ -55,7 +99,7 @@
       <nav style="display:flex;gap:16px">
         <a href="#confianza">Por qué nosotros</a>
         <a href="#ods">ODS</a>
-        <a href="#contacto" class="btn" style="padding:8px 14px">Solicitar presupuesto</a>
+        <a href="#contacto" class="btn" style="max-width:260px">Solicitar presupuesto</a>
       </nav>
     </div>
   </header>
@@ -65,10 +109,10 @@
     <div class="container" style="text-align:center">
       <h1>Infraestructura IA, GPU y Hosting Sostenible</h1>
       <p class="lead">
-        Dimensionamos tu proyecto y te enviamos un <strong>presupuesto 100% personalizado</strong> sin compromiso en <strong>&lt; 24 h</strong>.
-        <br/>No pedimos datos bancarios.
+        Dimensionamos tu proyecto y te enviamos un <strong>presupuesto 100% personalizado</strong> sin compromiso en <strong>&lt; 24 h</strong>.<br>
+        No pedimos datos bancarios.
       </p>
-      <a href="#contacto" class="btn">Solicitar presupuesto</a>
+      <a href="#contacto" class="btn" style="max-width:320px">Solicitar presupuesto</a>
       <p class="muted" style="margin-top:8px">🔒 Tus datos solo se usarán para responder a tu solicitud.</p>
     </div>
   </section>
@@ -187,7 +231,7 @@
         </label>
 
         <div style="grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-          <button class="btn" type="submit">Solicitar presupuesto</button>
+          <button class="btn" type="submit" style="max-width:260px">Solicitar presupuesto</button>
           <span class="muted">⏱️ &lt; 24 h · 🔒 Sin cesión no necesaria · ❌ Sin datos bancarios</span>
         </div>
 
