@@ -24,14 +24,14 @@
     background:var(--bg); color:var(--fg);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
     line-height:1.5; scroll-behavior:smooth;
-    overflow-x:hidden; /* evita scroll horizontal accidental */
+    overflow-x:hidden;
   }
   img{max-width:100%; display:block; height:auto}
   a{color:var(--brand-2); text-decoration:none}
   a:hover{text-decoration:underline}
   .container{max-width:1200px; margin:auto; padding:0 1rem}
 
-  h1,h2,h3{overflow-wrap:anywhere} /* si alguna palabra larga, que no empuje la maqueta */
+  h1,h2,h3{overflow-wrap:anywhere}
 
   /* Header */
   header{position:sticky; top:0; z-index:50; background:rgba(11,15,23,.75); backdrop-filter:blur(6px); border-bottom:1px solid var(--border)}
@@ -42,8 +42,14 @@
   .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border-radius:.5rem; border:1px solid var(--border); background:#111827; color:var(--fg)}
   .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0a1a2f; font-weight:700; border:0}
 
-  /* Hero */
-  .hero{display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; padding:2rem 0; min-height:80vh}
+  /* Hero (grid dentro del container) */
+  .hero > .container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+    align-items:center;
+    min-height:80vh;
+  }
   .hero-text{max-width:680px}
   .hero-text h1{font-size:clamp(1.8rem,4vw,3rem); margin:0 0 1rem}
   .badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0}
@@ -61,15 +67,15 @@
   .card:hover{transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.3)}
   .muted{color:var(--muted)}
 
-  /* Resalte al navegar (SIN empujar el layout) */
+  /* Resalte secciones (sin desplazar) */
   section:target{
-    box-shadow: inset 0 0 0 3px var(--brand-2);   /* en vez de outline */
+    box-shadow: inset 0 0 0 3px var(--brand-2);
     border-radius: var(--radius);
     background: rgba(96,165,250,0.06);
     transition: background .5s ease, box-shadow .3s ease;
   }
 
-  /* ODS ampliados */
+  /* ODS */
   .ods-grid{display:grid; gap:1.5rem}
   @media(min-width:768px){.ods-grid{grid-template-columns:repeat(2,1fr)}}
   .ods-item{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; display:grid; gap:.5rem}
@@ -83,7 +89,7 @@
 
   /* Responsive extra */
   @media(max-width:768px){
-    .hero{grid-template-columns:1fr; text-align:center}
+    .hero > .container{grid-template-columns:1fr; text-align:center}
     .hero-text{margin-inline:auto}
     nav{flex-direction:column; gap:.5rem}
     .navlinks{justify-content:center}
@@ -111,19 +117,21 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <div class="hero-text">
-        <h1>IA, GPU y Hosting sostenible en Encinas de Esgueva</h1>
-        <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad.</p>
-        <div class="badges">
-          <span class="badge">PUE optimizado</span>
-          <span class="badge">Energía renovable</span>
-          <span class="badge">Compromiso ODS 2030</span>
+      <div class="container">
+        <div class="hero-text">
+          <h1>IA, GPU y Hosting sostenible en Encinas de Esgueva</h1>
+          <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad.</p>
+          <div class="badges">
+            <span class="badge">PUE optimizado</span>
+            <span class="badge">Energía renovable</span>
+            <span class="badge">Compromiso ODS 2030</span>
+          </div>
+          <a class="btn primary" href="#contacto">Pedir presupuesto</a>
         </div>
-        <a class="btn primary" href="#contacto">Pedir presupuesto</a>
+        <figure class="hero-figure">
+          <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
+        </figure>
       </div>
-      <figure class="hero-figure">
-        <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
-      </figure>
     </section>
 
     <!-- SERVICIOS -->
@@ -339,7 +347,10 @@
   </footer>
 
   <script>
+    // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Formulario: abre email con los datos (mailto)
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
