@@ -17,6 +17,33 @@
   <meta name="twitter:description" content="GPU Cloud, colocation y VPS con energía renovable local y compromiso ODS 2030." />
 
   <style>
+  /* Preferencia de esquema oscuro del navegador */
+  :root { color-scheme: dark; }
+
+  /* Paleta base oscura */
+  :root{
+    --bg:#0b0f17; --fg:#e9edf3; --muted:#a9b3c7; --brand:#4ade80; --brand-2:#60a5fa;
+    --card:#111827; --border:#1f2937; --accent:#f59e0b; --max:1200px; --radius:1.25rem;
+  }
+
+  /* Reset y tipografía */
+  *{box-sizing:border-box}
+  html,body{
+    margin:0; padding:0;
+    min-height:100%;
+    background:var(--bg) !important;     /* ¡FONDO OSCURO FIJADO! */
+    color:var(--fg); 
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif; 
+    line-height:1.5;
+  }
+  img{max-width:100%; height:auto; display:block}
+  a{color:var(--brand-2); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
+
+  /* Secciones transparentes sobre el fondo oscuro */
+  section,.section,.container,header,footer{background:transparent}
+
   /* Iconos SVG pro (servicios) */
   .service-icon{
     display:inline-grid; place-items:center; width:56px; height:56px; border-radius:14px;
@@ -26,21 +53,9 @@
   .service-icon svg{width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.8}
   .service-card h3{margin:.25rem 0}
 
-  :root{
-    --bg:#0b0f17; --fg:#e9edf3; --muted:#a9b3c7; --brand:#4ade80; --brand-2:#60a5fa;
-    --card:#111827; --border:#1f2937; --accent:#f59e0b; --max:1200px; --radius:1.25rem;
-  }
-
-  /* Servicios mejorados */
+  /* Servicios (paneles oscuros) */
   .services-section{background:linear-gradient(180deg, rgba(15,22,37,.6), rgba(15,22,37,.9));}
   .service-card{display:flex; flex-direction:column; align-items:flex-start; gap:.5rem; padding:1.25rem}
-
-  *{box-sizing:border-box}
-  html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif; line-height:1.5}
-  img{max-width:100%; height:auto; display:block}
-  a{color:var(--brand-2); text-decoration:none}
-  a:hover{text-decoration:underline}
-  .container{width:100%; max-width:var(--max); margin-inline:auto; padding-inline:1rem}
 
   /* ODS expandido */
   .ods-grid{display:grid; gap:1.5rem}
@@ -95,121 +110,10 @@
   /* Footer */
   footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted)}
   </style>
-
-  <!-- NUEVO TEMA DIFUMINADO -->
-  <style id="tema-difuminado-azulvioleta">
-  :root{
-    --text:#222639;--muted:#555b72;--card:rgba(255,255,255,.55);--border:rgba(255,255,255,.25);
-    --accent:#3b5dc9;--accent-2:#6a4fcf;--shadow:0 8px 20px rgba(40,40,80,.15)
-  }
-  html,body{
-    min-height:100%;
-    background:linear-gradient(135deg,#e8ecf8 0%,#f3e9f8 50%,#e9f0fc 100%) !important;
-    background-attachment:fixed;color:var(--text)
-  }
-  section,.section,.container,header,footer{background:transparent}
-  .section--soft,.hero,.features,.pricing,.faq,.contacto,#servicios{
-    background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
-  }
-  .card,.servicio,.plan,.feature,.item{
-    background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
-    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)
-  }
-  button,.btn,a.btn,.button{
-    background:var(--accent);color:#fff;border-radius:14px;padding:.9rem 1.1rem;
-    transition:transform .1s ease,box-shadow .2s ease,background .2s ease
-  }
-  button:hover,.btn:hover,a.btn:hover,.button:hover{
-    background:#324eb0;box-shadow:0 8px 24px rgba(59,93,201,.4);transform:translateY(-1px)
-  }
-  a{color:var(--accent-2)} a:hover{text-decoration:underline}
-  header,.navbar{
-    background:rgba(255,255,255,.65);border-bottom:1px solid var(--border);box-shadow:var(--shadow);
-    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)
-  }
-  footer{
-    background:rgba(255,255,255,.6);border-top:1px solid var(--border);
-    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
-  }
-  .hero{background:rgba(255,255,255,.5);border-radius:18px;padding:2rem}
-  input,select,textarea{
-    background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:12px;
-    padding:.8rem .9rem;color:var(--text)
-  }
-  input::placeholder,textarea::placeholder{color:#7a819e}
-  @media (max-width:768px){
-    h1{font-size:1.6rem} h2{font-size:1.25rem}
-    .container,section{padding:14px 12px;margin:10px}
-  }
-  /* ACLARAR SERVICIOS */
-  .services-section,#servicios{
-    background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.50)) !important;
-    border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
-  }
-  #servicios .card{background:var(--card) !important}
-  #servicios .service-icon{
-    background:linear-gradient(135deg,rgba(106,79,207,.18),rgba(59,93,201,.18)) !important;
-    border-color:var(--border);box-shadow:0 6px 18px rgba(40,40,80,.18)
-  }
-  .badge{
-    background:rgba(255,255,255,.35) !important;color:var(--text) !important;
-    border-color:var(--border) !important
-  }
-  </style>
 </head>
 
 <body>
   <a href="#inicio" class="skip">Ir al contenido</a>
-
-  <a href="#inicio" class="skip">Ir al contenido</a>
-<style id="tema-difuminado-azulvioleta">
-:root{
-  --text:#222639;--muted:#555b72;--card:rgba(255,255,255,.55);--border:rgba(255,255,255,.25);
-  --accent:#3b5dc9;--accent-2:#6a4fcf;--shadow:0 8px 20px rgba(40,40,80,.15)
-}
-html,body{
-  min-height:100%;
-  background:linear-gradient(135deg,#e8ecf8 0%,#f3e9f8 50%,#e9f0fc 100%) !important;
-  background-attachment:fixed;color:var(--text)
-}
-section,.section,.container,header,footer{background:transparent}
-.section--soft,.hero,.features,.pricing,.faq,.contacto,#servicios{
-  background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
-}
-.card,.servicio,.plan,.feature,.item{
-  background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
-  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)
-}
-button,.btn,a.btn,.button{
-  background:var(--accent);color:#fff;border-radius:14px;padding:.9rem 1.1rem;
-  transition:transform .1s ease,box-shadow .2s ease,background .2s ease
-}
-button:hover,.btn:hover,a.btn:hover,.button:hover{
-  background:#324eb0;box-shadow:0 8px 24px rgba(59,93,201,.4);transform:translateY(-1px)
-}
-a{color:var(--accent-2)} a:hover{text-decoration:underline}
-header,.navbar{
-  background:rgba(255,255,255,.65);border-bottom:1px solid var(--border);box-shadow:var(--shadow);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)
-}
-footer{
-  background:rgba(255,255,255,.6);border-top:1px solid var(--border);
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
-}
-.hero{background:rgba(255,255,255,.5);border-radius:18px;padding:2rem}
-input,select,textarea{
-  background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:12px;
-  padding:.8rem .9rem;color:var(--text)
-}
-input::placeholder,textarea::placeholder{color:#7a819e}
-@media (max-width:768px){
-  h1{font-size:1.6rem} h2{font-size:1.25rem}
-  .container,section{padding:14px 12px;margin:10px}
-}
-</style>
 
   <header>
     <div class="container">
@@ -280,12 +184,9 @@ input::placeholder,textarea::placeholder{color:#7a819e}
         <div class="service-icon" aria-hidden="true">
           <!-- GPU / Aceleradora -->
           <svg viewBox="0 0 24 24" role="img" aria-label="GPU">
-            <!-- tarjeta -->
             <rect x="3" y="6" width="15" height="12" rx="2"></rect>
-            <!-- ventoinha/fan -->
             <circle cx="10.5" cy="12" r="3.2"></circle>
             <path d="M10.5 8.4v2M10.5 15.6v-2M7.3 12h2M13.7 12h-2"></path>
-            <!-- conectores -->
             <path d="M18 9h2M18 12h3M18 15h2"></path>
           </svg>
         </div>
@@ -296,7 +197,6 @@ input::placeholder,textarea::placeholder{color:#7a819e}
       <!-- COLOCATION -->
       <div class="card service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- RACK / Servidores apilados -->
           <svg viewBox="0 0 24 24" role="img" aria-label="Rack">
             <rect x="4" y="5" width="16" height="4" rx="1"></rect>
             <rect x="4" y="10" width="16" height="4" rx="1"></rect>
@@ -313,7 +213,6 @@ input::placeholder,textarea::placeholder{color:#7a819e}
       <!-- VPS & BACKUP -->
       <div class="card service-card">
         <div class="service-icon" aria-hidden="true">
-          <!-- Nube + flecha backup -->
           <svg viewBox="0 0 24 24" role="img" aria-label="Cloud Backup">
             <path d="M7 17a4 4 0 0 1 0-8 5 5 0 0 1 9.7-1.4A4 4 0 1 1 18 17H7z"></path>
             <path d="M12 13v6M9.5 15.5 12 13l2.5 2.5"></path>
@@ -325,8 +224,6 @@ input::placeholder,textarea::placeholder{color:#7a819e}
     </div>
   </div>
 </section>
-
-
 
     <!-- PRECIOS -->
     <section class="section" id="precios">
@@ -366,82 +263,79 @@ input::placeholder,textarea::placeholder{color:#7a819e}
       </div>
     </section>
 
- <!-- ODS EXPLICATIVO + PÓSTER -->
-<!-- ODS EXPANDIDO -->
-<section class="section" id="ods">
-  <div class="container">
-    <h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
-    <p class="muted" style="margin:0 0 1.25rem">
-      Nuestro Centro de Datos no es solo infraestructura TI: está diseñado como un nodo de transformación rural, eficiencia energética e innovación social,
-      alineado con los Objetivos de Desarrollo Sostenible de Naciones Unidas.
-    </p>
+    <!-- ODS EXPANDIDO + PÓSTER -->
+    <section class="section" id="ods">
+      <div class="container">
+        <h2 style="margin:0 0 .75rem">Compromiso con los ODS 2030</h2>
+        <p class="muted" style="margin:0 0 1.25rem">
+          Nuestro Centro de Datos no es solo infraestructura TI: está diseñado como un nodo de transformación rural, eficiencia energética e innovación social,
+          alineado con los Objetivos de Desarrollo Sostenible de Naciones Unidas.
+        </p>
 
-    <div class="ods-grid">
-      <article class="ods-item" aria-label="ODS 7 Energía asequible y no contaminante">
-        <div class="ods-icon" style="background:#FBC412">7</div>
-        <div>
-          <h3>ODS 7 — Energía asequible y no contaminante</h3>
-          <p>Operación con renovables locales (fotovoltaica y almacenamiento). <strong>Reutilización del calor</strong> de servidores para calefacción comunitaria y ACS.</p>
-          <p class="ods-kpi">▶ Meta: 250 MWh/año renovables · 20 hogares/edificios beneficiados con calor reciclado.</p>
+        <div class="ods-grid">
+          <article class="ods-item" aria-label="ODS 7 Energía asequible y no contaminante">
+            <div class="ods-icon" style="background:#FBC412">7</div>
+            <div>
+              <h3>ODS 7 — Energía asequible y no contaminante</h3>
+              <p>Operación con renovables locales (fotovoltaica y almacenamiento). <strong>Reutilización del calor</strong> de servidores para calefacción comunitaria y ACS.</p>
+              <p class="ods-kpi">▶ Meta: 250 MWh/año renovables · 20 hogares/edificios beneficiados con calor reciclado.</p>
+            </div>
+          </article>
+
+          <article class="ods-item" aria-label="ODS 8 Trabajo decente y crecimiento económico">
+            <div class="ods-icon" style="background:#A21942">8</div>
+            <div>
+              <h3>ODS 8 — Trabajo decente y crecimiento económico</h3>
+              <p>Empleo cualificado en entorno rural (sistemas, redes, soporte) y convenios de formación con UNED/cooperativas.</p>
+              <p class="ods-kpi">▶ Meta: 10 empleos directos + 25 indirectos · 3 convenios de prácticas/aula digital.</p>
+            </div>
+          </article>
+
+          <article class="ods-item" aria-label="ODS 9 Industria, innovación e infraestructura">
+            <div class="ods-icon" style="background:#FD6925">9</div>
+            <div>
+              <h3>ODS 9 — Industria, innovación e infraestructura</h3>
+              <p>Infraestructura modular eficiente (GPU cloud, fibra y baja latencia) que habilita IA, simulación y proyectos I+D en la comarca.</p>
+              <p class="ods-kpi">▶ Meta: latencia &lt; 5 ms regional · 12 proyectos I+D alojados en 2026.</p>
+            </div>
+          </article>
+
+          <article class="ods-item" aria-label="ODS 11 Ciudades y comunidades sostenibles">
+            <div class="ods-icon" style="background:#FD9D24">11</div>
+            <div>
+              <h3>ODS 11 — Ciudades y comunidades sostenibles</h3>
+              <p>Rehabilitación de edificio público como hub digital y coworking; servicios cloud de proximidad para pymes, bodegas y ayuntamientos.</p>
+              <p class="ods-kpi">▶ Meta: 1 edificio rehabilitado · 5 municipios conectados a servicios digitales.</p>
+            </div>
+          </article>
+
+          <article class="ods-item" aria-label="ODS 12 Producción y consumo responsables">
+            <div class="ods-icon" style="background:#BF8B2E">12</div>
+            <div>
+              <h3>ODS 12 — Producción y consumo responsables</h3>
+              <p>Contratos PPA locales, ciclo de vida del hardware responsable y refrigeración cerrada con <em>mínimo uso de agua</em>.</p>
+              <p class="ods-kpi">▶ Meta: 90% de equipos reciclados/reacondicionados · -70% uso de agua en cooling.</p>
+            </div>
+          </article>
+
+          <article class="ods-item" aria-label="ODS 13 Acción por el clima">
+            <div class="ods-icon" style="background:#3F7E44">13</div>
+            <div>
+              <h3>ODS 13 — Acción por el clima</h3>
+              <p>Eficiencia energética (PUE objetivo &lt; 1.2), comunidad energética local y plan de neutralidad climática 2030.</p>
+              <p class="ods-kpi">▶ Meta: -400 tCO₂/año evitadas · PUE proyectado 1.18 · Inventario GEI anual.</p>
+            </div>
+          </article>
         </div>
-      </article>
 
-      <article class="ods-item" aria-label="ODS 8 Trabajo decente y crecimiento económico">
-        <div class="ods-icon" style="background:#A21942">8</div>
-        <div>
-          <h3>ODS 8 — Trabajo decente y crecimiento económico</h3>
-          <p>Empleo cualificado en entorno rural (sistemas, redes, soporte) y convenios de formación con UNED/cooperativas.</p>
-          <p class="ods-kpi">▶ Meta: 10 empleos directos + 25 indirectos · 3 convenios de prácticas/aula digital.</p>
+        <div class="ods-wrap" style="margin-top:2rem">
+          <figure class="ods">
+            <img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy" decoding="async">
+            <figcaption>Fuente: Naciones Unidas (uso informativo). Mostramos alineamiento real con acciones y métricas.</figcaption>
+          </figure>
         </div>
-      </article>
-
-      <article class="ods-item" aria-label="ODS 9 Industria, innovación e infraestructura">
-        <div class="ods-icon" style="background:#FD6925">9</div>
-        <div>
-          <h3>ODS 9 — Industria, innovación e infraestructura</h3>
-          <p>Infraestructura modular eficiente (GPU cloud, fibra y baja latencia) que habilita IA, simulación y proyectos I+D en la comarca.</p>
-          <p class="ods-kpi">▶ Meta: latencia &lt; 5 ms regional · 12 proyectos I+D alojados en 2026.</p>
-        </div>
-      </article>
-
-      <article class="ods-item" aria-label="ODS 11 Ciudades y comunidades sostenibles">
-        <div class="ods-icon" style="background:#FD9D24">11</div>
-        <div>
-          <h3>ODS 11 — Ciudades y comunidades sostenibles</h3>
-          <p>Rehabilitación de edificio público como hub digital y coworking; servicios cloud de proximidad para pymes, bodegas y ayuntamientos.</p>
-          <p class="ods-kpi">▶ Meta: 1 edificio rehabilitado · 5 municipios conectados a servicios digitales.</p>
-        </div>
-      </article>
-
-      <article class="ods-item" aria-label="ODS 12 Producción y consumo responsables">
-        <div class="ods-icon" style="background:#BF8B2E">12</div>
-        <div>
-          <h3>ODS 12 — Producción y consumo responsables</h3>
-          <p>Contratos PPA locales, ciclo de vida del hardware responsable y refrigeración cerrada con <em>mínimo uso de agua</em>.</p>
-          <p class="ods-kpi">▶ Meta: 90% de equipos reciclados/reacondicionados · -70% uso de agua en cooling.</p>
-        </div>
-      </article>
-
-      <article class="ods-item" aria-label="ODS 13 Acción por el clima">
-        <div class="ods-icon" style="background:#3F7E44">13</div>
-        <div>
-          <h3>ODS 13 — Acción por el clima</h3>
-          <p>Eficiencia energética (PUE objetivo &lt; 1.2), comunidad energética local y plan de neutralidad climática 2030.</p>
-          <p class="ods-kpi">▶ Meta: -400 tCO₂/año evitadas · PUE proyectado 1.18 · Inventario GEI anual.</p>
-        </div>
-      </article>
-    </div>
-
-    <div class="ods-wrap" style="margin-top:2rem">
-      <figure class="ods">
-        <img src="ods-2030.jpg" alt="Póster oficial de los Objetivos de Desarrollo Sostenible 2030" loading="lazy" decoding="async">
-        <figcaption>Fuente: Naciones Unidas (uso informativo). Mostramos alineamiento real con acciones y métricas.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-
+      </div>
+    </section>
 
     <!-- FAQ -->
     <section class="section" id="faq">
@@ -513,14 +407,13 @@ input::placeholder,textarea::placeholder{color:#7a819e}
   </main>
 
   <footer>
-  <div class="container">
-    <small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global · 
-      <a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a> · 
-      <a href="privacidad.html" aria-label="Privacidad">Privacidad</a>
-    </small>
-  </div>
-</footer>
-
+    <div class="container">
+      <small>© <span id="y"></span> Data Center Encinas · Proyecto local, impacto global · 
+        <a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a> · 
+        <a href="privacidad.html" aria-label="Privacidad">Privacidad</a>
+      </small>
+    </div>
+  </footer>
 
   <script>
     // Año dinámico
