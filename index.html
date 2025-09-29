@@ -25,12 +25,19 @@
     .btn.primary{border-color:transparent; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b0f17; font-weight:700}
 
     /* HERO */
-    .hero{position:relative; isolation:isolate;}
-    .hero::before{
-      content:""; position:absolute; inset:0; z-index:-2;
-      background:
-        linear-gradient(180deg, rgba(11,15,23,.35) 0%, rgba(11,15,23,.55) 60%, #0b0f17 100%),
-        url('castillo.jpg') bottom/cover no-repeat;
+    .hero{position:relative; isolation:isolate; min-height:70vh;}
+/* Degradado para mejorar la legibilidad del texto */
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: linear-gradient(180deg, rgba(11,15,23,.25) 0%, rgba(11,15,23,.55) 65%, #0b0f17 100%);
+}
+/* Imagen del castillo siempre completa */
+.hero-img{
+  position:absolute; inset:0; z-index:-2;
+  width:100%; height:100%;
+  object-fit:contain;           /* 🔑 muestra toda la foto sin recortar */
+  object-position:center bottom;/* prioriza ver la calle */
+  background:#0b0f17;           /* color de fondo para las franjas */
     }
     .hero .inner{padding:clamp(3rem, 7vw, 7rem) 0}
     .hero h1{font-size:clamp(1.8rem, 3.6vw, 3rem); margin:0 0 .5rem}
@@ -171,3 +178,22 @@
   </script>
 </body>
 </html>
+
+<section class="hero" id="inicio">
+  <!-- ⬇️ AÑADE ESTA LÍNEA -->
+  <img class="hero-img" src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
+
+  <div class="container inner">
+    <h1>IA, GPU y Hosting sostenible en Encinas de Esgueva</h1>
+    <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad. Servicios listos para PYMEs, administraciones y proyectos de I+D.</p>
+    <div class="badges">
+      <span class="badge">PUE optimizado</span>
+      <span class="badge">Energía renovable local</span>
+      <span class="badge">Compromiso ODS 2030</span>
+    </div>
+    <div style="margin-top:1.25rem; display:flex; gap:.75rem; flex-wrap:wrap">
+      <a class="btn primary" href="#contacto">Pedir presupuesto</a>
+      <a class="btn" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</section>
