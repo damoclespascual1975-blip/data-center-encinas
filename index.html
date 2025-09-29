@@ -94,10 +94,75 @@
 
   /* Footer */
   footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted)}
-</style>
+  </style>
 
+  <!-- NUEVO TEMA DIFUMINADO -->
+  <style id="tema-difuminado-azulvioleta">
+  :root{
+    --text:#222639;--muted:#555b72;--card:rgba(255,255,255,.55);--border:rgba(255,255,255,.25);
+    --accent:#3b5dc9;--accent-2:#6a4fcf;--shadow:0 8px 20px rgba(40,40,80,.15)
+  }
+  html,body{
+    min-height:100%;
+    background:linear-gradient(135deg,#e8ecf8 0%,#f3e9f8 50%,#e9f0fc 100%) !important;
+    background-attachment:fixed;color:var(--text)
+  }
+  section,.section,.container,header,footer{background:transparent}
+  .section--soft,.hero,.features,.pricing,.faq,.contacto,#servicios{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
+  }
+  .card,.servicio,.plan,.feature,.item{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)
+  }
+  button,.btn,a.btn,.button{
+    background:var(--accent);color:#fff;border-radius:14px;padding:.9rem 1.1rem;
+    transition:transform .1s ease,box-shadow .2s ease,background .2s ease
+  }
+  button:hover,.btn:hover,a.btn:hover,.button:hover{
+    background:#324eb0;box-shadow:0 8px 24px rgba(59,93,201,.4);transform:translateY(-1px)
+  }
+  a{color:var(--accent-2)} a:hover{text-decoration:underline}
+  header,.navbar{
+    background:rgba(255,255,255,.65);border-bottom:1px solid var(--border);box-shadow:var(--shadow);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)
+  }
+  footer{
+    background:rgba(255,255,255,.6);border-top:1px solid var(--border);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
+  }
+  .hero{background:rgba(255,255,255,.5);border-radius:18px;padding:2rem}
+  input,select,textarea{
+    background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:12px;
+    padding:.8rem .9rem;color:var(--text)
+  }
+  input::placeholder,textarea::placeholder{color:#7a819e}
+  @media (max-width:768px){
+    h1{font-size:1.6rem} h2{font-size:1.25rem}
+    .container,section{padding:14px 12px;margin:10px}
+  }
+  /* ACLARAR SERVICIOS */
+  .services-section,#servicios{
+    background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.50)) !important;
+    border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)
+  }
+  #servicios .card{background:var(--card) !important}
+  #servicios .service-icon{
+    background:linear-gradient(135deg,rgba(106,79,207,.18),rgba(59,93,201,.18)) !important;
+    border-color:var(--border);box-shadow:0 6px 18px rgba(40,40,80,.18)
+  }
+  .badge{
+    background:rgba(255,255,255,.35) !important;color:var(--text) !important;
+    border-color:var(--border) !important
+  }
+  </style>
 </head>
+
 <body>
+  <a href="#inicio" class="skip">Ir al contenido</a>
+
   <a href="#inicio" class="skip">Ir al contenido</a>
 <style id="tema-difuminado-azulvioleta">
 :root{
