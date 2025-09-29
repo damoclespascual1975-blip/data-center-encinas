@@ -17,6 +17,13 @@
   <meta name="twitter:description" content="GPU Cloud, colocation y VPS con energía renovable local y compromiso ODS 2030." />
 
   <style>
+    /* Iconos SVG pro */
+.service-icon{display:inline-grid; place-items:center; width:56px; height:56px; border-radius:14px;
+  background:linear-gradient(135deg, rgba(96,165,250,.18), rgba(74,222,128,.18));
+  border:1px solid var(--border); box-shadow:0 6px 24px rgba(0,0,0,.25); margin-bottom:.35rem}
+.service-icon svg{width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.8}
+.service-card h3{margin:.25rem 0}
+
     :root{
       --bg:#0b0f17; --fg:#e9edf3; --muted:#a9b3c7; --brand:#4ade80; --brand-2:#60a5fa;
       --card:#111827; --border:#1f2937; --accent:#f59e0b; --max:1200px; --radius:1.25rem;
@@ -146,30 +153,64 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
+   <!-- SERVICIOS -->
 <section class="section services-section" id="servicios">
   <div class="container">
     <h2 style="margin:0 0 .75rem">Servicios</h2>
     <p class="muted" style="margin:0 0 1rem">Soluciones técnicas y transparentes para empezar sin fricciones.</p>
+
     <div class="grid cols-3">
+      <!-- GPU CLOUD -->
       <div class="card service-card">
-        <div class="service-icon">⚡</div>
+        <div class="service-icon" aria-hidden="true">
+          <!-- GPU / Aceleradora -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="GPU">
+            <!-- tarjeta -->
+            <rect x="3" y="6" width="15" height="12" rx="2"></rect>
+            <!-- ventoinha/fan -->
+            <circle cx="10.5" cy="12" r="3.2"></circle>
+            <path d="M10.5 8.4v2M10.5 15.6v-2M7.3 12h2M13.7 12h-2"></path>
+            <!-- conectores -->
+            <path d="M18 9h2M18 12h3M18 15h2"></path>
+          </svg>
+        </div>
         <h3>GPU Cloud</h3>
         <p class="muted">Instancias dedicadas para IA/ML e inferencia. Facturación clara y soporte cercano.</p>
       </div>
+
+      <!-- COLOCATION -->
       <div class="card service-card">
-        <div class="service-icon">🖥️</div>
+        <div class="service-icon" aria-hidden="true">
+          <!-- RACK / Servidores apilados -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="Rack">
+            <rect x="4" y="5" width="16" height="4" rx="1"></rect>
+            <rect x="4" y="10" width="16" height="4" rx="1"></rect>
+            <rect x="4" y="15" width="16" height="4" rx="1"></rect>
+            <circle cx="7" cy="7" r="0.9" fill="currentColor"></circle>
+            <circle cx="7" cy="12" r="0.9" fill="currentColor"></circle>
+            <circle cx="7" cy="17" r="0.9" fill="currentColor"></circle>
+          </svg>
+        </div>
         <h3>Colocation</h3>
         <p class="muted">Espacio, energía y conectividad para tus servidores con monitorización 24/7.</p>
       </div>
+
+      <!-- VPS & BACKUP -->
       <div class="card service-card">
-        <div class="service-icon">☁️</div>
+        <div class="service-icon" aria-hidden="true">
+          <!-- Nube + flecha backup -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="Cloud Backup">
+            <path d="M7 17a4 4 0 0 1 0-8 5 5 0 0 1 9.7-1.4A4 4 0 1 1 18 17H7z"></path>
+            <path d="M12 13v6M9.5 15.5 12 13l2.5 2.5"></path>
+          </svg>
+        </div>
         <h3>VPS & Backup</h3>
         <p class="muted">VPS optimizados y copias de seguridad georredundantes.</p>
       </div>
     </div>
   </div>
 </section>
+
 
 
     <!-- PRECIOS -->
