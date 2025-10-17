@@ -24,8 +24,7 @@
   <meta name="twitter:description" content="Proyecto piloto de centro de datos sostenible e inteligente en Encinas de Esgueva: IA, GPU Cloud, energía renovable y desarrollo rural." />
   <meta name="twitter:image" content="https://damoclespascual1975-blip.github.io/data-center-encinas/castillo.jpg" />
 
-  <!-- (Opcional) Google Analytics 4: sustituye G-XXXXXXXXXX por tu ID -->
-  <!--
+  <!-- (Opcional) Google Analytics 4
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,10 +33,6 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
   -->
-</head>
-
-
-  <link rel="icon" href="favicon.ico" />
 
   <style>
   :root{
@@ -62,7 +57,6 @@
   a{color:var(--brand-2); text-decoration:none}
   a:hover{text-decoration:underline}
   .container{max-width:1200px; margin:auto; padding:0 1rem}
-
   h1,h2,h3{overflow-wrap:anywhere}
 
   /* Header */
@@ -74,7 +68,7 @@
   .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border-radius:.5rem; border:1px solid var(--border); background:#111827; color:var(--fg)}
   .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0a1a2f; font-weight:700; border:0}
 
-  /* Hero (grid dentro del container) */
+  /* Hero */
   .hero > .container{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -87,7 +81,7 @@
     margin-left:auto;
     margin-right:auto;
     text-align:left;
-    padding-left:2rem; /* aire extra sin tocar tamaño de la foto */
+    padding-left:2rem;
   }
   .hero-text h1{font-size:clamp(1.8rem,4vw,3rem); margin:0 0 1rem}
   .badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0}
@@ -105,7 +99,7 @@
   .card:hover{transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.3)}
   .muted{color:var(--muted)}
 
-  /* Resalte secciones (sin desplazar) */
+  /* Resalte secciones (ancla) */
   section:target{
     box-shadow: inset 0 0 0 3px var(--brand-2);
     border-radius: var(--radius);
@@ -121,6 +115,19 @@
   .ods-icon{width:40px; height:40px; border-radius:.3rem; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#fff}
   .ods-sub{display:grid; gap:.35rem; margin-top:.25rem}
   .ods-sub b{display:block; color:#e9edf3}
+
+  /* Formulario bonito */
+  input, textarea {
+    width: 100%;
+    background: #0f1625;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    padding: .65rem .8rem;
+    margin:.25rem 0 1rem;
+  }
+  textarea{min-height:140px; resize:vertical}
+  label{display:block; margin-top:.25rem; color:var(--muted); font-size:.9rem}
 
   /* Footer */
   footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted); font-size:.9rem; text-align:center}
@@ -145,9 +152,8 @@
     .navlinks{justify-content:center}
   }
 
-  /* Animaciones suaves sin romper layout */
+  /* Animaciones suaves */
   @media (prefers-reduced-motion: no-preference) {
-    /* Tarjetas (Servicios, FAQ, etc.) */
     .card {
       transform: translateZ(0);
       transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
@@ -158,62 +164,18 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.35);
       border-color: rgba(96,165,250,.45);
     }
-
-    /* Botones */
-    .btn {
-      transform: translateZ(0);
-      transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
-      will-change: transform;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0,0,0,.35);
-      filter: brightness(1.02);
-    }
-
-    /* Badges del hero */
-    .badge {
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-    }
-    .badge:hover {
-      transform: translateY(-2px) scale(1.03);
-      background: #0f1b2e;
-      border-color: rgba(96,165,250,.45);
-    }
-
-    /* Ítems ODS */
-    .ods-item {
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-    .ods-item:hover {
-      box-shadow: 0 10px 26px rgba(0,0,0,.30);
-      border-color: rgba(74,222,128,.35);
-    }
-    .ods-item .ods-icon {
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-      will-change: transform;
-    }
-    .ods-item:hover .ods-icon {
-      transform: scale(1.06);
-      box-shadow: 0 6px 18px rgba(0,0,0,.35);
-      filter: saturate(1.05);
-    }
-
-    /* Imagen del hero */
-    .hero-figure img {
-      transition: transform .25s ease, box-shadow .25s ease;
-      will-change: transform;
-    }
-    .hero-figure img:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 14px 42px rgba(0,0,0,.45);
-    }
+    .btn { transition: transform .12s ease, box-shadow .2s ease, filter .2s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.35); filter: brightness(1.02); }
+    .badge { transition: transform .15s ease, background .2s ease, border-color .2s ease; }
+    .badge:hover { transform: translateY(-2px) scale(1.03); background:#0f1b2e; border-color: rgba(96,165,250,.45); }
+    .ods-item { transition: border-color .2s ease, box-shadow .2s ease; }
+    .ods-item:hover { box-shadow: 0 10px 26px rgba(0,0,0,.30); border-color: rgba(74,222,128,.35); }
+    .ods-item .ods-icon { transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; will-change: transform; }
+    .ods-item:hover .ods-icon { transform: scale(1.06); box-shadow: 0 6px 18px rgba(0,0,0,.35); filter: saturate(1.05); }
+    .hero-figure img { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
+    .hero-figure img:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 14px 42px rgba(0,0,0,.45); }
   }
-
-  /* Menos movimiento si el usuario lo pide */
-  @media (prefers-reduced-motion: reduce) {
-    .card, .btn, .badge, .ods-item, .hero-figure img { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { .card, .btn, .badge, .ods-item, .hero-figure img { transition: none !important; } }
   </style>
 </head>
 
@@ -225,6 +187,7 @@
         <div class="brand"><span class="dot"></span> Data Center Encinas</div>
         <div class="navlinks">
           <a href="#servicios">Servicios</a>
+          <a href="#dossier">Dossier</a>
           <a href="#precios">Precios</a>
           <a href="#ods">ODS 2030</a>
           <a href="#faq">FAQ</a>
@@ -239,27 +202,31 @@
     <section class="hero" id="inicio">
       <div class="container">
         <div class="hero-text reveal">
-         <h1>Proyecto Data Center Encinas — IA, GPU y Hosting Sostenible en Encinas de Esgueva</h1>
-<p style="font-size:1.1rem; color:#a9b3c7;">
-  Proyecto piloto de innovación rural orientado a crear un centro de datos modular, sostenible e inteligente,
-  impulsado con energía renovable local y alineado con los ODS 2030.
-</p>
-
+          <h1>Proyecto Data Center Encinas — IA, GPU y Hosting Sostenible en Encinas de Esgueva</h1>
+          <p style="font-size:1.1rem; color:#a9b3c7;">
+            Proyecto piloto de innovación rural orientado a crear un centro de datos modular, sostenible e inteligente,
+            impulsado con energía renovable local y alineado con los ODS 2030.
+          </p>
           <p>Infraestructura modular con eficiencia energética, <strong>free cooling</strong> y <strong>reutilización de calor</strong> para la comunidad.</p>
           <div class="badges">
             <span class="badge">PUE optimizado</span>
             <span class="badge">Energía renovable</span>
             <span class="badge">Compromiso ODS 2030</span>
           </div>
-          <a class="btn primary" href="#contacto">Pedir presupuesto</a>
-          <!-- CTA DESCARGA DOSSIER -->
-<div style="margin-top:16px;">
-  <a href="docs/Plan_Encinas_2030.pdf" class="btn primary">📥 Descargar dossier (PDF)</a>
-  <a href="#servicios" class="btn" style="margin-left:8px;">Conoce el proyecto</a>
-</div>
 
+          <!-- CTA principal -->
+          <a class="btn primary" href="#contacto">Pedir presupuesto</a>
+
+          <!-- CTA DESCARGA DOSSIER -->
+          <div style="margin-top:16px;">
+            <a href="docs/Plan_Encinas_2030.pdf" class="btn primary">📥 Descargar dossier (PDF)</a>
+            <a href="#servicios" class="btn" style="margin-left:8px;">Conoce el proyecto</a>
+          </div>
         </div>
-        <figure class="hero-figure reveal"><img src="castillo.jpg" alt="Castillo de Encinas de Esgueva"></figure>
+
+        <figure class="hero-figure reveal">
+          <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
+        </figure>
       </div>
     </section>
 
@@ -275,30 +242,31 @@
         </div>
       </div>
     </section>
-<!-- DESCARGA DEL DOSSIER / LEAD MAGNET -->
-<section class="section" id="dossier">
-  <div class="container reveal">
-    <h2>Descarga el dossier completo</h2>
-    <p class="muted">
-      Conoce los detalles técnicos, impacto social y ambiental del proyecto <strong>Data Center Encinas 2030</strong>.
-      Completa el formulario y recibe el PDF gratuito.
-    </p>
 
-    <!-- Formulario sencillo (usa Formspree.io o deja el enlace directo) -->
-    <form action="https://formspree.io/f/TU_ENDPOINT" method="POST" style="max-width:520px; margin:auto;">
-      <label>Nombre</label>
-      <input type="text" name="name" required>
-      <label>Email</label>
-      <input type="email" name="email" required>
-      <button type="submit" class="btn primary">Recibir PDF</button>
-      <small class="muted">Al enviar aceptas recibir información sobre el proyecto (podrás darte de baja cuando quieras).</small>
-    </form>
+    <!-- DESCARGA DEL DOSSIER / LEAD MAGNET -->
+    <section class="section" id="dossier">
+      <div class="container reveal">
+        <h2>Descarga el dossier completo</h2>
+        <p class="muted">
+          Conoce los detalles técnicos, impacto social y ambiental del proyecto <strong>Data Center Encinas 2030</strong>.
+          Completa el formulario y recibe el PDF gratuito.
+        </p>
 
-    <p style="margin-top:1rem; text-align:center;">
-      <a href="docs/Plan_Encinas_2030.pdf" class="btn">Ver PDF directamente</a>
-    </p>
-  </div>
-</section>
+        <!-- Formulario: crea tu endpoint gratis en formspree.io y sustitúyelo abajo -->
+        <form action="https://formspree.io/f/TU_ENDPOINT" method="POST" style="max-width:520px; margin:auto;">
+          <label>Nombre</label>
+          <input type="text" name="name" required>
+          <label>Email</label>
+          <input type="email" name="email" required>
+          <button type="submit" class="btn primary">Recibir PDF</button>
+          <small class="muted">Al enviar aceptas recibir información sobre el proyecto (podrás darte de baja cuando quieras).</small>
+        </form>
+
+        <p style="margin-top:1rem; text-align:center;">
+          <a href="docs/Plan_Encinas_2030.pdf" class="btn">Ver PDF directamente</a>
+        </p>
+      </div>
+    </section>
 
     <!-- PRECIOS -->
     <section class="section" id="precios">
@@ -497,7 +465,7 @@
     // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Formulario: mailto
+    // Formulario: mailto contacto
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const data = new FormData(e.target);
@@ -525,14 +493,17 @@
     }, {threshold:0.15});
     revealEls.forEach(el=>io.observe(el));
   </script>
+
   <!-- Contador de visitas total (versión estable) -->
-<div style="text-align:center; margin-top:20px;">
-  <a href="https://www.hitwebcounter.com" target="_blank">
-    <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" 
-         title="Contador de visitas totales" 
-         alt="Contador total de visitas" 
-         border="0" />
-  </a>
-  <p style="font-size:12px; color:gray;">Visitas totales acumuladas</p>
-</div>
-<!-- Fin del contador -->
+  <div style="text-align:center; margin-top:20px;">
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" 
+           title="Contador de visitas totales" 
+           alt="Contador total de visitas" 
+           border="0" />
+    </a>
+    <p style="font-size:12px; color:gray;">Visitas totales acumuladas</p>
+  </div>
+  <!-- Fin del contador -->
+</body>
+</html>
