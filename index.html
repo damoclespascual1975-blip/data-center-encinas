@@ -290,6 +290,24 @@ section:target {
   background: transparent !important;
   border: none !important;
 }
+/* Vídeo responsive 16:9 */
+.video-wrap{
+  position:relative;
+  width:100%;
+  max-width:960px;
+  margin:0 auto;
+  aspect-ratio:16/9;
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  border:1px solid var(--border);
+}
+.video-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
 
   </style>
 </head>
@@ -329,7 +347,8 @@ section:target {
 
       <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap">
         <a class="btn primary" href="docs/Plan_Encinas_2030.pdf" target="_blank" rel="noopener">📥 Descargar dossier (PDF)</a>
-        <a class="btn" href="#servicios">Conoce el proyecto</a>
+        <a class="btn" href="#video">▶️ Conoce el proyecto (vídeo)</a>
+
       </div>
     </div>
 
@@ -338,6 +357,19 @@ section:target {
     </figure>
   </div>
 </section>
+    <section class="section" id="video">
+  <div class="container reveal">
+    <h2>Conoce el proyecto en 2 minutos</h2>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.loom.com/embed/7eb8148d670340f1be1e32b00728334c"
+        allowfullscreen
+        frameborder="0">
+      </iframe>
+    </div>
+  </div>
+</section>
+
 
 <!-- SERVICIOS -->
 <section class="section" id="servicios">
