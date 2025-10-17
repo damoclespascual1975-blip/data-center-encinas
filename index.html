@@ -5,39 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Center Encinas — IA, GPU y Hosting Sostenible</title>
 
-  <meta name="description" content="Proyecto piloto de centro de datos sostenible e inteligente en Encinas de Esgueva (Valladolid): IA, GPU Cloud, energía renovable y desarrollo rural, alineado con los ODS 2030." />
-  <meta name="keywords" content="centro de datos, IA, sostenibilidad, España vaciada, energía renovable, Encinas de Esgueva, Valladolid, Castilla y León, GPU, hosting sostenible" />
+  <meta name="description" content="Centro de datos modular e inteligente en Encinas de Esgueva (Valladolid): GPU Cloud, colocation y VPS con energía renovable y compromiso ODS 2030." />
   <link rel="canonical" href="https://damoclespascual1975-blip.github.io/data-center-encinas/" />
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Redes -->
+  <!-- Social -->
   <meta property="og:title" content="Data Center Encinas — IA, GPU y Hosting Sostenible" />
-  <meta property="og:description" content="Proyecto piloto de centro de datos sostenible e inteligente en Encinas de Esgueva: IA, GPU Cloud, energía renovable y desarrollo rural." />
+  <meta property="og:description" content="Proyecto piloto de innovación rural: GPU Cloud, Colocation, VPS & Backup con energía renovable." />
   <meta property="og:image" content="https://damoclespascual1975-blip.github.io/data-center-encinas/castillo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-  :root{
-    --bg:#0a1a2f;--fg:#e9edf3;--muted:#a9b3c7;--brand:#4ade80;--brand-2:#60a5fa;
-    --card:#111827;--border:#1f2937;--radius:1rem;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,Roboto,sans-serif;line-height:1.5;overflow-x:hidden}
-  a{color:var(--brand-2);text-decoration:none}a:hover{text-decoration:underline}
+  :root{--bg:#0a1a2f;--fg:#e9edf3;--muted:#a9b3c7;--brand:#4ade80;--brand-2:#60a5fa;--card:#111827;--border:#1f2937;--radius:1rem;}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,Roboto,sans-serif;line-height:1.5;overflow-x:hidden}
+  a{color:var(--brand-2);text-decoration:none} a:hover{text-decoration:underline}
   img{max-width:100%;display:block;height:auto}
   .container{max-width:1200px;margin:auto;padding:0 1rem}
   header{position:sticky;top:0;background:rgba(11,15,23,.75);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);z-index:50}
   nav{display:flex;justify-content:space-between;align-items:center;min-height:64px;flex-wrap:wrap}
-  .brand{font-weight:700;display:flex;align-items:center;gap:.5rem}
-  .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+  .brand{font-weight:700;display:flex;align-items:center;gap:.5rem}.brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
   .navlinks{display:flex;gap:1rem;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:.5rem;border:1px solid var(--border);background:#111827;color:var(--fg)}
-  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0a1a2f;font-weight:700;border:0}
-  .hero>.container{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:80vh}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1.1rem;border-radius:.7rem;border:1px solid var(--border);background:#111827;color:var(--fg)}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0a1a2f;font-weight:800;border:0}
+  .hero>.container{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:78vh}
   .hero-text{max-width:680px;margin:auto;text-align:left;padding-left:2rem}
-  .hero-text h1{font-size:clamp(1.8rem,4vw,3rem)}
-  .badge{background:#0f1625;padding:.3rem .7rem;border-radius:999px;font-size:.85rem;border:1px solid var(--border)}
-  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+  .hero-text h1{font-size:clamp(1.9rem,4vw,3rem);margin:.2rem 0 1rem}
+  .super-cta{display:inline-block;margin-top:10px;font-size:1.05rem;padding:1rem 1.4rem;border-radius:1rem}
+  .badge{background:#0f1625;padding:.32rem .7rem;border-radius:999px;font-size:.85rem;border:1px solid var(--border)}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.1rem}
+  .section{padding:3rem 0}
   .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
   .grid{display:grid;gap:1rem}
   @media(min-width:768px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
@@ -64,47 +60,61 @@
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="container">
       <div class="hero-text">
         <h1>Data Center Encinas — IA, GPU y Hosting Sostenible</h1>
-        <p style="font-size:1.1rem;color:#a9b3c7">Centro de datos modular e inteligente en Encinas de Esgueva (Valladolid), impulsado por energía renovable y orientado al desarrollo rural y los ODS 2030.</p>
+        <p style="font-size:1.08rem;color:#a9b3c7">
+          Proyecto piloto en Encinas de Esgueva (Valladolid): GPU Cloud, Colocation y VPS con energía renovable, alineado con los ODS 2030.
+        </p>
+
+        <!-- CTA corporativa principal -->
+        <a class="btn primary super-cta" href="Docs/Plan_Encinas_2030.pdf" target="_blank" aria-label="Solicita el dossier completo">
+          📥 Solicita el dossier completo (PDF)
+        </a>
+
         <div class="badges">
           <span class="badge">Energía renovable</span>
           <span class="badge">GPU Cloud</span>
           <span class="badge">ODS 2030</span>
         </div>
-        <a class="btn primary" href="#contacto">Contactar</a>
-        <a class="btn" href="Docs/Plan_Encinas_2030.pdf" target="_blank">📄 Descargar dossier (PDF)</a>
+
+        <a class="btn" href="#contacto">Pedir presupuesto</a>
       </div>
-      <figure class="hero-figure"><img src="castillo.jpg" alt="Castillo de Encinas de Esgueva"></figure>
+
+      <figure class="hero-figure">
+        <img src="castillo.jpg" alt="Castillo de Encinas de Esgueva">
+      </figure>
     </div>
   </section>
 
+  <!-- SERVICIOS -->
   <section class="section" id="servicios">
     <div class="container">
       <h2>Servicios</h2>
-      <p class="muted">Soluciones técnicas adaptadas a PYMEs, instituciones y proyectos de innovación.</p>
+      <p class="muted">Soluciones técnicas adaptadas a PYMEs, administraciones y proyectos de I+D.</p>
       <div class="grid cols-3">
         <div class="card">
           <h3>GPU Cloud</h3>
-          <p class="muted">Instancias dedicadas para IA y ML con soporte cercano y facturación transparente.</p>
+          <p class="muted">Instancias dedicadas para IA/ML. Acceso seguro, almacenamiento NVMe y soporte cercano.</p>
           <a href="Docs/Ficha_GPU_Cloud.pdf" class="btn" target="_blank">📄 Ficha GPU Cloud</a>
         </div>
         <div class="card">
           <h3>Colocation</h3>
-          <p class="muted">Espacio, energía y conectividad profesional para tu propio hardware.</p>
+          <p class="muted">Alojamos tu hardware con energía, conectividad y monitorización profesional.</p>
           <a href="Docs/Ficha_Colocation.pdf" class="btn" target="_blank">📄 Ficha Colocation</a>
         </div>
         <div class="card">
           <h3>VPS & Backup</h3>
-          <p class="muted">Servidores virtuales optimizados y copias georredundantes.</p>
+          <p class="muted">Servidores virtuales y copias georredundantes con restauración rápida.</p>
           <a href="Docs/Ficha_VPS_Backup.pdf" class="btn" target="_blank">📄 Ficha VPS & Backup</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CONTACTO -->
   <section class="section" id="contacto">
     <div class="container">
       <h2>Contacto</h2>
@@ -135,17 +145,24 @@ document.getElementById('y').textContent=new Date().getFullYear();
 const toTop=document.getElementById('toTop');
 window.addEventListener('scroll',()=>{toTop.style.display=window.scrollY>400?'block':'none'});
 toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// mailto rápido
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const d=new FormData(e.target);
+  const subject=encodeURIComponent('Contacto web – Data Center Encinas');
+  const body=encodeURIComponent(`Nombre: ${d.get('nombre')}\nEmail: ${d.get('email')}\n\nMensaje:\n${d.get('mensaje')}`);
+  window.location.href=`mailto:mpascual582@alumno.uned.es?subject=${subject}&body=${body}`;
+});
 </script>
 
 <!-- Contador de visitas -->
 <div style="text-align:center;margin-top:20px;">
   <a href="https://www.hitwebcounter.com" target="_blank">
     <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0"
-         title="Contador de visitas totales"
-         alt="Contador total de visitas"
-         border="0" />
+         title="Contador de visitas totales" alt="Contador total de visitas" border="0" />
   </a>
   <p style="font-size:12px;color:gray;">Visitas totales acumuladas</p>
 </div>
 </body>
 </html>
+
