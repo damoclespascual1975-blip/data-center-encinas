@@ -211,6 +211,80 @@
   @media (prefers-reduced-motion: reduce) {
     .card, .btn, .badge, .ods-item, .hero-figure img { transition: none !important; }
   }
+    /* ==== BLOQUE DEFINITIVO: Layout más limpio y moderno ==== */
+
+/* Secciones más aireadas */
+.section{
+  padding: 6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Contenedor más centrado y con aire lateral */
+.container{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Títulos más equilibrados */
+.section h2{
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #e9edf3;
+}
+
+/* Subtítulo / descripción más clara */
+.section p.muted{
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* Rejillas: más espacio entre tarjetas */
+.grid{
+  display: grid;
+  gap: 2.5rem;
+}
+@media(min-width:768px){
+  .grid.cols-3{ grid-template-columns: repeat(3,1fr); }
+  .grid.cols-2{ grid-template-columns: repeat(2,1fr); }
+}
+
+/* Tarjetas con padding y sombra sutil */
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  transition: all .25s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(96,165,250,.45);
+  box-shadow: 0 14px 32px rgba(0,0,0,.35);
+}
+
+/* Botones dentro de tarjetas, con margen */
+.card .btn{
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+/* No resalte azul chillón en :target */
+section:target{
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Mejor espacio en móvil */
+@media(max-width:768px){
+  .section{padding:4rem 1.25rem;}
+  .card{padding:1.5rem;}
+}
+
   </style>
 </head>
 
