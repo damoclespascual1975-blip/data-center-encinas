@@ -421,17 +421,9 @@
       });
     });
 
-    // Contador de visitas (CountAPI)
-    (function () {
-      const el = document.getElementById('visitCount');
-      if (!el) return;
-      const key = encodeURIComponent(location.hostname + location.pathname);
-      const url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/hit/dc-encinas/${key}`;
-      fetch(url, { cache: "no-store" })
-        .then(r => r.json())
-        .then(d => { el.textContent = Number(d.value).toLocaleString('es-ES'); })
-        .catch(() => { el.textContent = '—'; });
-    })();
+    © Data Center Encinas · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> ·
+<img src="https://visitor-badge.laobi.icu/badge?page_id=damoclespascual1975-blip.data-center-encinas&left_text=Visitas"
+     alt="Visitas" style="vertical-align:middle;height:20px;">
 
   </script>
 </body>
