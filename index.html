@@ -426,7 +426,7 @@
       const el = document.getElementById('visitCount');
       if (!el) return;
       const key = encodeURIComponent(location.hostname + location.pathname);
-      const url = `https://api.countapi.xyz/hit/dc-encinas/${key}`;
+      const url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/hit/dc-encinas/${key}`;
       fetch(url, { cache: "no-store" })
         .then(r => r.json())
         .then(d => { el.textContent = Number(d.value).toLocaleString('es-ES'); })
