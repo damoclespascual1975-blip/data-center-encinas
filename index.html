@@ -351,17 +351,18 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer>
-  <div class="container">
-    <p>
-      © <span id="y"></span> Data Center Encinas ·
-      <a href="aviso-legal.html">Aviso legal</a> ·
-      <a href="privacidad.html">Privacidad</a>
-      · <span class="muted" style="white-space:nowrap">👁️ <span id="visitCount">—</span> visitas</span>
-    </p>
-  </div>
-</footer>
+    <div class="container">
+      <p>
+        © <span id="y"></span> Data Center Encinas ·
+        <a href="aviso-legal.html">Aviso legal</a> ·
+        <a href="privacidad.html">Privacidad</a> ·
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=damoclespascual1975-blip.data-center-encinas&left_text=Visitas"
+             alt="Visitas" style="vertical-align:middle;height:20px;">
+      </p>
+    </div>
+  </footer>
 
   <!-- Botón subir arriba -->
   <button id="toTop" aria-label="Volver arriba">⬆</button>
@@ -409,22 +410,6 @@
         }
       });
     });
-  // Scroll suave fiable para enlaces con #
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    © Data Center Encinas · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> ·
-<img src="https://visitor-badge.laobi.icu/badge?page_id=damoclespascual1975-blip.data-center-encinas&left_text=Visitas"
-     alt="Visitas" style="vertical-align:middle;height:20px;">
-
   </script>
 </body>
 </html>
