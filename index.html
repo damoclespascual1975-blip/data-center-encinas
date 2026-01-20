@@ -367,18 +367,7 @@
   <!-- Botón subir arriba -->
   <button id="toTop" aria-label="Volver arriba">⬆</button>
 
-  <script>
-    // Año en footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Formulario: mailto
- document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert("Gracias por tu mensaje. El canal de contacto estará disponible próximamente.");
-  e.target.reset();
-});
-
-      <script>
+<script>
   // Año en footer
   document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -417,36 +406,6 @@
     });
   });
 </script>
-
-    // Botón subir arriba
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-      toTop.style.display = window.scrollY > 400 ? 'block' : 'none';
-    });
-    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-    // Animaciones reveal
-    const revealEls = document.querySelectorAll('.reveal, .card, .ods-item');
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.15});
-    revealEls.forEach(el=>io.observe(el));
-
-    // Scroll suave fiable para enlaces con #
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
 </body>
 </html>
 
-    
