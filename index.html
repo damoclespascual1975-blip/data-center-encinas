@@ -372,7 +372,12 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Formulario: mailto
-    document.getElementById('contactForm').addEventListener('submit', function(e){
+ document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert("Gracias por tu mensaje. El canal de contacto estará disponible próximamente.");
+  e.target.reset();
+});
+
       e.preventDefault();
       const data = new FormData(e.target);
       const to = document.getElementById('directEmail').getAttribute('href').replace('mailto:','');
